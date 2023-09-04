@@ -20,7 +20,7 @@
     const { data: userInfoResult, execute } = await apis.donateType.Publicload()
     console.log('userInfoResult',userInfoResult);
   }
-  // onMounted(async() => {
+  //nMounted(async() => {
     
   // })
   // const datas = ref([]) 

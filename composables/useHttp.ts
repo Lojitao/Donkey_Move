@@ -13,11 +13,9 @@ interface ResOptions<T> {
 
 type UrlType = string | Request | Ref<string | Request> | (() => string | Request)
 
-
-// export type HttpOption<T> = UseFetchOptions<ResOptions<T>>
 export type HttpOption<T> = UseFetchOptions<ResOptions<T>>
 
-
+// 錯誤處理
 const handleError = <T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>) => {
 
   const err = (text: string) => {
@@ -64,25 +62,18 @@ const paramsSerializer = (params?: SearchParameters) => {
 
 const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOptions<T>>) => {
   return useFetch<ResOptions<T>>(url, {
-    // 请求拦截器
+    // 請求攔截
     onRequest({ options }) {
-      
-      console.log('onRequest~~~',options);
-    
       // get方法传递数组形式参数
       options.params = paramsSerializer(options.params)
       
       // 添加baseURL,nuxt3环境变量要从useRuntimeConfig里面取
       const config = useRuntimeConfig()
-      console.log('config.public.apiBase',config.public.apiBase);
-      
-      options.baseURL = config.public.apiBase
-      // const { public: { apiBase } } = useRuntimeConfig()
-      // options.baseURL = apiBase
+      options.baseURL = config.public.NUXT_PUBLIC_API_BASE
       
       // TODO:添加请求头,没登录不携带token
     },
-    // 响应拦截
+    // 回應攔截
     onResponse({ response }) {
       //從 HTTP 請求或響應的頭部中獲取指定的頭部值，判斷內容應該被視為一個要下載的文件，而不是直接在瀏覽器中顯示。
       if (response.headers.get('content-disposition') && response.status === 200)
@@ -97,12 +88,12 @@ const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOp
       // 成功返回
       return response._data
     },
-    // 错误处理
+    // 錯誤攔截
     onResponseError({ response }) {
       handleError<T>(response)
       return Promise.reject(response?._data ?? null)
     },
-    // 合并参数
+    //合併自定義配置
     ...useFetchOptions,
   })
 }
