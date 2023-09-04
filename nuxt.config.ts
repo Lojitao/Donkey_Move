@@ -1,8 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineNuxtConfig } from 'nuxt/config';
+
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@unocss/nuxt',
+    '@pinia/nuxt'
   ],
   runtimeConfig: {
     // Public keys that are exposed to the client
