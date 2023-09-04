@@ -14,11 +14,11 @@
   import apis from '~/apis';
 
   const { data: userInfoResult, execute } = await apis.donateType.Publicload()
-  console.log('userInfoResult',userInfoResult);
+  // console.log('userInfoResult',userInfoResult);
 
   const getData = async()=>{
     const { data: userInfoResult, execute } = await apis.donateType.Publicload()
-    console.log('userInfoResult',userInfoResult);
+    // console.log('userInfoResult',userInfoResult);
   }
   //nMounted(async() => {
     
