@@ -1,5 +1,7 @@
 // API集中管理
-import * as donateType from './donateType'
+import donateType from './donateType'
+
+
 export default {
-  donateType,
+  donateType
 }
