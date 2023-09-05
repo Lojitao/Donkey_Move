@@ -13,14 +13,20 @@
 
 <script setup lang="ts">
   // import donateType from "~/apis";
-  import apis from '~/apis';
+  import API from '~/apis';
 
   // const { data: userInfoResult, execute } = await apis.donateType.Publicload()
   // console.log('userInfoResult',userInfoResult);
 
   const getData = async()=>{
-    await apis.donateType.Publicload()
-    await apis.donateType.Publicload()
-    await apis.donateType.Publicload()
+    // let reqParams = {
+    //   TypeId:"SYS_DONATE_USERTYPE",
+    //   page:1,
+    //   limit:999,
+    //   key:"",
+    //   orderby:""
+    // }
+
+    await API.donateType.Publicload("ascsac")
   }
 </script>

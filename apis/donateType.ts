@@ -5,6 +5,6 @@ enum Api {
 }
 
 // option就是useFetch的选项参数
-export const Publicload = async (option?: HttpOption<any>) => {
-  return await useHttp.get(Api.Publicload, {}, option)
+export const Publicload = async (params?:{}|[], option?:HttpOption<any>) => {
+  return await useHttp.get(Api.Publicload, params, option)
 }
