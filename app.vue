@@ -1,20 +1,31 @@
 <template>
-  <div class="bg-gray-700">
-    <div @click="getData()" class="cursor-pointer">點擊我</div>
-    <NuxtWelcome />
+  <div>
+    <!-- <div @click="getData()" class="cursor-pointer">點擊我</div> -->
+    <!-- <NuxtWelcome /> -->
+
+    <NuxtLayout>
+      <Header />
+      <NuxtPage></NuxtPage>
+    </NuxtLayout> 
+
+
   </div>
 </template>
 
-
 <script setup lang="ts">
-  // import donateType from "~/apis";
-  import apis from '~/apis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-  const { data: userInfoResult, execute } = await apis.donateType.Publicload()
-  console.log('userInfoResult',userInfoResult);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+// import donateType from "~/apis";
+// import apis from "~/apis"
 
-  const getData = async()=>{
-    const { data: userInfoResult, execute } = await apis.donateType.Publicload()
-    console.log('userInfoResult',userInfoResult);
-  }
+// const { data: userInfoResult, execute } = await apis.donateType.Publicload()
+// console.log("userInfoResult", userInfoResult)
+
+// const getData = async () => {
+//   const { data: userInfoResult, execute } = await apis.donateType.Publicload()
+//   console.log("userInfoResult", userInfoResult)
+// }
 </script>
