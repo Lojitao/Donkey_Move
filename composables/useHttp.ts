@@ -3,6 +3,8 @@ import type { FetchResponse, SearchParameters } from 'ofetch'
 import type { Ref } from 'vue'
 import type { UseFetchOptions } from '#app'
 
+import { useLoadingStore } from '~/stores/loadingStore';
+
 //回傳資料格式
 interface ResOptions<T> {
   data?: T
@@ -61,9 +63,13 @@ const paramsSerializer = (params?: SearchParameters) => {
 
 
 const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOptions<T>>) => {
+  const loadingStore = useLoadingStore();
+  
   return useFetch<ResOptions<T>>(url, {
     // 請求攔截
     onRequest({ options }) {
+      loadingStore.startRequest();//全局loading狀態管理
+
       // get方法传递数组形式参数
       options.params = paramsSerializer(options.params)
       
@@ -75,6 +81,8 @@ const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOp
     },
     // 回應攔截
     onResponse({ response }) {
+      loadingStore.endRequest()//全局loading狀態管理
+
       //從 HTTP 請求或響應的頭部中獲取指定的頭部值，判斷內容應該被視為一個要下載的文件，而不是直接在瀏覽器中顯示。
       if (response.headers.get('content-disposition') && response.status === 200)
         return response
@@ -90,6 +98,8 @@ const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOp
     },
     // 錯誤攔截
     onResponseError({ response }) {
+      loadingStore.endRequest()//全局loading狀態管理
+
       handleError<T>(response)
       return Promise.reject(response?._data ?? null)
     },

@@ -1,9 +1,3 @@
-<script lang="ts" setup></script>
-
 <template>
-  <div>
-    我是最新消息
-  </div>
+  <div class="bg-red w-200px h-300px">最新消息</div>
 </template>
-
-<style scoped></style>

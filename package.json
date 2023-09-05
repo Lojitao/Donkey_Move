@@ -14,7 +14,9 @@
     "nuxt": "^3.7.0"
   },
   "dependencies": {
+    "gsap": "^3.12.2",
+    "@pinia/nuxt": "^0.4.11",
     "dotenv": "^16.3.1",
-    "gsap": "^3.12.2"
+    "pinia": "^2.1.6"
   }
 }
