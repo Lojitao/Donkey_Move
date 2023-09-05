@@ -2,10 +2,9 @@
 import type { FetchResponse, SearchParameters } from 'ofetch'
 import type { Ref } from 'vue'
 import type { UseFetchOptions } from '#app'
-
 import { useLoadingStore } from '~/stores/loadingStore';
 
-//回傳資料格式
+//-------定義資料格式-------
 interface ResOptions<T> {
   data?: T
   code?: number
@@ -14,11 +13,21 @@ interface ResOptions<T> {
 }
 
 type UrlType = string | Request | Ref<string | Request> | (() => string | Request)
-
 export type HttpOption<T> = UseFetchOptions<ResOptions<T>>
 
-// 錯誤處理
-const handleError = <T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>) => {
+type UseHttpParams<T> = {
+  url: UrlType;
+  method: any;
+  params?: any;
+  body?: any;
+  option?: HttpOption<T>;
+}
+//-------定義資料格式-------
+
+
+
+//錯誤處理
+function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>){
 
   const err = (text: string) => {
     window.alert("有錯誤喔～～～")
@@ -43,8 +52,8 @@ const handleError = <T>(response: FetchResponse<ResOptions<T>> & FetchResponse<R
   handleMap[response.status] ? handleMap[response.status]() : err('未知错误！')
 }
 
-// get方法传递数组形式参数
-const paramsSerializer = (params?: SearchParameters) => {
+//get方法传递数组形式参数
+function paramsSerializer(params?: SearchParameters){
   if (!params) return
   
 
@@ -60,8 +69,7 @@ const paramsSerializer = (params?: SearchParameters) => {
   return query
 }
 
-
-
+//攔截器
 const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOptions<T>>) => {
   const loadingStore = useLoadingStore();
   
@@ -108,21 +116,10 @@ const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOp
   })
 }
 
+
 // composables資料夾下會自動被其他檔案引入
-export const useHttp = {
-  get: <T>(url: UrlType, params?: any, option?: HttpOption<T>) => {
-    return useFetch_custom<T>(url, { method: 'get', params, ...option })
-  },
-
-  post: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {
-    return useFetch_custom<T>(url, { method: 'post', body, ...option })
-  },
-
-  put: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {
-    return useFetch_custom<T>(url, { method: 'put', body, ...option })
-  },
-
-  delete: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {
-    return useFetch_custom<T>(url, { method: 'delete', body, ...option })
-  },
+export const useHttp = <T>(requestData: UseHttpParams<T>) => {
+  const { url, method, params, body, option } = requestData
+  
+  return useFetch_custom(url, { method, params, body, ...option })
 }

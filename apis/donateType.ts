@@ -1,10 +1,28 @@
 import { HttpOption } from '~/composables/useHttp';
 
-enum Api {
-  Publicload = 'categorys/publicload',
+// option就是useFetch的选项参数
+// export const Publicload = async (params?:{}|[], option?:HttpOption<any>) => {
+//   return await useHttp.get(
+//     { 
+//       url: 'categorys/publicload',
+//       method: 'get',
+//       params,
+//       option 
+//     }
+//   )
+// }
+const api = {
+  Publicload(params?:{}|[], option?:HttpOption<any>){
+    return useHttp(
+      { 
+        url: 'categorys/publicload',
+        method: 'get',
+        params,
+        option 
+      }
+    )
+  }
 }
 
-// option就是useFetch的选项参数
-export const Publicload = async (params?:{}|[], option?:HttpOption<any>) => {
-  return await useHttp.get(Api.Publicload, params, option)
-}
+
+export default api
