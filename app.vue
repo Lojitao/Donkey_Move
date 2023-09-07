@@ -1,8 +1,8 @@
 <template>
-  <div class=" bg-blue md:bg-black lg:bg-red">
+  <div class="font-sans md:bg-black lg:bg-red">
     <LayoutsHeader />
     <Loading></Loading>
-    <p>我是app.vue</p>
+    <p class="hover:(bg-gray-400 font-medium) primary-color">我是app.vue</p>
     
     <NuxtLayout></NuxtLayout>
     <!-- <div @click="getData()" class="cursor-pointer">點擊我</div> -->
