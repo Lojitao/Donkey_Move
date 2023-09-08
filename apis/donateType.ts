@@ -13,14 +13,12 @@ import { HttpOption } from '~/composables/useHttp';
 // }
 const api = {
   Publicload(params?:{}|[], option?:HttpOption<any>){
-    return useHttp(
-      { 
-        url: 'categorys/publicload',
-        method: 'get',
-        params,
-        option 
-      }
-    )
+    return useHttp({ 
+      url: 'categorys/publicload',
+      method: 'get',
+      params,
+      option 
+    })
   }
 }
 

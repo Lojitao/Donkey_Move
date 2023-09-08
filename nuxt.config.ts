@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@pinia/nuxt'
   ],
+  unocss: {
+    preflight: true,
+  },
   runtimeConfig: {
     // Public keys that are exposed to the client
     public: {
