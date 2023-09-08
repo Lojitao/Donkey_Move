@@ -1,21 +1,23 @@
 <template>
-  <div class="bg-gray-300">
+  <div class="font-sans md:bg-black lg:bg-red">
+    <LayoutsHeader />
     <Loading></Loading>
-    <p>我是app.vue</p>
+    <p class="hover:(bg-gray-400 font-medium) primary-color">我是app.vue</p>
     
     <NuxtLayout></NuxtLayout>
-    <div @click="getData()" class="cursor-pointer">點擊我</div>
+    <!-- <div @click="getData()" class="cursor-pointer">點擊我</div> -->
    
     <!-- <NuxtWelcome /> -->
+    <LayoutsFooter />
   </div>
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+// import gsap from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+// gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 // import donateType from "~/apis";
 // import apis from "~/apis"
 
@@ -27,6 +29,8 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 //   console.log("userInfoResult", userInfoResult)
 // }
   // import donateType from "~/apis";
+  // import Header from '@/components/layouts/Header.vue'
+  // import Footer from '@/components/layouts/Footer.vue'
   import API from '~/apis';
 
   // const { data: userInfoResult, execute } = await apis.donateType.Publicload()
