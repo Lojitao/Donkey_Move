@@ -1,6 +1,10 @@
 <template>
-  <div class="font-sans md:bg-black lg:bg-red">
-    <LayoutsHeader />
+  <div class="font-sans lg:bg-red">
+    
+    <!-- <div class="i-logos-active-campaign !w-10em !h-10em text-red-500" /> -->
+    <div class="i-mdi-account-credit-card-outline?mask hover:text-blue-500 rotate-6 text-red-500 w-10em h-10em"></div>
+    <!-- <Header /> -->
+    <!-- <LayoutsHeader /> -->
     <Loading></Loading>
     <p class="hover:(bg-gray-400 font-medium) primary-color">我是app.vue</p>
     
@@ -16,46 +20,13 @@
   // import donateType from "~/apis";
   // import Header from '@/components/layouts/Header.vue'
   // import Footer from '@/components/layouts/Footer.vue'
-  import API from '~/apis';
-
-  // const { data: userInfoResult, execute } = await apis.donateType.Publicload()
-  // console.log('userInfoResult',userInfoResult);
-
-  // const getData = async()=>{
-  //   console.log('this', this)
-    
-  //   const oneResult = await one()
-  //   const twoResult = await two(oneResult)
-  //   console.log(twoResult);
-  // }
-  
-  // const one = async()=>{
-  //   const { data: userInfoResult, execute } = await API.donateType.Publicload()
-  //   return userInfoResult
-  // }
-
-  // const two = async(data:any)=>{
-  //   console.log('data',data);
-  //   const { data: userInfoResult, execute } = await API.donateType.Publicload()
-  //   return userInfoResult
-  // }
+  // import API from '~/apis';
 
 
-  async function getData(){
-    const oneResult = await one()
-    const twoResult = await two(oneResult)
-    console.log(twoResult);
-  }
-  
-  async function one (){
-    const { data: userInfoResult, execute } = await API.donateType.Publicload()
-    return userInfoResult
-  }
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-  async function two (data:any){
-    console.log('data',data);
-    const { data: userInfoResult, execute } = await API.donateType.Publicload()
-    return userInfoResult
-  }
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 </script>

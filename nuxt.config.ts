@@ -6,10 +6,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@unocss/nuxt',
-    '@pinia/nuxt'
+    '@pinia/nuxt',
   ],
   unocss: {
     preflight: true,
+  },
+  build: {
+    transpile: ['gsap'],
   },
   runtimeConfig: {
     // Public keys that are exposed to the client
