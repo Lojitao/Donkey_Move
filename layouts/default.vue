@@ -1,10 +1,5 @@
 <template>
-  <div>
-    <p class="bg-blue-600 primary">我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default我是default</p>
-    <NuxtPage></NuxtPage>
-    <!-- <slot /> -->
-  </div>
-  <!-- <NuxtPage></NuxtPage> -->
+  <NuxtPage></NuxtPage>
 </template>
 
 <script setup>
