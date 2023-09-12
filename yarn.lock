@@ -558,7 +558,14 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@iconify/types@^2.0.0":
+"@iconify-json/mdi@^1.1.54":
+  version "1.1.54"
+  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.54.tgz#343477417c15fceeaf0f32012d58a4a8d9791786"
+  integrity sha512-3QAsxte90EalbN2e8J30OqSSZz9qN2x+kmykQwsPahoW2dOtSvj+BR9YdiUd9A5XKk2nuU4UH5Gj/cq6WZ6CzQ==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify/types@*", "@iconify/types@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0.tgz#ab0e9ea681d6c8a1214f30cd741fe3a20cc57f57"
   integrity sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==
@@ -1373,7 +1380,7 @@
   dependencies:
     "@unocss/core" "0.55.7"
 
-"@unocss/preset-icons@0.55.7":
+"@unocss/preset-icons@0.55.7", "@unocss/preset-icons@^0.55.7":
   version "0.55.7"
   resolved "https://registry.yarnpkg.com/@unocss/preset-icons/-/preset-icons-0.55.7.tgz#b4eb35932e7058236174f415cc0a2a2681904e0e"
   integrity sha512-JXLOHkyEKKAjLTqjAxYfhwln05WXilGg3jctkZWKpMNawPaonrGt3kZT12YMuMmOryxk7UcyKB0dtYc+p3QYvw==
