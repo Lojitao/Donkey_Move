@@ -558,7 +558,14 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@iconify/types@^2.0.0":
+"@iconify-json/mdi@^1.1.54":
+  version "1.1.54"
+  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.54.tgz#343477417c15fceeaf0f32012d58a4a8d9791786"
+  integrity sha512-3QAsxte90EalbN2e8J30OqSSZz9qN2x+kmykQwsPahoW2dOtSvj+BR9YdiUd9A5XKk2nuU4UH5Gj/cq6WZ6CzQ==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify/types@*", "@iconify/types@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0.tgz#ab0e9ea681d6c8a1214f30cd741fe3a20cc57f57"
   integrity sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==
@@ -1373,7 +1380,7 @@
   dependencies:
     "@unocss/core" "0.55.7"
 
-"@unocss/preset-icons@0.55.7":
+"@unocss/preset-icons@0.55.7", "@unocss/preset-icons@^0.55.7":
   version "0.55.7"
   resolved "https://registry.yarnpkg.com/@unocss/preset-icons/-/preset-icons-0.55.7.tgz#b4eb35932e7058236174f415cc0a2a2681904e0e"
   integrity sha512-JXLOHkyEKKAjLTqjAxYfhwln05WXilGg3jctkZWKpMNawPaonrGt3kZT12YMuMmOryxk7UcyKB0dtYc+p3QYvw==
@@ -3183,6 +3190,11 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4, 
   version "4.2.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
+
+gsap@^3.12.2:
+  version "3.12.2"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.12.2.tgz#6e88203eed360761cbf2a2cb3a8d702aa87f3f6d"
+  integrity sha512-EkYnpG8qHgYBFAwsgsGEqvT1WUidX0tt/ijepx7z8EUJHElykg91RvW1XbkT59T0gZzzszOpjQv7SE41XuIXyQ==
 
 gzip-size@^6.0.0:
   version "6.0.0"

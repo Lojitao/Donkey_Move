@@ -3,6 +3,7 @@ import {
   defineConfig, presetUno,presetWebFonts,
   transformerDirectives, transformerVariantGroup
 } from 'unocss'
+import presetIcons from '@unocss/preset-icons'
 // import transformerVariantGroup from '@unocss/transformer-variant-group'
 // import transformerDirectives from '@unocss/transformer-directives'
 
@@ -19,6 +20,13 @@ export default defineConfig({
         RubikIso: ['Rubik Iso']
       },
     }),
+    presetIcons({
+      extraProperties: {
+        'display': 'inline-block',
+        'vertical-align': 'middle',
+        // ...
+      },
+    })
   ],
   transformers: [
     transformerVariantGroup(),//簡化前綴
