@@ -8,6 +8,9 @@ import presetIcons from '@unocss/preset-icons'
 // import transformerDirectives from '@unocss/transformer-directives'
 
 export default defineConfig({
+  rules: [
+    ['custom-grid-cols', { 'grid-template-columns': 'auto 1fr 1fr' }],
+  ],
   // ...UnoCSS options
   presets: [
     presetUno(),

@@ -1,5 +1,5 @@
 <template>
-  <div class="font-sans lg:bg-red max-w-1920px m-auto">
+  <div class="max-w-1920px m-auto">
     
     <Loading></Loading>
 
