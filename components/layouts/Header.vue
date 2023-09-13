@@ -19,15 +19,20 @@ const menuList = reactive([
   },
   {
     id: "4",
+    path: "/information",
+    name: "INFORMATION  資訊專欄",
+  },
+  {
+    id: "5",
     path: "/partner",
     name: "COOPERATE PARTNER 合作夥伴",
-  }]
-)
+  },
+])
 </script>
 
 <template>
   <!-- 漢堡按鈕 -->
-  <div class="w-full h-50px fixed flex items-center justify-end px-60px py-20px z-10">
+  <div class="w-full h-50px fixed flex items-center justify-end px-60px z-10">
     <div @click="menuShow = !menuShow" :class="{ 'nav-icon': true, open: menuShow }">
       <span class="block absolute h-2px w-full bg-[#E0A57E] rounded-2px opacity-100 left-0 rotate-0 duration-250 ease-in-out top-0"></span>
       <span class="block absolute h-2px w-20px bg-[#E0A57E] rounded-2px opacity-100 left-1/6 rotate-0 duration-250 ease-in-out top-50%"></span>
@@ -38,7 +43,10 @@ const menuList = reactive([
   <!-- 導覽列 -->
   <Transition name="fade">
     <nav v-if="menuShow" class="w-full h-screen z-5 bg-[#fff] opacity-85 fixed top-0 right-0 flex items-center justify-center">
-      <ul class="w-60% flex flex-col gap-10 text-center text-#5A5657 text-xl font-semibold">
+      <NuxtLink to="/" @click="menuShow = !menuShow" class="block absolute w-6% top-7% left-50% transform -translate-x-1/2 z-2">
+        <img src="/images/logo.png" alt="小驢行LOGO" class="w-full block" />
+      </NuxtLink>
+      <ul class="w-60% flex flex-col gap-7.5 text-center text-#5A5657 text-xl font-semibold">
         <li v-for="item in menuList" :key="item.id">
           <NuxtLink :to="item.path" @click="menuShow = !menuShow" class="block hover:text-#ED8E03">{{ item.name }}</NuxtLink>
         </li>
