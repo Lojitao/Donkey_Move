@@ -1,7 +1,7 @@
 <script setup>
 const menuShow = ref(false)
 
-const menuList = reactive([
+const menuList = ref([
   {
     id: "1",
     path: "/about",
