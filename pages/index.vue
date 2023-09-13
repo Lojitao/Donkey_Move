@@ -172,12 +172,14 @@ onUnmounted(() => {
         <h2 class="text-40px">合作夥伴</h2>
       </div>
     </header>
-    <section class="text-center md:(flex)">
-
+    <section class="text-center md:(flex flex-wrap)">
       <div v-for="(imgSrc,index) in partnerImgs" :key="index"
-        class="border border-b-0 last:border-b border-#DBDBDB py-4 px-3 border-0"
+        class="
+          w-full border border-b-0 last:border-b border-#DBDBDB py-4 px-3
+          md:( w-[calc(50%-1.5px)] last:border) 
+        "
       >
-        <img :src="imgSrc" class="w-100%" alt="">
+        <img :src="imgSrc" class="w-full" alt="">
       </div>
     </section>
   </article>
