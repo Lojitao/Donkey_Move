@@ -11,7 +11,14 @@ export default defineConfig({
   rules: [
     ['custom-grid-cols', { 'grid-template-columns': 'auto 1fr 1fr' }],
   ],
-  // ...UnoCSS options
+  theme: {
+    // ...
+    breakpoints: {
+      sm: '375px',
+      md: '768px',
+      lg: '1440px',
+    },
+  },
   presets: [
     presetUno(),
     presetWebFonts({
@@ -20,7 +27,9 @@ export default defineConfig({
       fonts: {
         sans: 'Roboto',
         mono: ['Fira Code', 'Fira Mono:400,700'],
-        RubikIso: ['Rubik Iso']
+        RubikIso: ['Rubik Iso'],
+        NotoSansTraditionalChinese: 'Noto Sans Traditional Chinese',
+        
       },
     }),
     presetIcons({

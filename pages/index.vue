@@ -11,6 +11,15 @@ const state = reactive({
   num4: 0,
 })
 
+const partnerImgs = ref([
+  '/images/index/partner/light.png',
+  '/images/index/partner/1919.png',
+  '/images/index/partner/taipeiHealth.png',
+  '/images/index/partner/yulon.png',
+  '/images/index/partner/route9.png'
+])
+
+
 onMounted(() => {
   ctx = gsap.context((self) => {
     const boxes = self.selector(".boxes")
@@ -149,7 +158,33 @@ onUnmounted(() => {
       </div>
     </div>
     <!-- right -->
-    <div class="w-full h-full relative border-solid border border-red"></div>
+    <div class="w-full h-full relative border-solid border  -red"></div>
+  </section>
+
+  <!-- 最新消息 -->
+  <!-- 社會實踐 -->
+  <!-- 合作夥伴 -->
+  <article class="px-5 mb-14">
+    <header>
+      <h2 class="text-60px text-#5A5657">COOPERATE</h2>
+      <div class="md:(flex gap-x-4 items-baseline) text-#5A5657 font-medium">
+        <h2 class="text-60px font-medium">PARTNER</h2>
+        <h2 class="text-40px">合作夥伴</h2>
+      </div>
+    </header>
+    <section class="text-center md:(flex)">
+
+      <div v-for="(imgSrc,index) in partnerImgs" :key="index"
+        class="border border-b-0 last:border-b border-#DBDBDB py-4 px-3 border-0"
+      >
+        <img :src="imgSrc" class="w-100%" alt="">
+      </div>
+    </section>
+  </article>
+
+  <section>
+   
+
   </section>
 </template>
 
