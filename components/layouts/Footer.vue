@@ -1,21 +1,26 @@
 <template>
   <div class="bg-#3061A7 text-white">
-    <section class="py-6 px-4 border-b-2px border-white">
+    <!-- <section class="py-6 px-4 border-b-2px border-white">
       
       <div>top</div>
       
       <div class="grid grid-rows-3 grid-flow-col gap-4 lg:grid-flow-row lg:custom-grid-cols">
-        <div class="row-span-1 md:row-span-1.5 lg:col-span-1">Logo</div>
+        <div class="row-span-1 md:row-span-1.5 lg:col-span-1">
+          <img src="/images/footer_logo.png" alt="">
+        </div>
 
         <div class="row-span-1 md:row-span-1.5 lg:col-span-1 flex gap-x-4">
           <NuxtLink v-for="item in menuList" :to="item.path" :key="item.id">{{ item.name }}</NuxtLink>
         </div>
 
-        <div class="row-span-1 md:row-span-3 lg:col-span-1">ICON</div>
+        <div class="row-span-1 md:row-span-3 lg:col-span-1">
+          <div class="i-mdi-account-child"></div>
+          <div class="i-basil-facebook-outline text-3xl"></div>
+        </div>
       </div>
 
-    </section>
-    <section class="py-6 px-4">
+    </section> -->
+    <section class="py-6 px-4 flex justify-center gap-x-6">
       <p class="mb-5">Copyright © 2023 小驢行</p>
       <p>本網站圖文資料未經授權請勿使用，請使用IE10版以上、Chrome、FireFox、Edge、Safari瀏覽器瀏覽</p>
     </section>
