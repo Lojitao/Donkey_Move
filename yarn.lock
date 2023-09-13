@@ -558,6 +558,13 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@iconify-json/basil@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@iconify-json/basil/-/basil-1.1.2.tgz#575c373b37f7582998c4a7773cc45b212bd28b56"
+  integrity sha512-af/HWzP3nxmWJhhsQvt84a3CFhiQEJJjfoRHX/vXN3m3jINP1gPVXUM8cjTQ+qFDLY4EXbGln/afKPhTw/Zjsw==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/mdi@^1.1.54":
   version "1.1.54"
   resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.54.tgz#343477417c15fceeaf0f32012d58a4a8d9791786"
