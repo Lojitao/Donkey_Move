@@ -65,25 +65,26 @@ onUnmounted(() => {
     <div class="w-full h-screen bg-#fff rounded-b-3xl shadow-[0_8px_10px_0px_#00000040]">
       <!-- banner run -->
       <div class="banner w-full h-full relative">
+
         <!-- bus run -->
-        <div class="z-1 w-45% absolute top-60% left-50% transform -translate-x-1/2">
+        <div class="z-1 w-40% absolute top-60% left-50% transform -translate-x-1/2">
           <img src="/images/index/bus.png" alt="巴士" class="bus block w-full" />
           <img src="/images/index/bus_tire.png" alt="巴士後輪" class="bus_tire absolute rotate-180 w-10.5% right-69.3% top-70.5%" />
           <img src="/images/index/bus_tire.png" alt="巴士前輪" class="bus_tire absolute rotate-180 w-10.5% right-9% top-70.5%" />
         </div>
 
         <!-- bike -->
-        <img src="/images/index/bike.png" alt="腳踏車" class="block w-8% absolute top-61% left-15%" />
+        <img src="/images/index/bike.png" alt="腳踏車" class="block w-6% absolute top-62% left-15%" />
 
         <!-- car -->
-        <div class="w-23% absolute top-62% right-5%">
+        <div class="car w-19% absolute top-70% right-5%">
           <img src="/images/index/car.png" alt="汽車" class="block w-full" />
           <img src="/images/index/car_tire.png" alt="汽車前輪" class="car_tire absolute rotate-180 w-16.5% right-72% top-53%" />
           <img src="/images/index/car_tire.png" alt="汽車後輪" class="car_tire absolute rotate-180 w-16.5% right-7.5% top-53%" />
         </div>
 
         <!-- motorcycle -->
-        <img src="/images/index/motorcycle.png" alt="摩托車" class="motorcycle block w-15% absolute top-70% left-5%" />
+        <!-- <img src="/images/index/motorcycle.png" alt="摩托車" class="motorcycle block w-11% absolute top-80% left-5%" /> -->
       </div>
     </div>
   </section>
@@ -108,8 +109,7 @@ onUnmounted(() => {
   <section class="w-full h-screen bg-#E0A57E flex justify-around">
     <!-- left -->
     <div class="w-full h-full flex flex-col border-solid border items-center border border-solid border-#000 justify-between">
-
-      <div class="w-80% h-120px flex flex-col gap-1 border border-solid">
+      <div class="w-80% h-150px flex flex-col gap-1 border border-solid">
         <p class="text-50px text-#fff">DONKEY</p>
         <div class="flex justify-start gap-5">
           <div>
@@ -189,33 +189,36 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* banner run */
+
 .banner {
   background: url("/images/index/city.png");
   background-repeat: repeat-x;
   animation: moveBanner 15s linear infinite;
+  /* background-size: cover;  */
 }
 @keyframes moveBanner {
   0% {
     background-position: 0 0;
   }
   100% {
-    background-position: -2513px 0;
+    background-position: -3022px 0;
+    /* background-position: -1903px 0; */
   }
 }
+
 /* bus */
 .bus {
   animation: busShock 2s ease infinite;
 }
 @keyframes busShock {
   0% {
-    transform: translateY(0); /* 設定起始位置 */
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-3px); /* 設定漂浮的最高點位置 */
+    transform: translateY(-3px);
   }
   100% {
-    transform: translateY(0); /* 設定終點位置 */
+    transform: translateY(0);
   }
 }
 .bus_tire {
@@ -230,17 +233,28 @@ onUnmounted(() => {
   }
 }
 /* car */
-.car_tire {
-  animation: carTire 1s linear infinite;
+.car {
+  animation: moveCar 6s linear infinite;
 }
-@keyframes carTire {
+@keyframes moveCar {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: 100%;
+  }
+}
+/* .car_tire {
+  animation: carTire 1s linear infinite;
+} */
+/* @keyframes carTire {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(-360deg);
   }
-}
+} */
 
 /* motorcycle */
 .motorcycle {
