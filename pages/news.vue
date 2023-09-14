@@ -1,3 +1,0 @@
-<template>
-  最新消息
-</template>
