@@ -9,24 +9,14 @@ const menuList = ref([
   },
   {
     id: "2",
-    path: "/news",
-    name: "LATEST NEWS 最新消息",
+    path: "/informationAndNews",
+    name: "INFORMATION / NEWS  資訊專欄 / 最新消息",
   },
   {
     id: "3",
-    path: "/practiced",
+    path: "/praticed",
     name: "SOCIAL PRATICED 社會實踐",
-  },
-  {
-    id: "4",
-    path: "/information",
-    name: "INFORMATION  資訊專欄",
-  },
-  {
-    id: "5",
-    path: "/partner",
-    name: "COOPERATE PARTNER 合作夥伴",
-  },
+  }
 ])
 </script>
 
@@ -43,12 +33,12 @@ const menuList = ref([
   <!-- 導覽列 -->
   <Transition name="fade">
     <nav v-if="menuShow" class="w-full h-screen z-5 bg-[#fff] opacity-85 fixed top-0 right-0 flex items-center justify-center">
-      <NuxtLink to="/" @click="menuShow = !menuShow" class="block absolute w-6% top-7% left-50% transform -translate-x-1/2 z-2">
+      <NuxtLink @click="menuShow = !menuShow" to="/"  class="block absolute w-6% top-7% left-50% transform -translate-x-1/2 z-2">
         <img src="/images/logo.png" alt="小驢行LOGO" class="w-full block" />
       </NuxtLink>
-      <ul class="w-60% flex flex-col gap-7.5 text-center text-#5A5657 text-xl font-semibold">
+      <ul class="w-60% flex flex-col gap-50px text-center text-#5A5657 text-xl font-semibold">
         <li v-for="item in menuList" :key="item.id">
-          <NuxtLink :to="item.path" @click="menuShow = !menuShow" class="block hover:text-#ED8E03">{{ item.name }}</NuxtLink>
+          <NuxtLink @click="menuShow = !menuShow" :to="item.path" class="block hover:text-#ED8E03">{{ item.name }}</NuxtLink>
         </li>
       </ul>
     </nav>
