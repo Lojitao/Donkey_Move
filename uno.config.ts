@@ -10,6 +10,9 @@ import presetIcons from '@unocss/preset-icons'
 export default defineConfig({
   rules: [
     ['custom-grid-cols', { 'grid-template-columns': 'auto 1fr 1fr' }],
+    ['pc-px', { 'padding-left': '240px', 'padding-right': '240px' }],
+    ['pad-px', { 'padding-left': '20px', 'padding-right': '20px' }],
+    ['mobile-px', { 'padding-left': '20px', 'padding-right': '20px' }]
   ],
   theme: {
     // ...
