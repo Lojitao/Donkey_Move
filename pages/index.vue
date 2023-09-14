@@ -163,8 +163,32 @@ onUnmounted(() => {
 
   <!-- 最新消息 -->
   <!-- 社會實踐 -->
+  <article class="mobile-px md:pad-px lg:pc-px mb-14">
+    <header>
+      <h2 class="text-60px text-#5A5657">SOCIAL</h2>
+      <div class="md:(flex gap-x-4 items-baseline) text-#5A5657 font-medium">
+        <h2 class="text-60px font-medium">PRACTICE</h2>
+        <h2 class="text-40px">社會實踐</h2>
+      </div>
+    </header>
+
+    <section class="flex flex-col items-center gap-y-10">
+      <div>
+        <img src="/images/index/social/oldMan.png" alt="">
+      </div>
+      <div class="w-full">
+        <img src="/images/index/social/title_decorate.png" class="m-auto mb-6" alt="">
+        <div class="border-t-2 border-b-2 text-center border-black py-40px text-left text-justify">
+          <span>小驢行以媒合平台改善台灣高齡、偏鄉交通環境，不只受各方肯定及協力報導倡議，做法也可複製可仿效，可做為高齡與偏鄉服務的典範。</span>
+        </div>
+      </div>
+      <div>
+        <img src="/images/index/social/oldWomen.png" alt="">
+      </div>
+    </section>
+  </article>
   <!-- 合作夥伴 -->
-  <article class="px-5 mb-14">
+  <article class="mobile-px md:pad-px lg:pc-px mb-14">
     <header>
       <h2 class="text-60px text-#5A5657">COOPERATE</h2>
       <div class="md:(flex gap-x-4 items-baseline) text-#5A5657 font-medium">
