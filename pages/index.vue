@@ -24,6 +24,20 @@ const partnerImgs = ref([
   "/images/index/partner/route9.png",
 ])
 
+const socialList = ref(
+  [
+    {
+      id:"1",
+      vedioSrc:"www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z",
+      title:"1919食物銀行－救減災專案 ",
+      subtitle:"打造友善的叫車預約媒合服務平臺，以移動科技媒合平臺推動「1919食物銀行」以及推動共乘服務，有助減少運輸碳排放。",
+      content:"震災發生後，以服務支持在地",
+      visitors:"28090",
+      carbonEmission:"28090"
+    }
+  ]
+)
+
 onMounted(() => {
   ctx = gsap.context((self) => {
     const boxes = self.selector(".boxes")
@@ -241,8 +255,8 @@ onMounted(() => {
 
   <!-- 最新消息 -->
   <!-- 社會實踐 -->
-  <article class="mobile-px md:pad-px lg:pc-px mb-14">
-    <header>
+  <article class="mobile-px md:pad-px lg:pc-px mb-60px">
+    <header class="mb-50px">
       <h2 class="text-60px text-#5A5657">SOCIAL</h2>
       <div class="md:(flex gap-x-4 items-baseline) text-#5A5657 font-medium">
         <h2 class="text-60px font-medium">PRACTICE</h2>
@@ -250,21 +264,37 @@ onMounted(() => {
       </div>
     </header>
 
-    <section class="flex flex-col items-center gap-y-10">
+    <section class="flex flex-col items-center gap-y-8 md:(flex-row gap-x-4 items-end) lg:(w-1000px m-auto gap-x-12)">
       <div>
         <img src="/images/index/social/oldMan.png" alt="">
       </div>
       <div class="w-full">
         <img src="/images/index/social/title_decorate.png" class="m-auto mb-6" alt="">
-        <div class="border-t-2 border-b-2 text-center border-black py-40px text-left text-justify">
+        <div class="border-t-2 border-b-2 text-center border-black py-40px text-left text-justify relative">
           <span>小驢行以媒合平台改善台灣高齡、偏鄉交通環境，不只受各方肯定及協力報導倡議，做法也可複製可仿效，可做為高齡與偏鄉服務的典範。</span>
+          <div class=
+            "w-160px h-30px border bg-white border-black text-center absolute left-1/2 -bottom-30px -translate-1/2 
+            lg:(hover:(cursor-pointer bg-promary text-white border-white) transition duration-250)
+          ">more</div>
         </div>
       </div>
       <div>
         <img src="/images/index/social/oldWomen.png" alt="">
       </div>
     </section>
+
+    <section v-for="item in socialList" :key="item.key" class="mt-100px">
+      <!--影片-->
+      <div>
+        <div class="aspect-[600/330]">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+      <!--文字敘述-->
+      <div></div>
+    </section>
   </article>
+
   <!-- 合作夥伴 -->
   <article class="mobile-px md:pad-px lg:pc-px mb-14">
     <header>

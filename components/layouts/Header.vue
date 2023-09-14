@@ -14,8 +14,8 @@ const menuList = ref([
   },
   {
     id: "3",
-    path: "/praticed",
-    name: "SOCIAL PRATICED 社會實踐",
+    path: "/practiced",
+    name: "SOCIAL PRACTICED 社會實踐",
   }
 ])
 </script>
