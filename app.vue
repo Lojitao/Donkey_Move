@@ -1,9 +1,9 @@
 <template>
-  <div class="max-w-1920px m-auto">
+  <div class="w-full">
     
     <Loading></Loading>
 
-    <LayoutsHeader></LayoutsHeader>
+    <layoutsHeader></layoutsHeader>
 
     <NuxtLayout></NuxtLayout>
 

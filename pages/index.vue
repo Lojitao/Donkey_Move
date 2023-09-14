@@ -172,11 +172,12 @@ onUnmounted(() => {
         <h2 class="text-40px">合作夥伴</h2>
       </div>
     </header>
-    <section class="text-center md:(flex flex-wrap)">
+    <section class="text-center md:(flex flex-wrap) partnerWrap">
       <div v-for="(imgSrc,index) in partnerImgs" :key="index"
         class="
           w-full border border-b-0 last:border-b border-#DBDBDB py-4 px-3
-          md:( w-[calc(50%-1.5px)] last:border) 
+          md:( w-[calc(50%-1.5px)] even:border-l-0)
+          lg:( w-1/5 border-b-1 border-l-0 first:border-l flex items-center justify-center)
         "
       >
         <img :src="imgSrc" class="w-full" alt="">
@@ -191,6 +192,13 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+@media (min-width: 768px) {
+  .partnerWrap :nth-child(4) {
+    border-bottom: 1px solid #DBDBDB;
+  }
+}
+
+
 /* banner run */
 .banner {
   background: url("/images/index/city.png");
