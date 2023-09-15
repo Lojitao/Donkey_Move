@@ -1,5 +1,5 @@
 <template>
-  <p>praticed</p>
+  <p>ID-A: {{ $route.params.id }}</p>
 </template>
 
 <script setup>

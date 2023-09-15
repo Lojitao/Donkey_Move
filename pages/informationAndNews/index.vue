@@ -1,5 +1,5 @@
 <template>
-  <p>praticed</p>
+  <p>informationAndNews.vue</p>
 </template>
 
 <script setup>

@@ -12,7 +12,16 @@ export default defineConfig({
     ['custom-grid-cols', { 'grid-template-columns': 'auto 1fr 1fr' }],
     ['pc-px', { 'padding-left': '240px', 'padding-right': '240px' }],
     ['pad-px', { 'padding-left': '20px', 'padding-right': '20px' }],
-    ['mobile-px', { 'padding-left': '20px', 'padding-right': '20px' }]
+    ['mobile-px', { 'padding-left': '20px', 'padding-right': '20px' }],
+    ['bg-promary', { 'background-color': '#E0A57E' }],
+    [/^aspect-ratio\[([0-9]+)\/([0-9]+)\]$/, ([, w, h]) => {
+      const width = parseFloat(w);
+      const height = parseFloat(h);
+      return {
+        position: 'relative',
+        paddingBottom: `${(height / width) * 100}%`,
+      }
+    }],
   ],
   theme: {
     // ...
@@ -20,6 +29,11 @@ export default defineConfig({
       sm: '375px',
       md: '768px',
       lg: '1440px',
+    },
+    extend: {
+      aspectRatio: {
+        '4/3': '4 / 3',
+      },
     },
   },
   presets: [
