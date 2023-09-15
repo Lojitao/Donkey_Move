@@ -6,6 +6,7 @@ const menuList = ref([
     id: "1",
     path: "/about",
     name: "DONKEY MOVE 關於我們",
+    nameForMobile: `DONKEY MOVE<br>關於我們`,
   },
   {
     id: "2",
@@ -14,15 +15,15 @@ const menuList = ref([
   },
   {
     id: "3",
-    path: "/praticed",
-    name: "SOCIAL PRATICED 社會實踐",
+    path: "/practiced",
+    name: "SOCIAL PRACTICED 社會實踐",
   }
 ])
 </script>
 
 <template>
   <!-- 漢堡按鈕 -->
-  <div class="w-full h-50px fixed flex items-center justify-end px-60px z-10">
+  <div class="w-full h-50px fixed flex items-center justify-end px-20px z-10 md:(px-60px)">
     <div @click="menuShow = !menuShow" :class="{ 'nav-icon': true, open: menuShow }">
       <span class="block absolute h-2px w-full bg-[#E0A57E] rounded-2px opacity-100 left-0 rotate-0 duration-250 ease-in-out top-0"></span>
       <span class="block absolute h-2px w-20px bg-[#E0A57E] rounded-2px opacity-100 left-1/6 rotate-0 duration-250 ease-in-out top-50%"></span>
@@ -33,7 +34,7 @@ const menuList = ref([
   <!-- 導覽列 -->
   <Transition name="fade">
     <nav v-if="menuShow" class="w-full h-screen z-5 bg-[#fff] opacity-85 fixed top-0 right-0 flex items-center justify-center">
-      <NuxtLink @click="menuShow = !menuShow" to="/"  class="block absolute w-6% top-7% left-50% transform -translate-x-1/2 z-2">
+      <NuxtLink @click="menuShow = !menuShow" to="/"  class="block absolute w-15% top-7% left-50% transform -translate-x-1/2 z-2 lg:(w-6%)">
         <img src="/images/logo.png" alt="小驢行LOGO" class="w-full block" />
       </NuxtLink>
       <ul class="w-60% flex flex-col gap-50px text-center text-#5A5657 text-xl font-semibold">
