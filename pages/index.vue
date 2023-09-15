@@ -91,7 +91,7 @@ onUnmounted(() => {
 // 愛心順序發射
 onMounted(() => {
   const tl = gsap.timeline({
-    repeat: -1,
+    repeat: -1, // 設定為 -1 使動畫無限循環
   })
 
   // 從第一層愛心到第四層愛心逐一出現
@@ -107,8 +107,6 @@ onMounted(() => {
       stagger: 0.5,
     })
 })
-
-
 </script>
 
 <template>
@@ -293,7 +291,15 @@ onMounted(() => {
       <!--影片-->
       <div class="mb-58px w-full md_1024:(w-[1/2-(2.5rem/2)])">
         <div class="w-full aspect-[600/330] relative">
-          <iframe class="absolute z-2 w-[calc(100%-15px)]" height="100%" src="https://www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe
+            class="absolute z-2 w-[calc(100%-15px)]"
+            height="100%"
+            src="https://www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
           <div class="w-[calc(100%-15px)] bg-sub h-full absolute right-0 -bottom-26px z-1"></div>
           <span class="block w-10px h-10px bg-sub absolute top-[calc((26px/2)-5px)] right-[calc((15px/2)-5px)] rounded-full"></span>
           <span class="block w-10px h-10px bg-sub absolute -bottom-[calc((26px/2)+5px)] left-[calc((15px/2)-5px)] rounded-full"></span>
@@ -304,18 +310,19 @@ onMounted(() => {
         <p class="primary font-700 text-26px mb-30px md:36px">{{item.title}}</p>
         <p class="mb-58px">{{item.subtitle}}</p>
         <div class="border-t border-r border-black relative h-[111px]">
-          <span class="bg-white absolute text-lg -top-14px pr-10px">{{item.content}}</span>
+          <span class="bg-white absolute text-lg -top-14px pr-10px">{{ item.content }}</span>
 
           <div class="text-[#91ABD0] absolute center-vertically">
-            共乘<span class=" text-26px">{{item.visitors}}</span>人次
+            共乘<span class="text-26px">{{ item.visitors }}</span
+            >人次
           </div>
 
           <div class="text-[#91ABD0] absolute -bottom-14px right-10px">
-            總結約<span class=" text-26px">{{item.carbonEmission}}</span>公斤碳排放量
+            總結約<span class="text-26px">{{ item.carbonEmission }}</span
+            >公斤碳排放量
           </div>
         </div>
       </div>
-
     </section>
   </article>
 
