@@ -112,24 +112,24 @@ onMounted(() => {
 <template>
   <!-- Banner -->
   <section class="h-[calc(100vh-70px)] relative bg-#E0A57E lg:(h-screen)">
-    <NuxtLink to="/" class="block absolute w-15% top-8% left-50% transform -translate-x-1/2 z-2 md:(top-7.5%) lg:(w-6% top-7%)">
+    <NuxtLink to="/" class="block absolute w-15% top-7% left-50% transform -translate-x-1/2 z-2 md_1024:(w-10%) lg:(w-6% top-5%)">
       <img src="/images/logo.png" alt="小驢行LOGO" class="w-full block" />
     </NuxtLink>
     <div class="w-full h-full bg-#fff rounded-b-3xl shadow-[0_8px_10px_0px_#00000040] lg:(h-screen)">
       <!-- banner run -->
       <div class="banner w-full h-full relative">
         <!-- bus run -->
-        <div class="z-1 w-50% absolute top-81% left-50% transform -translate-x-1/2 md:(w-40%) lg:(w-34% top-62%)">
+        <div class="z-1 w-50% absolute top-81% left-50% transform -translate-x-1/2 md:(w-40%) md_1024:(top-72%) lg:(w-34% top-62%)">
           <img src="/images/index/bus.png" alt="巴士" class="bus block w-full" />
           <img src="/images/index/bus_tire.png" alt="巴士後輪" class="bus_tire absolute rotate-180 w-10.5% right-69.3% top-70.5%" />
           <img src="/images/index/bus_tire.png" alt="巴士前輪" class="bus_tire absolute rotate-180 w-10.5% right-9% top-70.5%" />
         </div>
 
         <!-- bike -->
-        <img src="/images/index/bike.png" alt="腳踏車" class="block w-10% absolute top-73% left-15% md:(w-8%) lg:(w-6% top-62%)" />
+        <img src="/images/index/bike.png" alt="腳踏車" class="block w-10% absolute top-73% left-15% md:(w-8%) md_1024:(top-70%) lg:(w-6% top-62%)" />
 
         <!-- car run -->
-        <div class="car w-30% absolute top-77% right-5% md:(w-25%) lg:(w-19% top-66%)">
+        <div class="car w-30% absolute top-77% right-5% md:(w-25%) md_1024:(top-72%) lg:(w-19% top-66%)">
           <img src="/images/index/car.png" alt="汽車" class="block w-full" />
           <img src="/images/index/car_tire.png" alt="汽車前輪" class="car_tire absolute rotate-180 w-16.5% right-72% top-53%" />
           <img src="/images/index/car_tire.png" alt="汽車後輪" class="car_tire absolute rotate-180 w-16.5% right-7.5% top-53%" />
@@ -156,8 +156,8 @@ onMounted(() => {
   <!-- scroll gap end -->
 
   <!-- 關於我們 -->
-  <section class="w-full h-auto bg-#E0A57E py-60px lg:(pc-px h-screen)">
-    <div class="h-full my-0 mx-auto flex flex-col md:(h-auto my-0 mx-auto) lg:(flex-row gap-50px)">
+  <section class="w-full h-auto bg-#E0A57E py-60px mobile-px md:pad-px lg:(pc-px h-screen)">
+    <div class="h-full my-0 mx-auto flex flex-col md:(h-auto my-0 mx-auto) md_1024:(flex-row gap-50px)">
       <!-- 左區塊 -->
       <div class="w-full flex flex-col items-center justify-between md:(gap-180px) lg:(gap-150px)">
         <!-- 標題 & 描述-->
@@ -182,7 +182,7 @@ onMounted(() => {
         </div>
 
         <!-- 圖片彈跳 & 數字跳動 -->
-        <div class="w-80% flex flex-col flex-nowrap gap-y-50px justify-center items-center md:(flex-row flex-wrap gap-x-80px) lg:(h-auto flex-row flex-wrap gap-x-80px)" ref="main">
+        <div class="w-80% flex flex-col flex-nowrap gap-y-50px justify-center items-center md:(flex-row flex-wrap gap-x-80px) lg:(h-auto)" ref="main">
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
             <img src="/images/index/about_cardPic1.png" alt="" class="block w-153px" />
             <div class="flex flex-col gap-1 leading-50px text-xl">
@@ -217,13 +217,13 @@ onMounted(() => {
         </div>
       </div>
       <!-- 右區塊 -->
-      <div class="w-full h-full relative flex flex-col gap-50px items-center md:(gap-180px) lg:(gap-130px)">
+      <div class="w-full h-full relative flex flex-col gap-50px items-center md:(gap-180px) md_1024:(self-center) lg:(gap-130px self-auto)">	
         <!-- 汽車 -->
         <div class="w-full h-full">
           <img src="/images/index/about_car.png" alt="" class="block w-full" />
         </div>
         <!-- 遙控器 -->
-        <div class="w-full h-full flex flex-col gap-90px items-center md:(flex-row gap-0 items-end) lg:(gap-170px)">
+        <div class="w-full h-full flex flex-col gap-120px items-center md:(flex-row gap-0 items-end) lg:(gap-170px)">
           <div class="w-full text-#fff text-20px font-semibold flex flex-col justify-end gap-20px lg:(w-30% justify-center)">
             <div class="tracking-17px whitespace-nowrap mx-auto my-0">
               <p>讓愛，<br />永不止息</p>
@@ -247,7 +247,7 @@ onMounted(() => {
               <img src="/images/index/about_heart4.png" alt="" class="block w-full" />
             </div>
             <!-- 遙控器本體 -->
-            <div class="w-40% md:(w-70%)">
+            <div class="w-35% md:(w-65%)">
               <img src="/images/index/about_controller.png" alt="" class="block w-full" />
             </div>
           </div>
@@ -360,8 +360,9 @@ onMounted(() => {
 .banner {
   background: url("/images/index/city.png");
   background-repeat: repeat-x;
-  animation: moveBanner 15s linear infinite;
+  animation: moveBanner 20s linear infinite;
   background-size: cover;
+  overflow: hidden;
 }
 @keyframes moveBanner {
   0% {
@@ -369,7 +370,6 @@ onMounted(() => {
   }
   100% {
     background-position: -3022px 0;
-    /* background-position: -1903px 0; */
   }
 }
 
@@ -382,7 +382,7 @@ onMounted(() => {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-3px);
+    transform: translateY(-1px);
   }
   100% {
     transform: translateY(0);
@@ -408,7 +408,7 @@ onMounted(() => {
     right: 0;
   }
   100% {
-    right: 100%;
+    right: 105%;
   }
 }
 .scroll {
@@ -429,9 +429,26 @@ onMounted(() => {
     opacity: 1;
   }
 }
+
 @media (min-width: 1440px) {
   .banner {
     background-size: auto;
+    animation: moveBanner 15s linear infinite;
+  }
+  .bus {
+    animation: busShock 2s ease infinite;
+  }
+  @keyframes busShock {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 }
+
 </style>
