@@ -34,6 +34,15 @@ const socialList = ref(
       content:"震災發生後，以服務支持在地",
       visitors:"28090",
       carbonEmission:"28090"
+    },
+    {
+      id:"2",
+      vedioSrc:"www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z",
+      title:"1919食物銀行－救減災專案 ",
+      subtitle:"打造友善的叫車預約媒合服務平臺，以移動科技媒合平臺推動「1919食物銀行」以及推動共乘服務，有助減少運輸碳排放。",
+      content:"震災發生後，以服務支持在地",
+      visitors:"28090",
+      carbonEmission:"28090"
     }
   ]
 )
@@ -148,7 +157,7 @@ onMounted(() => {
 
 
   <!-- 關於我們 -->
-  <section class="w-full h-auto bg-#E0A57E py-60px px-20px lg:(pc-px h-screen)">
+  <section class="w-full h-auto bg-#E0A57E py-60px lg:(pc-px h-screen)">
     <div class="h-full my-0 mx-auto flex flex-col md:(h-auto my-0 mx-auto) lg:(flex-row gap-50px)">
       <!-- 左區塊 -->
       <div class="w-full flex flex-col items-center justify-between md:(gap-180px) lg:(gap-150px)">
@@ -278,9 +287,9 @@ onMounted(() => {
       </div>
     </section>
 
-    <section v-for="item in socialList" :key="item.key" class="mt-100px pad:(flex gap-x-10)">
+    <section v-for="item in socialList" :key="item.key" class="mt-100px md_1024:(flex gap-x-10 odd:flex-row-reverse)">
       <!--影片-->
-      <div class="mb-58px w-full pad:(w-[1/2-(2.5rem/2)])">
+      <div class="mb-58px w-full md_1024:(w-[1/2-(2.5rem/2)])">
         <div class="w-full aspect-[600/330] relative">
           <iframe class="absolute z-2 w-[calc(100%-15px)]" height="100%" src="https://www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           <div class="w-[calc(100%-15px)] bg-sub h-full absolute right-0 -bottom-26px z-1"></div>
@@ -289,7 +298,7 @@ onMounted(() => {
         </div>
       </div>
       <!--文字敘述-->
-      <div class="w-full pad:(w-[1/2-(2.5rem/2)])">
+      <div class="w-full md_1024:(w-[1/2-(2.5rem/2)])">
         <p class="primary font-700 text-26px mb-30px md:36px">{{item.title}}</p>
         <p class="mb-58px">{{item.subtitle}}</p>
         <div class="border-t border-r border-black relative h-[111px]">
