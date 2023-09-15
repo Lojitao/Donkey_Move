@@ -269,7 +269,7 @@ onMounted(() => {
           <span>小驢行以媒合平台改善台灣高齡、偏鄉交通環境，不只受各方肯定及協力報導倡議，做法也可複製可仿效，可做為高齡與偏鄉服務的典範。</span>
           <div class=
             "w-160px h-30px border bg-white border-black text-center absolute left-1/2 -bottom-30px -translate-1/2 
-            lg:(hover:(cursor-pointer bg-promary text-white border-white) transition duration-250)
+            lg:(hover:(cursor-pointer bg-primary text-white border-white) transition duration-250)
           ">more</div>
         </div>
       </div>
@@ -278,15 +278,33 @@ onMounted(() => {
       </div>
     </section>
 
-    <section v-for="item in socialList" :key="item.key" class="mt-100px">
+    <section v-for="item in socialList" :key="item.key" class="mt-100px pad:(flex gap-x-10)">
       <!--影片-->
-      <div>
-        <div class="aspect-[600/330]">
-          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="mb-58px w-full pad:(w-[1/2-(2.5rem/2)])">
+        <div class="w-full aspect-[600/330] relative">
+          <iframe class="absolute z-2 w-[calc(100%-15px)]" height="100%" src="https://www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="w-[calc(100%-15px)] bg-sub h-full absolute right-0 -bottom-26px z-1"></div>
+          <span class="block w-10px h-10px bg-sub absolute top-[calc((26px/2)-5px)] right-[calc((15px/2)-5px)] rounded-full"></span>
+          <span class="block w-10px h-10px bg-sub absolute -bottom-[calc((26px/2)+5px)] left-[calc((15px/2)-5px)] rounded-full"></span>
         </div>
       </div>
       <!--文字敘述-->
-      <div></div>
+      <div class="w-full pad:(w-[1/2-(2.5rem/2)])">
+        <p class="primary font-700 text-26px mb-30px md:36px">{{item.title}}</p>
+        <p class="mb-58px">{{item.subtitle}}</p>
+        <div class="border-t border-r border-black relative h-[111px]">
+          <span class="bg-white absolute text-lg -top-14px pr-10px">{{item.content}}</span>
+
+          <div class="text-[#91ABD0] absolute center-vertically">
+            共乘<span class=" text-26px">{{item.visitors}}</span>人次
+          </div>
+
+          <div class="text-[#91ABD0] absolute -bottom-14px right-10px">
+            總結約<span class=" text-26px">{{item.carbonEmission}}</span>公斤碳排放量
+          </div>
+        </div>
+      </div>
+
     </section>
   </article>
 
