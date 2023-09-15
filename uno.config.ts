@@ -8,8 +8,7 @@ import presetIcons from '@unocss/preset-icons'
 // import transformerDirectives from '@unocss/transformer-directives'
 
 export default defineConfig({
-  shortcuts: {
-    // shortcuts to multiple utilities
+  shortcuts: { // shortcuts to multiple utilities
     'primary':'text-red-600',
     'bg-primary':'bg-[#E0A57E]',
     'sub-color': 'text-#3061A7',
@@ -21,10 +20,6 @@ export default defineConfig({
   },
   rules: [
     ['custom-grid-cols', { 'grid-template-columns': 'auto 1fr 1fr' }],
-    // ['pc-px', { 'padding-left': '240px', 'padding-right': '240px' }],
-    // ['pad-px', { 'padding-left': '20px', 'padding-right': '20px' }],
-    // ['mobile-px', { 'padding-left': '20px', 'padding-right': '20px' }],
-    // ['bg-promary', { 'background-color': '#E0A57E' }],
     [/^aspect-ratio\[([0-9]+)\/([0-9]+)\]$/, ([, w, h]) => {
       const width = parseFloat(w);
       const height = parseFloat(h);
@@ -35,11 +30,10 @@ export default defineConfig({
     }],
   ],
   theme: {
-    // ...
     breakpoints: {
       sm: '375px',
       md: '768px',
-      pad: '1024px',
+      md_1024: '1024px',
       lg: '1440px',
     },
     extend: {
@@ -51,7 +45,6 @@ export default defineConfig({
   presets: [
     presetUno(),
     presetWebFonts({
-      /* options */ 
       provider: 'google',
       fonts: {
         sans: 'Roboto',
@@ -65,7 +58,6 @@ export default defineConfig({
       extraProperties: {
         'display': 'inline-block',
         'vertical-align': 'middle',
-        // ...
       },
     })
   ],
@@ -75,6 +67,5 @@ export default defineConfig({
     // .custom-div {
     //   @apply text-center my-0 font-medium;
     // }
-   
   ]
 })
