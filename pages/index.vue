@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+const router = useRouter()
 
 // 圖片彈跳 & 數字跳動
 const main = ref()
@@ -28,7 +29,7 @@ const socialList = ref(
   [
     {
       id:"1",
-      vedioSrc:"www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z",
+      vedioSrc:"https://www.youtube.com/embed/_JFnLwWs_Yw?si=FIwex10zQRflv4dJ",
       title:"1919食物銀行－救減災專案 ",
       subtitle:"打造友善的叫車預約媒合服務平臺，以移動科技媒合平臺推動「1919食物銀行」以及推動共乘服務，有助減少運輸碳排放。",
       content:"震災發生後，以服務支持在地",
@@ -37,7 +38,7 @@ const socialList = ref(
     },
     {
       id:"2",
-      vedioSrc:"www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z",
+      vedioSrc:"https://www.youtube.com/embed/_JFnLwWs_Yw?si=FIwex10zQRflv4dJ",
       title:"1919食物銀行－救減災專案 ",
       subtitle:"打造友善的叫車預約媒合服務平臺，以移動科技媒合平臺推動「1919食物銀行」以及推動共乘服務，有助減少運輸碳排放。",
       content:"震災發生後，以服務支持在地",
@@ -46,6 +47,71 @@ const socialList = ref(
     }
   ]
 )
+
+let checkedTabId = ref(1)
+const newsAndInfoTabs = ref([
+  {
+    id:1,
+    zh_tw:'最新消息',
+    en:'LATEST NEWS'
+  },
+  {
+    id:2,
+    zh_tw:'資訊專欄',
+    en:'INFORMATION'
+  }
+])
+
+const newsList = ref([
+  {
+    id:1,
+    time:"2023-02-10",
+    title:"醫療園所接送服務七月份正式開跑！"
+  },
+  {
+    id:2,
+    time:"2023-02-10",
+    title:"醫療園所接送服務七月份正式開跑！"
+  },
+  {
+    id:3,
+    time:"2023-02-10",
+    title:"醫療園所接送服務七月份正式開跑！"
+  }
+])
+
+const infoList = ref([
+  {
+    id:1,
+    time:"2023-02-10",
+    title:"資訊專欄接送服務七月份正式開跑！"
+  },
+  {
+    id:2,
+    time:"2023-02-10",
+    title:"醫資訊專欄接送服務七月份正式開跑！"
+  },
+  {
+    id:3,
+    time:"2023-02-10",
+    title:"資訊專欄接送服務七月份正式開跑！"
+  }
+])
+
+const renderNewsOrInfoList = computed(() => {
+  if (checkedTabId.value === 1) {
+    return newsList.value;
+  }
+  if (checkedTabId.value === 2) {
+    return infoList.value;
+  }
+  return [];
+});
+
+function goNewAndInfoDetail(item){
+  router.push(`/informationAndNews/news/${item.id}`)
+}
+
 
 onMounted(() => {
   ctx = gsap.context((self) => {
@@ -257,6 +323,53 @@ onMounted(() => {
   </section>
 
   <!-- 最新消息 -->
+  <article class="mobile-px pt-6 md:pt-0 md:pad-px lg:pc-px mb-60px newbgImage md:(relative)">
+    <div class="bg-white md:(left-0 -bottom-1px absolute px-[65px] pt-10 rounded-tr-[60px]) md_1024:(px-[20px]) lg:(px-[325px])">
+      <section class="flex flex-col items-center md_1024:(flex flex-row justify-center) mb-40px">
+        <div v-for="tab in newsAndInfoTabs" :key="tab.id" @click="checkedTabId = tab.id"
+          :class="{'color-[#5A5657] border border-black rounded-tl-[10px] rounded-tr-[40px] rounded-br-[10px] rounded-bl-[40px]':checkedTabId===tab.id,'color-[#ABABAB]':checkedTabId!==tab.id}" 
+          class="w-fit cursor-pointer flex flex-col text-50px transition duration-300 p-50px relative hover:color-[#5A5657]"
+        >
+          <span class="break-all">{{tab.en}}</span>
+          <span>{{tab.zh_tw}}</span>
+          <div 
+            :class="{'block':checkedTabId===tab.id,'hidden':checkedTabId!==tab.id}" 
+            class="w-10px h-10px rounded-full bg-black absolute right-15px bottom-15px transition duration-300"
+          ></div>
+        </div>
+      </section>
+
+      <section class="flex flex-col gap-y-10 mb-4 0px">
+        <div @click="goNewAndInfoDetail(item)" v-for="item in renderNewsOrInfoList" :key="item.id"
+          class="border-b pb-6"
+        >
+          <div class="border-r border-b border-black rounded-br-[40px] relative group cursor-pointer">
+            <span class="text-[#39383A] font-light">{{ item.time }}</span>
+            <p class="text-24px font-bold">{{ item.title }}</p>
+            <div class="w-fit bg-white border rounded-full border-black absolute top-0 -right-[15px] group-hover:(bg-primary text-white border-white) transition duration-200">
+              <div class="i-ic-baseline-arrow-forward text-30px"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <NuxtLink to="/informationAndNews"
+        class="w-fit mx-auto flex items-center block border bg-white px-6 py-4 rounded-full border-black text-center 
+          lg:(hover:(cursor-pointer bg-primary text-white border-white)) transition duration-250 group"
+      >
+        <span class="text-xl">View More</span>
+        <span class="i-ic-baseline-arrow-forward text-30px group-hover:(translate-x-10px text-white) duration-250 transition"></span>
+      </NuxtLink>
+
+      <!-- 弧度裝飾 -->
+      <div class="hidden md:(block absolute -right-50px bottom-0) ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="51" viewBox="0 0 50 51" fill="none">
+          <path d="M0 0.182617V50.1826H50C22.3859 50.1826 0 27.7968 0 0.182617Z" fill="white"/>
+        </svg>
+      </div>
+    </div>
+  </article>
+
   <!-- 社會實踐 -->
   <article class="mobile-px md:pad-px lg:pc-px mb-60px">
     <header class="mb-50px">
@@ -275,11 +388,11 @@ onMounted(() => {
         <img src="/images/index/social/title_decorate.png" class="m-auto mb-6" alt="" />
         <div class="border-t-2 border-b-2 text-center border-black py-40px text-left text-justify relative">
           <span>小驢行以媒合平台改善台灣高齡、偏鄉交通環境，不只受各方肯定及協力報導倡議，做法也可複製可仿效，可做為高齡與偏鄉服務的典範。</span>
-          <div
-            class="w-160px h-30px border bg-white border-black text-center absolute left-1/2 -bottom-30px -translate-1/2 lg:(hover:(cursor-pointer bg-promary text-white border-white) transition duration-250)"
+          <NuxtLink to="/practiced"
+            class="w-160px h-30px border bg-white border-black text-center absolute left-1/2 -bottom-30px -translate-1/2 lg:(hover:(cursor-pointer bg-primary text-white border-white) transition duration-250)"
           >
             more
-          </div>
+          </NuxtLink>
         </div>
       </div>
       <div>
@@ -294,10 +407,10 @@ onMounted(() => {
           <iframe
             class="absolute z-2 w-[calc(100%-15px)]"
             height="100%"
-            src="https://www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z"
+            :src="item.vedioSrc"
             title="YouTube video player"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
             allowfullscreen
           ></iframe>
           <div class="w-[calc(100%-15px)] bg-sub h-full absolute right-0 -bottom-26px z-1"></div>
@@ -346,13 +459,58 @@ onMounted(() => {
     </section>
   </article>
 
-  <section></section>
 </template>
 
 <style scoped>
+/* new bgImage */
+
+
 @media (min-width: 768px) {
   .partnerWrap :nth-child(4) {
     border-bottom: 1px solid #dbdbdb;
+  }
+  .newbgImage{
+    width: 100%;
+    padding-top: 177%;
+    background-image: url('/images/index/newsAndInfo/bg_mobile.png');
+    background-repeat: no-repeat;
+  }
+ 
+}
+
+@media (min-width: 1024px){
+  .newbgImage{
+    width: 100%;
+    padding-top: 75%;
+    background-image: url('/images/index/newsAndInfo/bg_pad.png');
+    background-size: cover;
+  }
+}
+
+@media (min-width: 1440px) {
+  .newbgImage{
+    width: 100%;
+    padding-top: 56.25%;
+    background-image: url('/images/index/newsAndInfo/bg_pc.png');
+    background-size: cover;
+  }
+  .banner {
+    background-size: auto;
+    animation: moveBanner 15s linear infinite;
+  }
+  .bus {
+    animation: busShock 2s ease infinite;
+  }
+  @keyframes busShock {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 }
 
@@ -430,25 +588,5 @@ onMounted(() => {
   }
 }
 
-@media (min-width: 1440px) {
-  .banner {
-    background-size: auto;
-    animation: moveBanner 15s linear infinite;
-  }
-  .bus {
-    animation: busShock 2s ease infinite;
-  }
-  @keyframes busShock {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-3px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-}
 
 </style>

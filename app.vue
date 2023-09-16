@@ -25,3 +25,11 @@
   // gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 </script>
+
+
+<style>
+
+/* *{
+  outline: 1px solid red;
+} */
+</style>
