@@ -91,7 +91,7 @@ onUnmounted(() => {
 // 愛心順序發射
 onMounted(() => {
   const tl = gsap.timeline({
-    repeat: -1,
+    repeat: -1, // 設定為 -1 使動畫無限循環
   })
 
   // 從第一層愛心到第四層愛心逐一出現
@@ -111,25 +111,25 @@ onMounted(() => {
 
 <template>
   <!-- Banner -->
-  <section class="h-screen relative bg-#E0A57E">
-    <NuxtLink to="/" class="block absolute w-15% top-7% left-50% transform -translate-x-1/2 z-2 lg:(w-6%)">
+  <section class="h-[calc(100vh-70px)] relative bg-#E0A57E lg:(h-screen)">
+    <NuxtLink to="/" class="block absolute w-15% top-7% left-50% transform -translate-x-1/2 z-2 md_1024:(w-10%) lg:(w-6% top-5%)">
       <img src="/images/logo.png" alt="小驢行LOGO" class="w-full block" />
     </NuxtLink>
     <div class="w-full h-full bg-#fff rounded-b-3xl shadow-[0_8px_10px_0px_#00000040] lg:(h-screen)">
       <!-- banner run -->
       <div class="banner w-full h-full relative">
         <!-- bus run -->
-        <div class="z-1 w-50% absolute top-81% left-50% transform -translate-x-1/2 md:(w-40%) lg:(w-34% top-62%)">
+        <div class="z-1 w-50% absolute top-81% left-50% transform -translate-x-1/2 md:(w-40%) md_1024:(top-72%) lg:(w-34% top-62%)">
           <img src="/images/index/bus.png" alt="巴士" class="bus block w-full" />
           <img src="/images/index/bus_tire.png" alt="巴士後輪" class="bus_tire absolute rotate-180 w-10.5% right-69.3% top-70.5%" />
           <img src="/images/index/bus_tire.png" alt="巴士前輪" class="bus_tire absolute rotate-180 w-10.5% right-9% top-70.5%" />
         </div>
 
         <!-- bike -->
-        <img src="/images/index/bike.png" alt="腳踏車" class="block w-10% absolute top-73% left-15% md:(w-8%) lg:(w-6% top-62%)" />
+        <img src="/images/index/bike.png" alt="腳踏車" class="block w-10% absolute top-73% left-15% md:(w-8%) md_1024:(top-70%) lg:(w-6% top-62%)" />
 
         <!-- car run -->
-        <div class="car w-30% absolute top-77% right-5% md:(w-25%) lg:(w-19% top-66%)">
+        <div class="car w-30% absolute top-77% md:(w-25%) md_1024:(top-72%) lg:(w-19% top-66%)">
           <img src="/images/index/car.png" alt="汽車" class="block w-full" />
           <img src="/images/index/car_tire.png" alt="汽車前輪" class="car_tire absolute rotate-180 w-16.5% right-72% top-53%" />
           <img src="/images/index/car_tire.png" alt="汽車後輪" class="car_tire absolute rotate-180 w-16.5% right-7.5% top-53%" />
@@ -155,10 +155,9 @@ onMounted(() => {
   </div> -->
   <!-- scroll gap end -->
 
-
   <!-- 關於我們 -->
-  <section class="w-full h-auto bg-#E0A57E py-60px lg:(pc-px h-screen)">
-    <div class="h-full my-0 mx-auto flex flex-col md:(h-auto my-0 mx-auto) lg:(flex-row gap-50px)">
+  <section class="w-full h-auto bg-#E0A57E py-60px mobile-px md:pad-px lg:(pc-px h-screen)">
+    <div class="h-full my-0 mx-auto flex flex-col md:(h-auto my-0 mx-auto) md_1024:(flex-row gap-50px)">
       <!-- 左區塊 -->
       <div class="w-full flex flex-col items-center justify-between md:(gap-180px) lg:(gap-150px)">
         <!-- 標題 & 描述-->
@@ -183,7 +182,7 @@ onMounted(() => {
         </div>
 
         <!-- 圖片彈跳 & 數字跳動 -->
-        <div class="w-80% flex flex-col flex-nowrap gap-y-50px justify-center items-center md:(flex-row flex-wrap gap-x-80px) lg:(h-auto flex-row flex-wrap gap-x-80px)" ref="main">
+        <div class="w-80% flex flex-col flex-nowrap gap-y-50px justify-center items-center md:(flex-row flex-wrap gap-x-80px) lg:(h-auto)" ref="main">
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
             <img src="/images/index/about_cardPic1.png" alt="" class="block w-153px" />
             <div class="flex flex-col gap-1 leading-50px text-xl">
@@ -218,13 +217,13 @@ onMounted(() => {
         </div>
       </div>
       <!-- 右區塊 -->
-      <div class="w-full h-full relative flex flex-col gap-50px items-center md:(gap-180px) lg:(gap-130px)">
+      <div class="w-full h-full relative flex flex-col gap-50px items-center md:(gap-180px) md_1024:(self-center) lg:(gap-130px self-auto)">	
         <!-- 汽車 -->
         <div class="w-full h-full">
           <img src="/images/index/about_car.png" alt="" class="block w-full" />
         </div>
         <!-- 遙控器 -->
-        <div class="w-full h-full flex flex-col gap-90px items-center md:(flex-row gap-0 items-end) lg:(gap-170px)">
+        <div class="w-full h-full flex flex-col gap-120px items-center md:(flex-row gap-0 items-end) lg:(gap-170px)">
           <div class="w-full text-#fff text-20px font-semibold flex flex-col justify-end gap-20px lg:(w-30% justify-center)">
             <div class="tracking-17px whitespace-nowrap mx-auto my-0">
               <p>讓愛，<br />永不止息</p>
@@ -248,7 +247,7 @@ onMounted(() => {
               <img src="/images/index/about_heart4.png" alt="" class="block w-full" />
             </div>
             <!-- 遙控器本體 -->
-            <div class="w-40% md:(w-70%)">
+            <div class="w-35% md:(w-65%)">
               <img src="/images/index/about_controller.png" alt="" class="block w-full" />
             </div>
           </div>
@@ -270,20 +269,21 @@ onMounted(() => {
 
     <section class="flex flex-col items-center gap-y-8 md:(flex-row gap-x-4 items-end) lg:(w-1000px m-auto gap-x-12)">
       <div>
-        <img src="/images/index/social/oldMan.png" alt="">
+        <img src="/images/index/social/oldMan.png" alt="" />
       </div>
       <div class="w-full">
-        <img src="/images/index/social/title_decorate.png" class="m-auto mb-6" alt="">
+        <img src="/images/index/social/title_decorate.png" class="m-auto mb-6" alt="" />
         <div class="border-t-2 border-b-2 text-center border-black py-40px text-left text-justify relative">
           <span>小驢行以媒合平台改善台灣高齡、偏鄉交通環境，不只受各方肯定及協力報導倡議，做法也可複製可仿效，可做為高齡與偏鄉服務的典範。</span>
-          <div class=
-            "w-160px h-30px border bg-white border-black text-center absolute left-1/2 -bottom-30px -translate-1/2 
-            lg:(hover:(cursor-pointer bg-primary text-white border-white) transition duration-250)
-          ">more</div>
+          <div
+            class="w-160px h-30px border bg-white border-black text-center absolute left-1/2 -bottom-30px -translate-1/2 lg:(hover:(cursor-pointer bg-promary text-white border-white) transition duration-250)"
+          >
+            more
+          </div>
         </div>
       </div>
       <div>
-        <img src="/images/index/social/oldWomen.png" alt="">
+        <img src="/images/index/social/oldWomen.png" alt="" />
       </div>
     </section>
 
@@ -291,7 +291,15 @@ onMounted(() => {
       <!--影片-->
       <div class="mb-58px w-full md_1024:(w-[1/2-(2.5rem/2)])">
         <div class="w-full aspect-[600/330] relative">
-          <iframe class="absolute z-2 w-[calc(100%-15px)]" height="100%" src="https://www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe
+            class="absolute z-2 w-[calc(100%-15px)]"
+            height="100%"
+            src="https://www.youtube.com/embed/sNhXAxNvDTk?si=DhajX-lsTt6BXP_Z"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
           <div class="w-[calc(100%-15px)] bg-sub h-full absolute right-0 -bottom-26px z-1"></div>
           <span class="block w-10px h-10px bg-sub absolute top-[calc((26px/2)-5px)] right-[calc((15px/2)-5px)] rounded-full"></span>
           <span class="block w-10px h-10px bg-sub absolute -bottom-[calc((26px/2)+5px)] left-[calc((15px/2)-5px)] rounded-full"></span>
@@ -302,18 +310,19 @@ onMounted(() => {
         <p class="primary font-700 text-26px mb-30px md:36px">{{item.title}}</p>
         <p class="mb-58px">{{item.subtitle}}</p>
         <div class="border-t border-r border-black relative h-[111px]">
-          <span class="bg-white absolute text-lg -top-14px pr-10px">{{item.content}}</span>
+          <span class="bg-white absolute text-lg -top-14px pr-10px">{{ item.content }}</span>
 
           <div class="text-[#91ABD0] absolute center-vertically">
-            共乘<span class=" text-26px">{{item.visitors}}</span>人次
+            共乘<span class="text-26px">{{ item.visitors }}</span
+            >人次
           </div>
 
           <div class="text-[#91ABD0] absolute -bottom-14px right-10px">
-            總結約<span class=" text-26px">{{item.carbonEmission}}</span>公斤碳排放量
+            總結約<span class="text-26px">{{ item.carbonEmission }}</span
+            >公斤碳排放量
           </div>
         </div>
       </div>
-
     </section>
   </article>
 
@@ -351,8 +360,9 @@ onMounted(() => {
 .banner {
   background: url("/images/index/city.png");
   background-repeat: repeat-x;
-  animation: moveBanner 15s linear infinite;
+  animation: moveBanner 20s linear infinite;
   background-size: cover;
+  overflow: hidden;
 }
 @keyframes moveBanner {
   0% {
@@ -360,7 +370,6 @@ onMounted(() => {
   }
   100% {
     background-position: -3022px 0;
-    /* background-position: -1903px 0; */
   }
 }
 
@@ -373,7 +382,7 @@ onMounted(() => {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-3px);
+    transform: translateY(-1px);
   }
   100% {
     transform: translateY(0);
@@ -396,10 +405,10 @@ onMounted(() => {
 }
 @keyframes moveCar {
   0% {
-    right: 0;
+    right: -20%;
   }
   100% {
-    right: 100%;
+    right: 120%;
   }
 }
 .scroll {
@@ -420,9 +429,25 @@ onMounted(() => {
     opacity: 1;
   }
 }
+
 @media (min-width: 1440px) {
   .banner {
     background-size: auto;
+    animation: moveBanner 15s linear infinite;
+  }
+  .bus {
+    animation: busShock 2s ease infinite;
+  }
+  @keyframes busShock {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 }
 

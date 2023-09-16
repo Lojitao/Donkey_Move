@@ -5,18 +5,27 @@ const menuList = ref([
   {
     id: "1",
     path: "/about",
-    name: "DONKEY MOVE 關於我們",
-    nameForMobile: `DONKEY MOVE<br>關於我們`,
+    name: "DONKEY MOVE\n 關於我們",
   },
   {
     id: "2",
     path: "/informationAndNews",
-    name: "INFORMATION / NEWS  資訊專欄 / 最新消息",
+    name: "INFORMATION / NEWS\n 資訊專欄 / 最新消息",
   },
   {
     id: "3",
     path: "/practiced",
-    name: "SOCIAL PRACTICED 社會實踐",
+    name: "SOCIAL PRACTICED\n 社會實踐",
+  },
+  {
+    id: "4",
+    path: "/historyAndEvolution",
+    name: "HISTORY AND EVOLUTION\n 公司沿革",
+  },
+  {
+    id: "5",
+    path: "/project",
+    name: "PROJECT\n 實績案例",
   }
 ])
 </script>
@@ -33,13 +42,13 @@ const menuList = ref([
 
   <!-- 導覽列 -->
   <Transition name="fade">
-    <nav v-if="menuShow" class="w-full h-screen z-5 bg-[#fff] opacity-85 fixed top-0 right-0 flex items-center justify-center">
-      <NuxtLink @click="menuShow = !menuShow" to="/"  class="block absolute w-15% top-7% left-50% transform -translate-x-1/2 z-2 lg:(w-6%)">
+    <nav v-if="menuShow" class="w-full h-screen z-5 bg-[#fff] opacity-95 fixed top-0 right-0 flex items-center justify-center">
+      <NuxtLink @click="menuShow = !menuShow" to="/"  class="block absolute w-15% top-6% left-50% transform -translate-x-1/2 z-2 md_1024:(w-10%) lg:(w-6% top-5%)">
         <img src="/images/logo.png" alt="小驢行LOGO" class="w-full block" />
       </NuxtLink>
-      <ul class="w-60% flex flex-col gap-50px text-center text-#5A5657 text-xl font-semibold">
+      <ul class="w-80% flex flex-col gap-20px text-center text-#5A5657 text-base font-semibold md:(w-60% text-xl gap-50px)">
         <li v-for="item in menuList" :key="item.id">
-          <NuxtLink @click="menuShow = !menuShow" :to="item.path" class="block hover:text-#ED8E03">{{ item.name }}</NuxtLink>
+          <NuxtLink @click="menuShow = !menuShow" :to="item.path" active-class="active-link" class="block whitespace-pre-wrap md:(whitespace-nowrap) hover:text-#ED8E03">{{ item.name }}</NuxtLink>
         </li>
       </ul>
     </nav>
@@ -79,5 +88,9 @@ const menuList = ref([
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.active-link {
+  color: #ED8E03; /* 或其他你想要的顏色 */
 }
 </style>
