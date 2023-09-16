@@ -16,7 +16,8 @@ export default defineConfig({
     'pc-px':'px-[240px]',
     'pad-px':'px-[20px]',
     'mobile-px':'px-[20px]',
-    'center-vertically':'left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2'
+    'center-vertically':'left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2',
+    'center-horizontal':'left-1/2 -translate-x-1/2'
   },
   rules: [
     ['custom-grid-cols', { 'grid-template-columns': 'auto 1fr 1fr' }],
