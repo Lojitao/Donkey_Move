@@ -355,7 +355,7 @@ onMounted(() => {
 
       <NuxtLink to="/informationAndNews"
         class="w-fit mx-auto flex items-center block border bg-white px-6 py-4 rounded-full border-black text-center 
-          lg:(hover:(cursor-pointer bg-primary text-white border-white)) transition duration-250 group"
+          hover:(cursor-pointer bg-primary text-white border-white) transition duration-250 group"
       >
         <span class="text-xl">View More</span>
         <span class="i-ic-baseline-arrow-forward text-30px group-hover:(translate-x-10px text-white) duration-250 transition"></span>
@@ -418,6 +418,7 @@ onMounted(() => {
           <span class="block w-10px h-10px bg-sub absolute -bottom-[calc((26px/2)+5px)] left-[calc((15px/2)-5px)] rounded-full"></span>
         </div>
       </div>
+
       <!--文字敘述-->
       <div class="w-full md_1024:(w-[1/2-(2.5rem/2)])">
         <p class="primary font-700 text-26px mb-30px md:36px">{{item.title}}</p>
@@ -449,9 +450,7 @@ onMounted(() => {
       </div>
     </header>
     <section class="text-center md:(flex flex-wrap) partnerWrap">
-      <div
-        v-for="(imgSrc, index) in partnerImgs"
-        :key="index"
+      <div v-for="(imgSrc, index) in partnerImgs" :key="index"
         class="w-full border border-b-0 last:border-b border-#DBDBDB py-4 px-3 md:( w-[calc(50%-1.5px)] even:border-l-0) lg:( w-1/5 border-b-1 border-l-0 first:border-l flex items-center justify-center)"
       >
         <img :src="imgSrc" class="w-full" alt="" />

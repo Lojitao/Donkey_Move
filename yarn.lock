@@ -565,6 +565,13 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify-json/healthicons@^1.1.10":
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/@iconify-json/healthicons/-/healthicons-1.1.10.tgz#641aa29cd7dc181d32871758b72d6a7891492b06"
+  integrity sha512-IgKMRcKlyHJE8ItEkOf1qxo8ns/OUPDpwpe8KIYL2/jnmYc4b9SMjGzug5E7G7j2DaYIlAqkG6M9bh8jt6zLTQ==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/ic@^1.1.14":
   version "1.1.14"
   resolved "https://registry.yarnpkg.com/@iconify-json/ic/-/ic-1.1.14.tgz#22497cdaece38bfb10144e0cf5b7d8abe0552218"

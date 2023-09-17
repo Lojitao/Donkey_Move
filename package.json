@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@iconify-json/basil": "^1.1.2",
+    "@iconify-json/healthicons": "^1.1.10",
     "@iconify-json/ic": "^1.1.14",
     "@iconify-json/mdi": "^1.1.54",
     "@nuxt/devtools": "0.8.3",
