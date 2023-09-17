@@ -109,7 +109,19 @@ const renderNewsOrInfoList = computed(() => {
 });
 
 function goNewAndInfoDetail(item){
-  router.push(`/informationAndNews/news/${item.id}`)
+  let type = ""
+    if(checkedTabId.value===1){
+      type = 'news'
+    }
+    if(checkedTabId.value===2){
+      type = 'info'
+    }
+    router.push({
+      path: `/informationAndNews/news/${item.id}`,
+      query: {
+        type: type
+      }
+    });
 }
 
 

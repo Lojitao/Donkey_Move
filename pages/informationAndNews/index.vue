@@ -43,16 +43,16 @@
     <!-- list -->
     <section class="mobile-px mb-[84px] md:pad-px lg:pc-px flex gap-y-8 flex-col justify-center md:(flex-row gap-6 flex-wrap justify-start)">
       <div v-for="item in renderNewsOrInfoList" :key="item.id"
-        @click="goNewAndInfoDetail(item)"
         class="md:(w-[calc(50%-0.75rem)]) lg:(w-[calc(33%-0.75rem)]) relative group"
       >
+        <!-- TODO:要換圖片 -->
         <div class="absolute top-10px w-fit z-3">
           <div class="w-20px h-20px rounded-full bg-white border-2px border-blue-500 absolute top-0 right-8px z-2"></div>
           <img class="transform scale-150 transform rotate-10" src="/images/newsAndInfo/more_icon_02.png" alt="">
           <img class="transform scale-150 -rotate-5 group-hover:(rotate-5) transition" src="/images/newsAndInfo/more_icon_01.png" alt="">
         </div>
         <!-- 圖片 -->
-        <div class="border-r pr-2 pb-2 border-b border-[#3061A7] relative group cursor-pointer">
+        <div @click="goNewAndInfoDetail(item)" class="border-r pr-2 pb-2 border-b border-[#3061A7] relative group cursor-pointer">
           <img class="w-full" :src="item.imageSrc" alt="">
         </div>
         <!-- 內容 -->

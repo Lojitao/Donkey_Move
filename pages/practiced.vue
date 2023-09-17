@@ -13,6 +13,7 @@
           <h2 class="text-40px">社會實踐</h2>
         </div>
       </header>
+      <p class="absolute text-white right-10px bottom-5px">嘉義縣阿里山產業道路</p>
     </div>
     
     <!-- 內容 -->
