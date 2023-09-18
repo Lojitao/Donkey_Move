@@ -5,16 +5,6 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
-// 圖片彈跳 & 數字跳動
-const main = ref()
-let ctx
-
-const state = reactive({
-  num1: 0,
-  num2: 0,
-  num3: 0,
-  num4: 0,
-})
 
 const partnerImgs = ref([
   "/images/index/partner/light.png",
@@ -45,12 +35,23 @@ const socialList = ref(
       carbonEmission:"28090"
     }
   ]
-)
-
+  )
+  
+  // 圖片彈跳 & 數字跳動
+  const main = ref()
+  let ctx
+  
+  const state = reactive({
+    num1: 0,
+    num2: 0,
+    num3: 0,
+    num4: 0,
+  })
+  
 onMounted(() => {
   ctx = gsap.context((self) => {
     const boxes = self.selector(".boxes")
-    boxes.forEach((box) => {
+    boxes.forEach((box, index) => {
       gsap.to(box, {
         y: -100,
         ease: "elastic.out(1, 0.3)",
