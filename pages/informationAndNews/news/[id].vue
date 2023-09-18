@@ -2,7 +2,7 @@
   <main class="min-h-screen">
     <!-- banner -->
     <div class="relative h-[585px] md:h-auto">
-      <img class="w-full h-full object-fill md:hidden" src="/images/newsAndInfo/detail_bg_mobile.png" alt="">
+      <img class="w-full h-full object-cover md:hidden" src="/images/newsAndInfo/detail_bg_mobile.png" alt="">
       <img class="w-full h-full hidden md:block lg:hidden" src="/images/newsAndInfo/detail_bg_pad.png" alt="">
       <img class="w-full h-full hidden lg:block" src="/images/newsAndInfo/detail_bg_pc.png" alt="">
       <img class="absolute center-horizontal top-25px md:top-80px" src="/images/practiced/logo_white.png" alt="">
