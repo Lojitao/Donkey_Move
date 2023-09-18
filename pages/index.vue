@@ -207,7 +207,7 @@ onMounted(() => {
         <img src="/images/index/bike.png" alt="腳踏車" class="block w-10% absolute top-73% left-15% md:(w-8%) md_1024:(top-70%) lg:(w-6% top-62%)" />
 
         <!-- car run -->
-        <div class="car w-30% absolute top-77% md:(w-25%) md_1024:(top-72%) lg:(w-19% top-66%)">
+        <div class="car w-30% absolute top-77% md:(w-25%) md_1024:(top-72%) lg:(w-19% top-65%)">
           <img src="/images/index/car.png" alt="汽車" class="block w-full" />
           <img src="/images/index/car_tire.png" alt="汽車前輪" class="car_tire absolute rotate-180 w-16.5% right-72% top-53%" />
           <img src="/images/index/car_tire.png" alt="汽車後輪" class="car_tire absolute rotate-180 w-16.5% right-7.5% top-53%" />
@@ -476,54 +476,6 @@ onMounted(() => {
 /* new bgImage */
 
 
-@media (min-width: 768px) {
-  .partnerWrap :nth-child(4) {
-    border-bottom: 1px solid #dbdbdb;
-  }
-  .newbgImage{
-    width: 100%;
-    padding-top: 177%;
-    background-image: url('/images/index/newsAndInfo/bg_mobile.png');
-    background-repeat: no-repeat;
-  }
- 
-}
-
-@media (min-width: 1024px){
-  .newbgImage{
-    width: 100%;
-    padding-top: 75%;
-    background-image: url('/images/index/newsAndInfo/bg_pad.png');
-    background-size: cover;
-  }
-}
-
-@media (min-width: 1440px) {
-  .newbgImage{
-    width: 100%;
-    padding-top: 56.25%;
-    background-image: url('/images/index/newsAndInfo/bg_pc.png');
-    background-size: cover;
-  }
-  .banner {
-    background-size: auto;
-    animation: moveBanner 15s linear infinite;
-  }
-  .bus {
-    animation: busShock 2s ease infinite;
-  }
-  @keyframes busShock {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-3px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-}
 
 /* banner run */
 .banner {
@@ -599,5 +551,53 @@ onMounted(() => {
   }
 }
 
+@media (min-width: 768px) {
+  .partnerWrap :nth-child(4) {
+    border-bottom: 1px solid #dbdbdb;
+  }
+  .newbgImage{
+    width: 100%;
+    padding-top: 177%;
+    background-image: url('/images/index/newsAndInfo/bg_mobile.png');
+    background-repeat: no-repeat;
+  }
+ 
+}
+
+@media (min-width: 1024px){
+  .newbgImage{
+    width: 100%;
+    padding-top: 75%;
+    background-image: url('/images/index/newsAndInfo/bg_pad.png');
+    background-size: cover;
+  }
+}
+
+@media (min-width: 1440px) {
+  .newbgImage{
+    width: 100%;
+    padding-top: 56.25%;
+    background-image: url('/images/index/newsAndInfo/bg_pc.png');
+    background-size: cover;
+  }
+  .banner {
+    background-size: auto;
+    animation: moveBanner 15s linear infinite;
+  }
+  .bus {
+    animation: busShock 2s ease infinite;
+  }
+  @keyframes busShock {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
 
 </style>
