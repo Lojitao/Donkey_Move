@@ -1,11 +1,10 @@
 <template>
   <main class="min-h-screen">
     <!-- banner -->
-    <div class="relative">
-      <!-- TODO:換圖片 -->
-      <img class="w-full md:hidden" src="/images/newsAndInfo/mobile_bg.png" alt="">
-      <img class="w-full hidden md:block lg:hidden" src="/images/newsAndInfo/pad_bg.png" alt="">
-      <img class="w-full hidden lg:block" src="/images/newsAndInfo/pc_bg.png" alt="">
+    <div class="relative h-[585px] md:h-auto">
+      <img class="w-full h-full object-fill md:hidden" src="/images/newsAndInfo/detail_bg_mobile.png" alt="">
+      <img class="w-full h-full hidden md:block lg:hidden" src="/images/newsAndInfo/detail_bg_pad.png" alt="">
+      <img class="w-full h-full hidden lg:block" src="/images/newsAndInfo/detail_bg_pc.png" alt="">
       <img class="absolute center-horizontal top-25px md:top-80px" src="/images/practiced/logo_white.png" alt="">
       <header class="mb-50px w-fit absolute center-horizontal top-254px md:top-380px">
         <h2 class="text-60px break-all text-white text-center md:text-left">INFO/</h2>
@@ -19,7 +18,7 @@
 
     <!-- 內容 -->
     <section class="mobile-px md:pad-px lg:pc-px lg:(flex gap-x-8 justify-between) my-15">
-      <div>
+      <div class="mb-8 md:mb-0">
         <p class="text-[30px] text-left">{{renderData.title }}</p>
         <p class="text-[#A8A8A8] text-right">{{renderData.time }}</p>
         <template v-if="queryType==='info'">
@@ -32,7 +31,7 @@
 
       <div>
         <template v-if="queryType==='info'">
-          <div class="hidden lg:(block w-300px flex flex-col gap-y-4 p-4 text-center border border-[#3061A7])">
+          <div class="hidden mx-auto mb-8 lg:(block w-300px flex flex-col gap-y-4 p-4 text-center border border-[#3061A7])">
             <div class="rounded-full m-auto w-200px h-200px border overflow-hidden flex justify-center items-center">
               <img class="w-90% rounded-full" :src="renderData.authorImg" alt="">
             </div>
@@ -40,17 +39,18 @@
             <p>{{renderData.authorSummary}}</p>
           </div>
         </template>
-        <div @click="goNewsAndInfoList()" class="w-fit mt-8 m-auto cursor-pointer flex flex-col text-right transition duration-300 py-16ppx px-8px relative hover:sub-color">
+        <div @click="goNewsAndInfoList()" class="w-fit m-auto cursor-pointer flex flex-col text-right transition duration-300 py-16ppx px-8px relative hover:sub-color">
           <span class="text-40px break-all">BACK TO FORM</span>
           <span class="text-2xl">回上一層</span>
 
-          <div class="w-10px h-10px rounded-full bg-sub absolute left-0px -top-15px transition duration-300"></div>
+          <div class="w-10px h-10px rounded-full bg-sub absolute -left-10px -top-12px transition duration-300"></div>
           
           <!-- 編匡 -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 160"
-            class="absolute w-310px h-140px -top-15px left-0 transition duration-200" 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 120"
+            class="absolute w-330px h-120px center-vertically transition duration-200" 
           >
-            <path d="M0.5 24.3203L28.8557 0.5H339.5V159.5H28.6736H0.5V24.3203Z" fill="none" stroke="#3061A7"/>
+            <!-- <path d="M0.5 24.3203L28.8557 0.5H340.5V140.5H28.6736H0.5V24.3203Z" fill="none" stroke="#3061A7"/> -->
+             <path d="M0.5 24.3203L28.8557 0.5H330V120H28.6736H0.5V24.3203Z" fill="none" stroke="#3061A7"/>
           </svg>
         
         </div>
