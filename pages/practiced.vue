@@ -1,10 +1,10 @@
 <template>
   <main class="min-h-screen">
     <!-- banner -->
-    <div class="relative">
-      <img class="w-full md:hidden" src="/images/practiced/practiced_bg_mobile.png" alt="">
-      <img class="w-full hidden md:block lg:hidden" src="/images/practiced/practiced_bg_ pad.png" alt="">
-      <img class="w-full hidden lg:block" src="/images/practiced/practiced_bg_pc.png" alt="">
+    <div class="relative h-[585px] md:h-auto">
+      <img class="w-full h-full object-cover md:hidden" src="/images/practiced/practiced_bg_mobile.png" alt="">
+      <img class="w-full h-full hidden md:block lg:hidden" src="/images/practiced/practiced_bg_pad.png" alt="">
+      <img class="w-full h-full hidden lg:block" src="/images/practiced/practiced_bg_pc.png" alt="">
       <img class="absolute center-horizontal top-45px md:top-80px" src="/images/practiced/logo_white.png" alt="">
       <header class="mb-50px absolute center-horizontal top-284px md:top-380px">
         <h2 class="text-60px text-white text-center md:text-left">SOCIAL</h2>
