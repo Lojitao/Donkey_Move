@@ -25,105 +25,102 @@ const partnerImgs = ref([
   "/images/index/partner/route9.png",
 ])
 
-const socialList = ref(
-  [
-    {
-      id:"1",
-      vedioSrc:"https://www.youtube.com/embed/_JFnLwWs_Yw?si=FIwex10zQRflv4dJ",
-      title:"1919食物銀行－救減災專案 ",
-      subtitle:"打造友善的叫車預約媒合服務平臺，以移動科技媒合平臺推動「1919食物銀行」以及推動共乘服務，有助減少運輸碳排放。",
-      content:"震災發生後，以服務支持在地",
-      visitors:"28090",
-      carbonEmission:"28090"
-    },
-    {
-      id:"2",
-      vedioSrc:"https://www.youtube.com/embed/_JFnLwWs_Yw?si=FIwex10zQRflv4dJ",
-      title:"1919食物銀行－救減災專案 ",
-      subtitle:"打造友善的叫車預約媒合服務平臺，以移動科技媒合平臺推動「1919食物銀行」以及推動共乘服務，有助減少運輸碳排放。",
-      content:"震災發生後，以服務支持在地",
-      visitors:"28090",
-      carbonEmission:"28090"
-    }
-  ]
-)
+const socialList = ref([
+  {
+    id: "1",
+    vedioSrc: "https://www.youtube.com/embed/_JFnLwWs_Yw?si=FIwex10zQRflv4dJ",
+    title: "1919食物銀行－救減災專案 ",
+    subtitle: "打造友善的叫車預約媒合服務平臺，以移動科技媒合平臺推動「1919食物銀行」以及推動共乘服務，有助減少運輸碳排放。",
+    content: "震災發生後，以服務支持在地",
+    visitors: "28090",
+    carbonEmission: "28090",
+  },
+  {
+    id: "2",
+    vedioSrc: "https://www.youtube.com/embed/_JFnLwWs_Yw?si=FIwex10zQRflv4dJ",
+    title: "1919食物銀行－救減災專案 ",
+    subtitle: "打造友善的叫車預約媒合服務平臺，以移動科技媒合平臺推動「1919食物銀行」以及推動共乘服務，有助減少運輸碳排放。",
+    content: "震災發生後，以服務支持在地",
+    visitors: "28090",
+    carbonEmission: "28090",
+  },
+])
 
 let checkedTabId = ref(1)
 const newsAndInfoTabs = ref([
   {
-    id:1,
-    zh_tw:'最新消息',
-    en:'LATEST NEWS'
+    id: 1,
+    zh_tw: "最新消息",
+    en: "LATEST NEWS",
   },
   {
-    id:2,
-    zh_tw:'資訊專欄',
-    en:'INFORMATION'
-  }
+    id: 2,
+    zh_tw: "資訊專欄",
+    en: "INFORMATION",
+  },
 ])
 
 const newsList = ref([
   {
-    id:1,
-    time:"2023-02-10",
-    title:"醫療園所接送服務七月份正式開跑！"
+    id: 1,
+    time: "2023-02-10",
+    title: "醫療園所接送服務七月份正式開跑！",
   },
   {
-    id:2,
-    time:"2023-02-10",
-    title:"醫療園所接送服務七月份正式開跑！"
+    id: 2,
+    time: "2023-02-10",
+    title: "醫療園所接送服務七月份正式開跑！",
   },
   {
-    id:3,
-    time:"2023-02-10",
-    title:"醫療園所接送服務七月份正式開跑！"
-  }
+    id: 3,
+    time: "2023-02-10",
+    title: "醫療園所接送服務七月份正式開跑！",
+  },
 ])
 
 const infoList = ref([
   {
-    id:1,
-    time:"2023-02-10",
-    title:"資訊專欄接送服務七月份正式開跑！"
+    id: 1,
+    time: "2023-02-10",
+    title: "資訊專欄接送服務七月份正式開跑！",
   },
   {
-    id:2,
-    time:"2023-02-10",
-    title:"醫資訊專欄接送服務七月份正式開跑！"
+    id: 2,
+    time: "2023-02-10",
+    title: "醫資訊專欄接送服務七月份正式開跑！",
   },
   {
-    id:3,
-    time:"2023-02-10",
-    title:"資訊專欄接送服務七月份正式開跑！"
-  }
+    id: 3,
+    time: "2023-02-10",
+    title: "資訊專欄接送服務七月份正式開跑！",
+  },
 ])
 
 const renderNewsOrInfoList = computed(() => {
   if (checkedTabId.value === 1) {
-    return newsList.value;
+    return newsList.value
   }
   if (checkedTabId.value === 2) {
-    return infoList.value;
+    return infoList.value
   }
-  return [];
-});
+  return []
+})
 
-function goNewAndInfoDetail(item){
+function goNewAndInfoDetail(item) {
   let type = ""
-    if(checkedTabId.value===1){
-      type = 'news'
-    }
-    if(checkedTabId.value===2){
-      type = 'info'
-    }
-    router.push({
-      path: `/informationAndNews/news/${item.id}`,
-      query: {
-        type: type
-      }
-    });
+  if (checkedTabId.value === 1) {
+    type = "news"
+  }
+  if (checkedTabId.value === 2) {
+    type = "info"
+  }
+  router.push({
+    path: `/informationAndNews/news/${item.id}`,
+    query: {
+      type: type,
+    },
+  })
 }
-
 
 onMounted(() => {
   ctx = gsap.context((self) => {
@@ -131,12 +128,13 @@ onMounted(() => {
     boxes.forEach((box) => {
       gsap.to(box, {
         y: -100,
-        ease: "elastic.out(1, 0.3)",
+        // ease: "elastic.out(1, 0.3)",
+        ease: "power3.inOut",
         scrollTrigger: {
           trigger: box,
           start: "bottom-=200 bottom",
           // start: "bottom bottom",
-          end: "center-=150 center",
+          end: "bottom bottom",
           // end: "top top",
           scrub: true,
         },
@@ -149,13 +147,12 @@ onMounted(() => {
       num2: 116565,
       num3: 116565,
       num4: 116565,
-      duration: 10,
       scrollTrigger: {
         trigger: ".boxes",
         start: "bottom-=200 bottom",
-        // start: "bottom bottom",
-        // end: "center-=120 center",
-        end: "bottom bottom",
+        // start: "center bottom",
+        end: "center-=120 center",
+        // end: "bottom bottom",
         scrub: true,
       },
     })
@@ -197,17 +194,17 @@ onMounted(() => {
       <!-- banner run -->
       <div class="banner w-full h-full relative">
         <!-- bus run -->
-        <div class="z-1 w-50% absolute top-81% left-50% transform -translate-x-1/2 md:(w-40%) md_1024:(top-72%) lg:(w-34% top-62%)">
+        <div class="z-1 w-50% absolute top-81% left-50% transform -translate-x-1/2 md:(w-40%) md_1024:(top-72%) lg:(w-34% top-65%)">
           <img src="/images/index/bus.png" alt="巴士" class="bus block w-full" />
           <img src="/images/index/bus_tire.png" alt="巴士後輪" class="bus_tire absolute rotate-180 w-10.5% right-69.3% top-70.5%" />
           <img src="/images/index/bus_tire.png" alt="巴士前輪" class="bus_tire absolute rotate-180 w-10.5% right-9% top-70.5%" />
         </div>
 
         <!-- bike -->
-        <img src="/images/index/bike.png" alt="腳踏車" class="block w-10% absolute top-73% left-15% md:(w-8%) md_1024:(top-70%) lg:(w-6% top-62%)" />
+        <img src="/images/index/bike.png" alt="腳踏車" class="block w-10% absolute top-73% left-15% md:(w-8%) md_1024:(top-70%) lg:(w-6% top-67%)" />
 
         <!-- car run -->
-        <div class="car w-30% absolute top-77% md:(w-25%) md_1024:(top-72%) lg:(w-19% top-65%)">
+        <div class="car w-30% absolute top-77% md:(w-25%) md_1024:(top-72%) lg:(w-19% top-70%)">
           <img src="/images/index/car.png" alt="汽車" class="block w-full" />
           <img src="/images/index/car_tire.png" alt="汽車前輪" class="car_tire absolute rotate-180 w-16.5% right-72% top-53%" />
           <img src="/images/index/car_tire.png" alt="汽車後輪" class="car_tire absolute rotate-180 w-16.5% right-7.5% top-53%" />
@@ -216,21 +213,28 @@ onMounted(() => {
     </div>
   </section>
 
-  <!-- scroll gap -->
-  <!-- <div class="scroll absolute bottom-0 left-1/2 transform -translate-x-1/2 w-100px h-38px flex items-end justify-center bg-#E0A57E pb-1">
-    <p class="text-xs text-#fff">scorll</p>
-    <div class="svg-container w-0 h-0">
-      <svg viewBox="0 0 202.9 10">
-        <clipPath id="menu" clipPathUnits="objectBoundingBox" transform="scale(0.0049285362247413 0.021978021978022)">
-          <path
-            d="M6.7,45.5c5.7,0.1,14.1-0.4,23.3-4c5.7-2.3,9.9-5,18.1-10.5c10.7-7.1,11.8-9.2,20.6-14.3c5-2.9,9.2-5.2,15.2-7
-            c7.1-2.1,13.3-2.3,17.6-2.1c4.2-0.2,10.5,0.1,17.6,2.1c6.1,1.8,10.2,4.1,15.2,7c8.8,5,9.9,7.1,20.6,14.3c8.3,5.5,12.4,8.2,18.1,10.5
-            c9.2,3.6,17.6,4.2,23.3,4H6.7z"
-          />
-        </clipPath>
-      </svg>
-    </div>
-  </div> -->
+
+  
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="1095" viewBox="0 0 1920 1095" fill="none">
+    <g filter="url(#filter0_d_396_2286)">
+      <path
+        d="M0 -66V1041.84C0 1063.16 17.28 1080.44 38.6 1080.44H918.56C950.46 1075.5 935.42 1043.52 960 1043.52C984.58 1043.52 969.36 1075.51 1001.42 1080.44H1881.67C1902.99 1080.44 1920.27 1063.16 1920.27 1041.84V-66H0Z"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <filter id="filter0_d_396_2286" x="-10" y="-72" width="1940.27" height="1166.44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dy="4" />
+        <feGaussianBlur stdDeviation="5" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_396_2286" />
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_396_2286" result="shape" />
+      </filter>
+    </defs>
+  </svg> -->
   <!-- scroll gap end -->
 
   <!-- 關於我們 -->
@@ -295,7 +299,7 @@ onMounted(() => {
         </div>
       </div>
       <!-- 右區塊 -->
-      <div class="w-full h-full relative flex flex-col gap-50px items-center md:(gap-180px) md_1024:(self-center) lg:(gap-130px self-auto)">	
+      <div class="w-full h-full relative flex flex-col gap-50px items-center md:(gap-180px) md_1024:(self-center) lg:(gap-130px self-auto)">
         <!-- 汽車 -->
         <div class="w-full h-full">
           <img src="/images/index/about_car.png" alt="" class="block w-full" />
@@ -338,23 +342,27 @@ onMounted(() => {
   <article class="mobile-px pt-6 md:pt-0 md:pad-px lg:pc-px mb-60px newbgImage md:(relative)">
     <div class="bg-white md:(left-0 -bottom-1px absolute px-[65px] pt-10 rounded-tr-[60px]) md_1024:(px-[20px]) lg:(px-[325px])">
       <section class="flex flex-col items-center md_1024:(flex flex-row justify-center) mb-40px">
-        <div v-for="tab in newsAndInfoTabs" :key="tab.id" @click="checkedTabId = tab.id"
-          :class="{'color-[#5A5657] border border-black rounded-tl-[10px] rounded-tr-[40px] rounded-br-[10px] rounded-bl-[40px]':checkedTabId===tab.id,'color-[#ABABAB]':checkedTabId!==tab.id}" 
+        <div
+          v-for="tab in newsAndInfoTabs"
+          :key="tab.id"
+          @click="checkedTabId = tab.id"
+          :class="{
+            'color-[#5A5657] border border-black rounded-tl-[10px] rounded-tr-[40px] rounded-br-[10px] rounded-bl-[40px]': checkedTabId === tab.id,
+            'color-[#ABABAB]': checkedTabId !== tab.id,
+          }"
           class="w-fit cursor-pointer flex flex-col text-50px transition duration-300 p-50px relative hover:color-[#5A5657]"
         >
-          <span class="break-all">{{tab.en}}</span>
-          <span>{{tab.zh_tw}}</span>
-          <div 
-            :class="{'block':checkedTabId===tab.id,'hidden':checkedTabId!==tab.id}" 
+          <span class="break-all">{{ tab.en }}</span>
+          <span>{{ tab.zh_tw }}</span>
+          <div
+            :class="{ block: checkedTabId === tab.id, hidden: checkedTabId !== tab.id }"
             class="w-10px h-10px rounded-full bg-black absolute right-15px bottom-15px transition duration-300"
           ></div>
         </div>
       </section>
 
       <section class="flex flex-col gap-y-10 mb-4 0px">
-        <div @click="goNewAndInfoDetail(item)" v-for="item in renderNewsOrInfoList" :key="item.id"
-          class="border-b pb-6"
-        >
+        <div @click="goNewAndInfoDetail(item)" v-for="item in renderNewsOrInfoList" :key="item.id" class="border-b pb-6">
           <div class="border-r border-b border-black rounded-br-[40px] relative group cursor-pointer">
             <span class="text-[#39383A] font-light">{{ item.time }}</span>
             <p class="text-24px font-bold">{{ item.title }}</p>
@@ -365,18 +373,18 @@ onMounted(() => {
         </div>
       </section>
 
-      <NuxtLink to="/informationAndNews"
-        class="w-fit mx-auto flex items-center block border bg-white px-6 py-4 rounded-full border-black text-center 
-          hover:(cursor-pointer bg-primary text-white border-white) transition duration-250 group"
+      <NuxtLink
+        to="/informationAndNews"
+        class="w-fit mx-auto flex items-center block border bg-white px-6 py-4 rounded-full border-black text-center hover:(cursor-pointer bg-primary text-white border-white) transition duration-250 group"
       >
         <span class="text-xl">View More</span>
         <span class="i-ic-baseline-arrow-forward text-30px group-hover:(translate-x-10px text-white) duration-250 transition"></span>
       </NuxtLink>
 
       <!-- 弧度裝飾 -->
-      <div class="hidden md:(block absolute -right-50px bottom-0) ">
+      <div class="hidden md:(block absolute -right-50px bottom-0)">
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="51" viewBox="0 0 50 51" fill="none">
-          <path d="M0 0.182617V50.1826H50C22.3859 50.1826 0 27.7968 0 0.182617Z" fill="white"/>
+          <path d="M0 0.182617V50.1826H50C22.3859 50.1826 0 27.7968 0 0.182617Z" fill="white" />
         </svg>
       </div>
     </div>
@@ -400,7 +408,8 @@ onMounted(() => {
         <img src="/images/index/social/title_decorate.png" class="m-auto mb-6" alt="" />
         <div class="border-t-2 border-b-2 text-center border-black py-40px text-left text-justify relative">
           <span>小驢行以媒合平台改善台灣高齡、偏鄉交通環境，不只受各方肯定及協力報導倡議，做法也可複製可仿效，可做為高齡與偏鄉服務的典範。</span>
-          <NuxtLink to="/practiced"
+          <NuxtLink
+            to="/practiced"
             class="w-160px h-30px border bg-white border-black text-center absolute left-1/2 -bottom-30px -translate-1/2 lg:(hover:(cursor-pointer bg-primary text-white border-white) transition duration-250)"
           >
             more
@@ -433,8 +442,8 @@ onMounted(() => {
 
       <!--文字敘述-->
       <div class="w-full md_1024:(w-[1/2-(2.5rem/2)])">
-        <p class="primary font-700 text-26px mb-30px md:36px">{{item.title}}</p>
-        <p class="mb-58px">{{item.subtitle}}</p>
+        <p class="primary font-700 text-26px mb-30px md:36px">{{ item.title }}</p>
+        <p class="mb-58px">{{ item.subtitle }}</p>
         <div class="border-t border-r border-black relative h-[111px]">
           <span class="bg-white absolute text-lg -top-14px pr-10px">{{ item.content }}</span>
 
@@ -462,26 +471,25 @@ onMounted(() => {
       </div>
     </header>
     <section class="text-center md:(flex flex-wrap) partnerWrap">
-      <div v-for="(imgSrc, index) in partnerImgs" :key="index"
+      <div
+        v-for="(imgSrc, index) in partnerImgs"
+        :key="index"
         class="w-full border border-b-0 last:border-b border-#DBDBDB py-4 px-3 md:( w-[calc(50%-1.5px)] even:border-l-0) lg:( w-1/5 border-b-1 border-l-0 first:border-l flex items-center justify-center)"
       >
         <img :src="imgSrc" class="w-full" alt="" />
       </div>
     </section>
   </article>
-
 </template>
 
 <style scoped>
 /* new bgImage */
 
-
-
 /* banner run */
 .banner {
   background: url("/images/index/city.png");
   background-repeat: repeat-x;
-  animation: moveBanner 20s linear infinite;
+  animation: moveBanner 25s linear infinite;
   background-size: cover;
   overflow: hidden;
 }
@@ -522,7 +530,7 @@ onMounted(() => {
 }
 /* car */
 .car {
-  animation: moveCar 6s linear infinite;
+  animation: moveCar 8s linear infinite;
 }
 @keyframes moveCar {
   0% {
@@ -534,55 +542,40 @@ onMounted(() => {
 }
 .scroll {
   clip-path: url(#menu);
-  animation: scroll 1.5s linear infinite;
-}
-@keyframes scroll {
-  0% {
-    brightness: 1.5;
-    opacity: 1;
-  }
-  50% {
-    brightness: 1;
-    opacity: 0.8;
-  }
-  100% {
-    brightness: 1.5;
-    opacity: 1;
-  }
 }
 
 @media (min-width: 768px) {
   .partnerWrap :nth-child(4) {
     border-bottom: 1px solid #dbdbdb;
   }
-  .newbgImage{
+  .newbgImage {
     width: 100%;
     padding-top: 177%;
-    background-image: url('/images/index/newsAndInfo/bg_mobile.png');
+    background-image: url("/images/index/newsAndInfo/bg_mobile.png");
     background-repeat: no-repeat;
   }
- 
 }
 
-@media (min-width: 1024px){
-  .newbgImage{
+@media (min-width: 1024px) {
+  .newbgImage {
     width: 100%;
     padding-top: 75%;
-    background-image: url('/images/index/newsAndInfo/bg_pad.png');
+    background-image: url("/images/index/newsAndInfo/bg_pad.png");
     background-size: cover;
   }
 }
 
 @media (min-width: 1440px) {
-  .newbgImage{
+  .newbgImage {
     width: 100%;
     padding-top: 56.25%;
-    background-image: url('/images/index/newsAndInfo/bg_pc.png');
+    background-image: url("/images/index/newsAndInfo/bg_pc.png");
     background-size: cover;
   }
   .banner {
-    background-size: auto;
-    animation: moveBanner 15s linear infinite;
+    /* background-size: auto; */
+    animation: moveBanner 20s linear infinite;
+    background-size: cover;
   }
   .bus {
     animation: busShock 2s ease infinite;
@@ -599,5 +592,4 @@ onMounted(() => {
     }
   }
 }
-
 </style>
