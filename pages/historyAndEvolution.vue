@@ -56,9 +56,9 @@
       </div>
 
       <div class="w-90% mx-auto mb-60px flex flex-col gap-5 items-center justify-center md:(mb-180px gap-7.5) md_1024:(w-85% items-start) lg:(w-60%)">
-        <h6 class="text-22px text-#494545 font-bold md:(text-48px) md_1024:(w-45%)">調度全台1800輛服務車輛</h6>
+        <h6 class="text-22px text-#494545 font-bold whitespace-nowrap md:(text-48px) md_1024:(whitespace-pre-wrap)">{{ `調度全台1800輛\n服務車輛` }}</h6>
         <div class="w-full flex flex-col items-center justify-center gap-7.5 md:(gap-10) md_1024:(flex-row justify-between)">
-          <p class="text-#F2A825 font-bold md:(text-20px)">總媒合兩萬七千趟的偏鄉車趟</p>
+          <p class="text-#F2A825 font-bold md:(text-20px whitespace-nowrap)">總媒合兩萬七千趟的偏鄉車趟</p>
           <div class="w-80% md_1024:(w-60%)">
             <img src="/images/history/bus.png" alt="" class="block w-full">
           </div>

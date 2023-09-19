@@ -15,7 +15,7 @@
       </header>
     </div>
 
-    <section class="background w-full h-full py-60px mobile-px md:pad-px lg:(pc-px h-2626px py-120px)">
+    <section class="background w-full h-full py-60px mobile-px md:pad-px lg:(pc-px h-full py-120px)">
       <h4 class="text-28px text-center font-bold md:(text-40px) md_1024:(whitespace-nowrap text-38px) lg:(text-40px)">
         全台最大
         <p class="text-32px md:(text-64px) lg:(inline)">「無障礙福祉車輛」</p>

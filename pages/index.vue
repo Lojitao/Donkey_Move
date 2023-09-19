@@ -213,8 +213,6 @@ onMounted(() => {
     </div>
   </section>
 
-
-  
   <!-- <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="1095" viewBox="0 0 1920 1095" fill="none">
     <g filter="url(#filter0_d_396_2286)">
       <path
@@ -266,7 +264,7 @@ onMounted(() => {
         <!-- 圖片彈跳 & 數字跳動 -->
         <div class="w-80% flex flex-col flex-nowrap gap-y-50px justify-center items-center md:(flex-row flex-wrap gap-x-80px) lg:(h-auto)" ref="main">
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
-            <img src="/images/index/about_cardPic1.png" alt="" class="block w-153px" />
+            <img src="/images/index/about_cardPic1.png" alt="" class="block w-90%" />
             <div class="flex flex-col gap-1 leading-50px text-xl">
               <p class="whitespace-nowrap text-#fff text-lg font-semibold">總趟次</p>
               <div class="text-#fff text-lg font-semibold">{{ state.num1.toFixed() }} 次</div>
@@ -274,7 +272,7 @@ onMounted(() => {
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
-            <img src="/images/index/about_cardPic2.png" alt="" class="block w-137px" />
+            <img src="/images/index/about_cardPic2.png" alt="" class="block w-81%" />
             <div class="flex flex-col gap-1 leading-50px text-xl">
               <p class="whitespace-nowrap text-#fff text-lg font-semibold">總趟次</p>
               <div class="text-#fff text-lg font-semibold">{{ state.num2.toFixed() }} 次</div>
@@ -282,7 +280,7 @@ onMounted(() => {
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
-            <img src="/images/index/about_cardPic3.png" alt="" class="block w-167px" />
+            <img src="/images/index/about_cardPic3.png" alt="" class="block w-98%" />
             <div class="flex flex-col gap-1 leading-50px text-xl">
               <p class="whitespace-nowrap text-#fff text-lg font-semibold">總趟次</p>
               <div class="text-#fff text-lg font-semibold">{{ state.num3.toFixed() }} 次</div>
@@ -290,7 +288,7 @@ onMounted(() => {
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
-            <img src="/images/index/about_cardPic4.png" alt="" class="block w-135px" />
+            <img src="/images/index/about_cardPic4.png" alt="" class="block w-79%" />
             <div class="flex flex-col gap-1 leading-50px text-xl">
               <p class="whitespace-nowrap text-#fff text-lg font-semibold">總趟次</p>
               <div class="text-#fff text-lg font-semibold">{{ state.num4.toFixed() }} 次</div>
@@ -574,8 +572,16 @@ onMounted(() => {
   }
   .banner {
     /* background-size: auto; */
-    animation: moveBanner 20s linear infinite;
+    animation: moveBanner 21s linear infinite;
     background-size: cover;
+  }
+  @keyframes moveBanner {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -3022px 0;
+    }
   }
   .bus {
     animation: busShock 2s ease infinite;

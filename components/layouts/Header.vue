@@ -46,7 +46,7 @@ const menuList = ref([
       <NuxtLink @click="menuShow = !menuShow" to="/"  class="block absolute w-15% top-6% left-50% transform -translate-x-1/2 z-2 md_1024:(w-10%) lg:(w-6% top-5%)">
         <img src="/images/logo.png" alt="小驢行LOGO" class="w-full block" />
       </NuxtLink>
-      <ul class="w-80% flex flex-col gap-20px text-center text-#5A5657 text-base font-semibold md:(w-60% text-xl gap-50px)">
+      <ul class="w-80% flex flex-col gap-20px text-center text-#5A5657 text-base font-semibold md:(w-60% text-xl gap-50px) lg:(pt-10)">
         <li v-for="item in menuList" :key="item.id">
           <NuxtLink @click="menuShow = !menuShow" :to="item.path" active-class="active-link" class="block whitespace-pre-wrap md:(whitespace-nowrap) hover:text-#ED8E03">{{ item.name }}</NuxtLink>
         </li>
