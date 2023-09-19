@@ -27,9 +27,12 @@
             <span class="text-[#A8A8A8]">{{renderData.viewCount }}</span>
           </div>
         </template>
+        <section>
+          <div v-html="renderData.content"></div>
+        </section>
       </div>
 
-      <div>
+      <div class="flex-shrink-0">
         <template v-if="queryType==='info'">
           <div class="hidden mx-auto mb-8 lg:(block w-300px flex flex-col gap-y-4 p-4 text-center border border-[#3061A7])">
             <div class="rounded-full m-auto w-200px h-200px border overflow-hidden flex justify-center items-center">
@@ -71,21 +74,24 @@
   const newsList = ref([
     {
       id:1,
-      time:"2023-02-10",
+      time:"2021-08-14",
       title:"醫逢甲大學衍生企業—小驢行 勇奪2022遠見CSR暨ESG企業社會責任獎",
-      imageSrc:"/images/newsAndInfo/default.png"
+      imageSrc:"/images/newsAndInfo/default.png",
+      content:""
     },
     {
       id:2,
       time:"2023-02-10",
       title:"逢甲大學衍生企業「小驢行」 獲選為2030 Excellent Impact Maker",
-      imageSrc:"/images/newsAndInfo/default.png"
+      imageSrc:"/images/newsAndInfo/default.png",
+      content:""
     },
     {
       id:3,
       time:"2023-02-10",
       title:"逢甲參與APEC研討會 分享減少浪費解方：台東1919惜食運輸接力專案",
-      imageSrc:"/images/newsAndInfo/default.png"
+      imageSrc:"/images/newsAndInfo/default.png",
+      content:""
     }
   ])
     
@@ -99,7 +105,8 @@
       authorImg:"/images/newsAndInfo/author.png",
       authorSummary:"什麼是入世？什麼是出世？經世濟民是久遠的事？什麼是學術？什麼是學者？學術關乎社會什麼事？入世學者，跨越人文與科學，鏈結理論與實務；學者入世，用文字記錄時代，以行踐參與歷史。",
       title:"面向高齡社會，我們需要的或許不只是高科技！",
-      imageSrc:"/images/newsAndInfo/default.png"
+      imageSrc:"/images/newsAndInfo/default.png",
+      content:""
     },
     {
       id:2,
@@ -109,7 +116,8 @@
       authorImg:"/images/newsAndInfo/author.png",
       authorSummary:"什麼是入世？什麼是出世？經世濟民是久遠的事？什麼是學術？什麼是學者？學術關乎社會什麼事？入世學者，跨越人文與科學，鏈結理論與實務；學者入世，用文字記錄時代，以行踐參與歷史。",
       title:"讓「類火車」不再「累火車」！台東交通接駁專案給韌性城市的思考",
-      imageSrc:"/images/newsAndInfo/default.png"
+      imageSrc:"/images/newsAndInfo/default.png",
+      content:""
     },
     {
       id:3,
@@ -119,7 +127,8 @@
       authorImg:"/images/newsAndInfo/author.png",
       authorSummary:"什麼是入世？什麼是出世？經世濟民是久遠的事？什麼是學術？什麼是學者？學術關乎社會什麼事？入世學者，跨越人文與科學，鏈結理論與實務；學者入世，用文字記錄時代，以行踐參與歷史。",
       title:"避免防疫破口，用長照專車載陽性者回家隔離吧！",
-      imageSrc:"/images/newsAndInfo/default.png"
+      imageSrc:"/images/newsAndInfo/default.png",
+      content:""
     }
   ])
 
@@ -141,3 +150,17 @@
     renderData.value = targetList.find(item => item.id === itemId) // 使用 find 方法找到匹配的項目
   })
 </script>
+
+
+
+<style scoped>
+  h2{
+    font-size: 30px !important;
+  }
+  p{
+    margin-bottom: 10px !important;
+  }
+  a{
+    color:blue !important;
+  }
+</style>
