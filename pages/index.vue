@@ -54,7 +54,7 @@ let checkedTabId = ref(1)
 const newsAndInfoTabs = ref([
   {
     id: 1,
-    zh_tw: "最新消息",
+    zh_tw: "重點訊息",
     en: "LATEST NEWS",
   },
   {

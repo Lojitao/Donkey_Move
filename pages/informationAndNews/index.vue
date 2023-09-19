@@ -10,7 +10,7 @@
         <h2 class="text-60px break-all text-white text-center md:text-left">INFO/</h2>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
           <h2 class="text-60px font-medium">NEWS</h2>
-          <h2 class="text-40px">資訊專欄/最新消息</h2>
+          <h2 class="text-40px">資訊專欄/重點訊息</h2>
         </div>
       </header>
       <p class="absolute text-white right-10px bottom-5px">新竹縣湖口鄉</p>
@@ -111,7 +111,7 @@
     },
     {
       id:1,
-      zh_tw:'最新消息',
+      zh_tw:'重點訊息',
       en:'LATEST NEWS'
     }
   ])

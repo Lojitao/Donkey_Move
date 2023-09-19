@@ -10,7 +10,7 @@ const menuList = ref([
   {
     id: "2",
     path: "/informationAndNews",
-    name: "INFORMATION / NEWS\n 資訊專欄 / 最新消息",
+    name: "INFORMATION / NEWS\n 資訊專欄 / 重點訊息",
   },
   {
     id: "3",
