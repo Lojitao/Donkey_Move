@@ -61,9 +61,18 @@
           <img class="transform scale-150 -rotate-5 group-hover:(rotate-5) transition" src="/images/newsAndInfo/more_icon_01.png" alt="">
         </div>
         <!-- 圖片 -->
-        <div @click="goNewAndInfoDetail(item)" class="border-r pr-2 pb-2 border-b border-[#3061A7] relative group cursor-pointer">
-          <img class="w-full" :src="item.imageSrc" alt="">
-        </div>
+        <template v-if="item.isLink">
+          <a v-if="item.isLink" target="_blank" :href="item.isLink" class="aspect-ratio-[4/3] block border-r pr-2 pb-2 border-b border-[#3061A7] relative group cursor-pointer">
+            <img class="w-full h-full object-cover" :src="item.imageSrc" alt="">
+          </a>
+        </template>
+
+        <template v-if="!item.isLink">
+          <div  @click="goNewAndInfoDetail(item)" class="border-r aspect-ratio-[4/3] pr-2 pb-2 border-b border-[#3061A7] relative group cursor-pointer">
+            <img class="w-full h-full object-cover" :src="item.imageSrc" alt="">
+          </div>
+        </template>
+        
         <!-- 內容 -->
         <div class="flex flex-col gap-y-2">
           <!-- 標題 -->
@@ -111,21 +120,33 @@
   const newsList = ref([
     {
       id:1,
-      time:"2023-02-10",
-      title:"醫逢甲大學衍生企業—小驢行 勇奪2022遠見CSR暨ESG企業社會責任獎",
-      imageSrc:"/images/newsAndInfo/news/04_0.png"
+      time:"2023/07/24",
+      title:"小驢行與1919食物銀行及各單位合作帶動偏鄉惜食運輸，成果至APEC國際研討會分享",
+      imageSrc:"/images/newsAndInfo/news/01.jpg",
     },
     {
       id:2,
-      time:"2023-02-10",
-      title:"逢甲大學衍生企業「小驢行」 獲選為2030 Excellent Impact Maker",
-      imageSrc:"/images/newsAndInfo/news/03_0.png"
+      time:"2022/12/20",
+      title:"小驢行TTGO系統協助花東面對災後運輸困境",
+      imageSrc:"/images/newsAndInfo/news/02.jpg"
     },
     {
       id:3,
-      time:"2023-02-10",
-      title:"逢甲參與APEC研討會 分享減少浪費解方：台東1919惜食運輸接力專案",
-      imageSrc:"/images/newsAndInfo/news/02_0.png"
+      time:"2022/12/20",
+      title:"小驢行獲遠見雜誌肯定，得到2022第18屆CSR暨ESG企業社會責任獎",
+      imageSrc:"/images/newsAndInfo/news/03.jpg"
+    },
+    {
+      id:4,
+      time:"2021/11/24",
+      title:"小驢行與產官學研一同持續倡議，成功推動偏鄉客貨共乘共載修法",
+      imageSrc:"/images/newsAndInfo/news/04.jpg"
+    },
+    {
+      id:5,
+      time:"2021/08/14",
+      title:"小驢行與各車隊及公私部門合作，讓確診者安心隔離、安心返家",
+      imageSrc:"/images/newsAndInfo/news/05.jpg"
     }
   ])
   
@@ -133,27 +154,48 @@
   const infoList = ref([
     {
       id:1,
-      time:"2023-02-10",
+      time:"2023-09-12",
       viewCount:2541,
-      author:"侯勝宗",
-      title:"面向高齡社會，我們需要的或許不只是高科技！",
-      imageSrc:"/images/newsAndInfo/info/01_0.png"
+      author:"",
+      title:"【即食專送】數位專題：串起偏鄉的食醫助行",
+      imageSrc:"/images/newsAndInfo/info/01.jpg",
+      isLink:"https://visionproject.org.tw/project/cherish-food"
     },
     {
       id:2,
-      time:"2023-02-10",
+      time:"2023-09-12",
       viewCount:3973,
-      author:"侯勝宗",
-      title:"讓「類火車」不再「累火車」！台東交通接駁專案給韌性城市的思考",
-      imageSrc:"/images/newsAndInfo/info/05_0.png"
+      author:"",
+      title:"【即食專送1】把城市多餘的食物送到有需要的偏鄉",
+      imageSrc:"/images/newsAndInfo/info/02.jpg",
+      isLink:""
     },
     {
       id:3,
-      time:"2023-02-10",
+      time:"2023-09-12",
       viewCount:2052,
-      author:"侯勝宗",
-      title:"避免防疫破口，用長照專車載陽性者回家隔離吧！",
-      imageSrc:"/images/newsAndInfo/info/06_0.png"
+      author:"",
+      title:"【即食專送2】偏鄉中的偏鄉、資源遙不可及的南溪部落",
+      imageSrc:"/images/newsAndInfo/info/03.jpg",
+      isLink:""
+    },
+    {
+      id:4,
+      time:"2022/12/20",
+      viewCount:4067,
+      author:"",
+      title:"照顧服務的新未來 銀髮管家的創新服務",
+      imageSrc:"/images/newsAndInfo/info/04.jpg",
+      isLink:""
+    },
+    {
+      id:5,
+      time:"2022/04/25",
+      viewCount:3896,
+      author:"",
+      title:"今日的疫情 明日社會的新常態",
+      imageSrc:"/images/newsAndInfo/info/05.jpg",
+      isLink:""
     }
   ]) 
 

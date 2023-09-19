@@ -63,36 +63,39 @@ const newsAndInfoTabs = ref([
 const newsList = ref([
   {
     id: 1,
-    time: "2023-02-10",
-    title: "醫療園所接送服務七月份正式開跑！",
+    time: "2023/07/24",
+    title: "小驢行與1919食物銀行及各單位合作帶動偏鄉惜食運輸，成果至APEC國際研討會分享",
   },
   {
     id: 2,
-    time: "2023-02-10",
-    title: "醫療園所接送服務七月份正式開跑！",
+    time: "2022/12/20",
+    title: "小驢行TTGO系統協助花東面對災後運輸困境",
   },
   {
     id: 3,
-    time: "2023-02-10",
-    title: "醫療園所接送服務七月份正式開跑！",
+    time: "2022/12/20",
+    title: "小驢行獲遠見雜誌肯定，得到2022第18屆CSR暨ESG企業社會責任獎",
   },
 ])
 
 const infoList = ref([
   {
     id: 1,
-    time: "2023-02-10",
-    title: "資訊專欄接送服務七月份正式開跑！",
+    time: "2023-09-12",
+    title: "【即食專送】數位專題：串起偏鄉的食醫助行",
+    isLink:"https://visionproject.org.tw/project/cherish-food"
   },
   {
     id: 2,
     time: "2023-02-10",
     title: "醫資訊專欄接送服務七月份正式開跑！",
+    isLink:""
   },
   {
     id: 3,
     time: "2023-02-10",
     title: "資訊專欄接送服務七月份正式開跑！",
+    isLink:""
   },
 ])
 
@@ -360,14 +363,26 @@ onMounted(() => {
       </section>
 
       <section class="flex flex-col gap-y-10 mb-4 0px">
-        <div @click="goNewAndInfoDetail(item)" v-for="item in renderNewsOrInfoList" :key="item.id" class="border-b pb-6">
-          <div class="border-r border-b border-black rounded-br-[40px] relative group cursor-pointer">
-            <span class="text-[#39383A] font-light">{{ item.time }}</span>
-            <p class="text-24px font-bold">{{ item.title }}</p>
-            <div class="w-fit bg-white border rounded-full border-black absolute top-0 -right-[15px] group-hover:(bg-primary text-white border-white) transition duration-200">
-              <div class="i-ic-baseline-arrow-forward text-30px"></div>
+        <div v-for="item in renderNewsOrInfoList" :key="item.id" class="border-b pb-6">
+          <template v-if="!item.isLink">
+            <div @click="goNewAndInfoDetail(item)" class="border-r border-b border-black rounded-br-[40px] relative group cursor-pointer pr-4">
+              <span class="text-[#39383A] font-light">{{ item.time }}</span>
+              <p class="text-24px font-bold">{{ item.title }}</p>
+              <div class="w-fit bg-white border rounded-full border-black absolute top-0 -right-[15px] group-hover:(bg-primary text-white border-white) transition duration-200">
+                <div class="i-ic-baseline-arrow-forward text-30px"></div>
+              </div>
             </div>
-          </div>
+          </template>
+
+          <template v-if="item.isLink">
+            <a target="_blank" :href="item.isLink" class="block border-r border-b border-black rounded-br-[40px] relative group cursor-pointer">
+              <span class="text-[#39383A] font-light">{{ item.time }}</span>
+              <p class="text-24px font-bold">{{ item.title }}</p>
+              <div class="w-fit bg-white border rounded-full border-black absolute top-0 -right-[15px] group-hover:(bg-primary text-white border-white) transition duration-200">
+                <div class="i-ic-baseline-arrow-forward text-30px"></div>
+              </div>
+            </a>
+          </template>
         </div>
       </section>
 

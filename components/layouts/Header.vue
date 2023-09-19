@@ -34,9 +34,9 @@ const menuList = ref([
   <!-- 漢堡按鈕 -->
   <div class="w-full h-50px fixed flex items-center justify-end px-20px z-10 md:(px-60px)">
     <div @click="menuShow = !menuShow" :class="{ 'nav-icon': true, open: menuShow }">
-      <span class="block absolute h-2px w-full bg-[#E0A57E] rounded-2px opacity-100 left-0 rotate-0 duration-250 ease-in-out top-0"></span>
-      <span class="block absolute h-2px w-20px bg-[#E0A57E] rounded-2px opacity-100 left-1/6 rotate-0 duration-250 ease-in-out top-50%"></span>
-      <span class="block absolute h-2px w-full bg-[#E0A57E] rounded-2px opacity-100 left-0 rotate-0 duration-250 ease-in-out top-100%"></span>
+      <span class="block absolute h-4px w-full bg-[#E0A57E] rounded-2px opacity-100 left-0 rotate-0 duration-250 ease-in-out top-0"></span>
+      <span class="block absolute h-4px w-26px bg-[#E0A57E] rounded-2px opacity-100 left-1/6 rotate-0 duration-250 ease-in-out top-50%"></span>
+      <span class="block absolute h-4px w-full bg-[#E0A57E] rounded-2px opacity-100 left-0 rotate-0 duration-250 ease-in-out top-100%"></span>
     </div>
   </div>
 
@@ -58,8 +58,8 @@ const menuList = ref([
 <style scoped>
 /* 漢堡按鈕 */
 .nav-icon {
-  width: 30px;
-  height: 22px;
+  width: 40px;
+  height: 28px;
   position: relative;
   transform: rotate(0deg);
   transition: 0.5s ease-in-out;
@@ -67,15 +67,15 @@ const menuList = ref([
   z-index: 10;
 }
 .nav-icon.open span:nth-child(1) {
-  top: 11px;
+  top: 14px;
   transform: rotate(135deg);
 }
 .nav-icon.open span:nth-child(2) {
   opacity: 0;
-  left: -30px;
+  left: -40px;
 }
 .nav-icon.open span:nth-child(3) {
-  top: 11px;
+  top: 14px;
   transform: rotate(-135deg);
 }
 
