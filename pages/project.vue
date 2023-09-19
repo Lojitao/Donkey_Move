@@ -50,7 +50,7 @@
         <h5 class="text-32px font-bold text-#333 md:(text-64px)">20年磨一劍</h5>
         <p class="text-22px mb-15px text-#333 md:(text-30px)">從學術研究到社會實踐的成果</p>
         <div class="w-full">
-          <img src="/images/project/route.png" alt="" class="block w-full">
+          <img src="/images/project/route.png?123" alt="" class="block w-full">
         </div>
       </div>
     </section>
