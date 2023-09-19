@@ -6,7 +6,7 @@
       <img class="w-full h-full hidden md:block lg:hidden" src="/images/newsAndInfo/pad_bg.png" alt="">
       <img class="w-full h-full hidden lg:block" src="/images/newsAndInfo/pc_bg.png" alt="">
       <img class="absolute center-horizontal top-25px md:top-80px" src="/images/practiced/logo_white.png" alt="">
-      <header class="mb-50px w-fit absolute center-horizontal top-254px md:top-380px">
+      <header class="mb-50px w-fit absolute center-horizontal top-254px md:top-380px lg:(left-20%)">
         <h2 class="text-60px break-all text-white text-center md:text-left">INFO/</h2>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
           <h2 class="text-60px font-medium">NEWS</h2>
