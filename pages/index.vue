@@ -28,21 +28,25 @@ const partnerImgs = ref([
 const socialList = ref([
   {
     id: "1",
-    vedioSrc: "https://www.youtube.com/embed/_JFnLwWs_Yw?si=FIwex10zQRflv4dJ",
-    title: "1919食物銀行－救減災專案 ",
-    subtitle: "打造友善的叫車預約媒合服務平臺，以移動科技媒合平臺推動「1919食物銀行」以及推動共乘服務，有助減少運輸碳排放。",
+    vedioSrc:"https://www.youtube.com/embed/_JFnLwWs_Yw?si=FIwex10zQRflv4dJ",
+    title: "食醫助行-台東1919惜食運輸",
+    subtitle: "一趟239公里的惜食物資接力運送任務，將食物、物資及愛從高雄大寮一路送到台東長濱，支持偏鄉長輩們的生活。",
     content: "震災發生後，以服務支持在地",
-    visitors: "28090",
+    visitors: "239",
     carbonEmission: "28090",
+    locate:false,
+    serve:false
   },
   {
     id: "2",
-    vedioSrc: "https://www.youtube.com/embed/_JFnLwWs_Yw?si=FIwex10zQRflv4dJ",
-    title: "1919食物銀行－救減災專案 ",
-    subtitle: "打造友善的叫車預約媒合服務平臺，以移動科技媒合平臺推動「1919食物銀行」以及推動共乘服務，有助減少運輸碳排放。",
-    content: "震災發生後，以服務支持在地",
-    visitors: "28090",
-    carbonEmission: "28090",
+    vedioSrc:"https://www.youtube.com/embed/qws6quRKui0?si=c6UhjR58W5UAS76u",
+    title:"微光134行動 傳善到偏鄉守護老幼窮",
+    subtitle: "高齡化的台灣，即將有134個偏鄉，面對非常嚴峻的交通接送服務的困境，留下來的居民多半行動不便，加上地處偏遠、缺乏大眾運輸，計程車也因市場機制的環境考量不太願意來。微光134再生扶助計畫，培訓偏鄉民眾成為微光駕駛。",
+    content: "微光134再生扶助計畫",
+    visitors: "134",
+    carbonEmission: "235",
+    locate:true,
+    serve:true
   },
 ])
 
@@ -123,37 +127,37 @@ function goNewAndInfoDetail(item) {
 }
 
 onMounted(() => {
-  ctx = gsap.context((self) => {
-    const boxes = self.selector(".boxes")
-    boxes.forEach((box) => {
-      gsap.to(box, {
-        y: -100,
-        // ease: "elastic.out(1, 0.3)",
-        ease: "power3.inOut",
-        scrollTrigger: {
-          trigger: box,
-          start: "bottom-=200 bottom",
-          // start: "bottom bottom",
-          end: "bottom bottom",
-          // end: "top top",
-          scrub: true,
-        },
-      })
-    })
+  ctx = gsap.context(() => {
+    // const boxes = self.selector(".boxes")
+    // boxes.forEach((box) => {
+    //   gsap.to(box, {
+    //     y: -100,
+    //     // ease: "elastic.out(1, 0.3)",
+    //     ease: "power3.inOut",
+    //     scrollTrigger: {
+    //       trigger: box,
+    //       start: "bottom-=200 bottom",
+    //       // start: "bottom bottom",
+    //       end: "bottom bottom",
+    //       // end: "top top",
+    //       // scrub: true,
+    //     },
+    //   })
+    // })
 
     // Separate ScrollTrigger for num
     gsap.to(state, {
-      num1: 116565,
-      num2: 116565,
-      num3: 116565,
-      num4: 116565,
+      num1: 27000,
+      num2: 1800,
+      num3: 28000,
+      num4: 2350000,
       scrollTrigger: {
         trigger: ".boxes",
         start: "bottom-=200 bottom",
         // start: "center bottom",
         end: "center-=120 center",
         // end: "bottom bottom",
-        scrub: true,
+        // scrub: true,
       },
     })
   }, main.value)
@@ -238,10 +242,10 @@ onMounted(() => {
   <!-- scroll gap end -->
 
   <!-- 關於我們 -->
-  <section class="w-full h-auto bg-#E0A57E py-60px mobile-px md:pad-px lg:(pc-px h-screen)">
+  <section class="w-full h-auto pb-20 bg-#E0A57E py-60px mobile-px md:pad-px lg:(pc-px)">
     <div class="h-full my-0 mx-auto flex flex-col md:(h-auto my-0 mx-auto) md_1024:(flex-row gap-50px)">
       <!-- 左區塊 -->
-      <div class="w-full flex flex-col items-center justify-between md:(gap-180px) lg:(gap-150px)">
+      <div class="w-full flex flex-col items-center justify-between">
         <!-- 標題 & 描述-->
         <div class="w-full h-550px flex flex-col gap-50px md:(gap-30px h-auto)">
           <div>
@@ -267,32 +271,32 @@ onMounted(() => {
         <div class="w-80% flex flex-col flex-nowrap gap-y-50px justify-center items-center md:(flex-row flex-wrap gap-x-80px) lg:(h-auto)" ref="main">
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
             <img src="/images/index/about_cardPic1.png" alt="" class="block w-153px" />
-            <div class="flex flex-col gap-1 leading-50px text-xl">
-              <p class="whitespace-nowrap text-#fff text-lg font-semibold">總趟次</p>
+            <div class="flex flex-col gap-1 leading-50px text-xl text-center">
+              <p class="whitespace-nowrap text-#fff text-lg font-semibold">媒合偏鄉車趟</p>
               <div class="text-#fff text-lg font-semibold">{{ state.num1.toFixed() }} 次</div>
             </div>
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
             <img src="/images/index/about_cardPic2.png" alt="" class="block w-137px" />
-            <div class="flex flex-col gap-1 leading-50px text-xl">
-              <p class="whitespace-nowrap text-#fff text-lg font-semibold">總趟次</p>
+            <div class="flex flex-col gap-1 leading-50px text-xl text-center">
+              <p class="whitespace-nowrap text-#fff text-lg font-semibold">調度全台服務車輛</p>
               <div class="text-#fff text-lg font-semibold">{{ state.num2.toFixed() }} 次</div>
             </div>
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
             <img src="/images/index/about_cardPic3.png" alt="" class="block w-167px" />
-            <div class="flex flex-col gap-1 leading-50px text-xl">
-              <p class="whitespace-nowrap text-#fff text-lg font-semibold">總趟次</p>
+            <div class="flex flex-col gap-1 leading-50px text-xl text-center">
+              <p class="whitespace-nowrap text-#fff text-lg font-semibold">促成共乘</p>
               <div class="text-#fff text-lg font-semibold">{{ state.num3.toFixed() }} 次</div>
             </div>
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
             <img src="/images/index/about_cardPic4.png" alt="" class="block w-135px" />
-            <div class="flex flex-col gap-1 leading-50px text-xl">
-              <p class="whitespace-nowrap text-#fff text-lg font-semibold">總趟次</p>
+            <div class="flex flex-col gap-1 leading-50px text-xl text-center">
+              <p class="whitespace-nowrap text-#fff text-lg font-semibold">累積媒合</p>
               <div class="text-#fff text-lg font-semibold">{{ state.num4.toFixed() }} 次</div>
             </div>
           </div>
@@ -339,7 +343,7 @@ onMounted(() => {
   </section>
 
   <!-- 最新消息 -->
-  <article class="mobile-px pt-6 md:pt-0 md:pad-px lg:pc-px mb-60px newbgImage md:(relative)">
+  <article class="mobile-px pt-6 md:pt-0 md:pad-px lg:pc-px mb-60px newbgImage md:(relative)  ">
     <div class="bg-white md:(left-0 -bottom-1px absolute px-[65px] pt-10 rounded-tr-[60px]) md_1024:(px-[20px]) lg:(px-[325px])">
       <section class="flex flex-col items-center md_1024:(flex flex-row justify-center) mb-40px">
         <div
@@ -448,14 +452,25 @@ onMounted(() => {
           <span class="bg-white absolute text-lg -top-14px pr-10px">{{ item.content }}</span>
 
           <div class="text-[#91ABD0] absolute center-vertically">
-            共乘<span class="text-26px">{{ item.visitors }}</span
-            >人次
+            行駛<span class="text-26px">{{ item.visitors }}</span>
+            <span v-if="!item.locate">公里</span>
+            <span v-if="item.locate">偏鄉</span>
           </div>
+          
+          <template v-if="!item.serve">
+            <div class="text-[#91ABD0] absolute -bottom-14px right-10px">
+              總節約<span class="text-26px">{{ item.carbonEmission }}</span
+              >公斤碳排放量
+            </div>
+          </template>
+          <template v-if="item.serve">
+            <div class="text-[#91ABD0] absolute -bottom-14px right-10px">
+              服務<span class="text-26px">{{ item.carbonEmission }}</span
+              >萬趟接送
+            </div>
+          </template>
 
-          <div class="text-[#91ABD0] absolute -bottom-14px right-10px">
-            總結約<span class="text-26px">{{ item.carbonEmission }}</span
-            >公斤碳排放量
-          </div>
+         
         </div>
       </div>
     </section>
