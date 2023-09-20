@@ -6,12 +6,12 @@
       <img class="w-full h-full md:hidden object-cover" src="/images/about/bg_mobile.png" alt="">
       <img class="w-full h-full hidden md:block lg:hidden" src="/images/about/bg_pad.png" alt="">
       <img class="w-full h-full hidden lg:block" src="/images/about/bg_pc.png" alt="">
-      <img class="absolute center-horizontal top-45px md:top-80px" src="/images/practiced/logo_white.png" alt="">
-      <header class="mb-50px absolute center-horizontal top-284px md:top-380px lg:(left-20%)">
-        <h2 class="text-60px text-white text-center md:text-left">ABOUT</h2>
+      <img class="absolute center-horizontal top-45px w-30% md:(top-80px w-15%) lg:(w-7%)" src="/images/practiced/logo_white.png" alt="">
+      <header class="mb-50px absolute center-horizontal top-284px md:(top-320px left-30%) md_1024:(top-400px) lg:(left-20%)">
+        <h2 class="text-50px text-white text-center md:(text-left text-60px)">ABOUT</h2>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
-          <h2 class="text-60px font-medium">DONKEY</h2>
-          <h2 class="text-40px">關於我們</h2>
+          <h2 class="text-50px font-medium md:(text-60px)">DONKEY</h2>
+          <h2 class="text-30px md:(text-40px)">關於我們</h2>
         </div>
       </header>
       <p class="absolute text-white right-10px bottom-5px">台東池上伯朗大道</p>

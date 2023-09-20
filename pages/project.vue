@@ -5,8 +5,8 @@
       <img src="/images/project/mobile_bg.png" alt="" class="w-full md:hidden" />
       <img src="/images/project/pad_bg.png" alt="" class="w-full hidden md:block lg:hidden" />
       <img src="/images/project/pc_bg.png" alt="" class="w-full hidden lg:block" />
-      <img src="/images/project/logo_white.png" alt="" class="absolute center-horizontal top-40px w-115px md:(top-80px)" />
-      <header class="mb-50px w-fit absolute center-horizontal top-254px md:(top-320px absolute left-30%) md_1024:(top-400px) lg:(left-20%)">
+      <img src="/images/project/logo_white.png" alt="" class="absolute center-horizontal top-40px w-30% md:(top-80px w-15%) lg:(w-7%)" />
+      <header class="mb-50px w-fit absolute center-horizontal top-254px md:(top-320px left-30%) md_1024:(top-400px) lg:(left-20%)">
         <h1 class="text-50px break-all text-white text-center md:(text-left text-60px)">DONKEY</h1>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
           <h2 class="text-50px font-medium md:(text-60px)">PROJECT</h2>
@@ -50,7 +50,7 @@
         <h5 class="text-32px font-bold text-#333 md:(text-64px)">20年磨一劍</h5>
         <p class="text-22px mb-15px text-#333 md:(text-30px)">從學術研究到社會實踐的成果</p>
         <div class="w-full">
-          <img src="/images/project/route.png?123" alt="" class="block w-full">
+          <img src="/images/project/route.png" alt="" class="block w-full">
         </div>
       </div>
     </section>

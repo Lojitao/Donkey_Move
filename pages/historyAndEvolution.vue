@@ -5,7 +5,7 @@
       <img src="/images/history/mobile_bg.png" alt="" class="w-full md:hidden" />
       <img src="/images/history/pad_bg.png" alt="" class="w-full hidden md:block lg:hidden" />
       <img src="/images/history/pc_bg.png" alt="" class="w-full hidden lg:block" />
-      <img src="/images/project/logo_white.png" alt="" class="absolute center-horizontal top-40px w-115px md:(top-80px)" />
+      <img src="/images/project/logo_white.png" alt="" class="absolute center-horizontal top-40px w-30% md:(top-80px w-15%) lg:(w-7%)" />
       <header class="mb-50px w-fit absolute center-horizontal top-254px md:(top-320px absolute left-30%) md_1024:(top-400px) lg:(left-20%)">
         <h1 class="text-50px break-all text-white text-center md:(text-left text-60px)">DONKEY</h1>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
