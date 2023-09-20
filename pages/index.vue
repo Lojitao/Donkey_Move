@@ -6,16 +6,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 const router = useRouter()
 
-// 圖片彈跳 & 數字跳動
-const main = ref()
-let ctx
 
-const state = reactive({
-  num1: 0,
-  num2: 0,
-  num3: 0,
-  num4: 0,
-})
 
 const partnerImgs = ref([
   "/images/index/partner/light.png",
@@ -129,6 +120,17 @@ function goNewAndInfoDetail(item) {
   })
 }
 
+// 圖片彈跳 & 數字跳動
+const main = ref()
+let ctx
+
+const state = reactive({
+  num1: 0,
+  num2: 0,
+  num3: 0,
+  num4: 0,
+})
+
 onMounted(() => {
   ctx = gsap.context(() => {
     // const boxes = self.selector(".boxes")
@@ -169,6 +171,24 @@ onMounted(() => {
 onUnmounted(() => {
   ctx.revert()
 })
+
+//千分位
+const formattedNum1 = computed(() => {
+  return state.num1.toLocaleString();
+})
+
+const formattedNum2 = computed(() => {
+  return state.num2.toLocaleString();
+})
+
+const formattedNum3 = computed(() => {
+  return state.num3.toLocaleString();
+})
+
+const formattedNum4 = computed(() => {
+  return state.num4.toLocaleString();
+})
+
 
 // 愛心順序發射
 onMounted(() => {
@@ -248,7 +268,7 @@ onMounted(() => {
       <!-- 左區塊 -->
       <div class="w-full flex flex-col items-center justify-between">
         <!-- 標題 & 描述-->
-        <div class="w-full h-550px flex flex-col gap-50px md:(gap-30px h-auto)">
+        <div class="w-full h-480px flex flex-col gap-50px md:(gap-30px h-380px) ">
           <div>
             <div class="w-full">
               <p class="text-60px text-#fff">DONKEY</p>
@@ -273,32 +293,32 @@ onMounted(() => {
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
             <img src="/images/index/about_cardPic1.png" alt="" class="block w-90%" />
             <div class="flex flex-col gap-1 leading-50px text-xl text-center">
-              <p class="whitespace-nowrap text-#fff text-lg font-semibold">媒合偏鄉車趟</p>
-              <div class="text-#fff text-lg font-semibold">{{ state.num1.toFixed() }} 次</div>
+              <p class="whitespace-nowrap text-#fff text-xl font-semibold">媒合偏鄉車趟</p>
+              <div class="text-#fff text-xl font-semibold">{{ formattedNum1 }} 次</div>
             </div>
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
             <img src="/images/index/about_cardPic2.png" alt="" class="block w-81%" />
             <div class="flex flex-col gap-1 leading-50px text-xl text-center">
-              <p class="whitespace-nowrap text-#fff text-lg font-semibold">調度全台服務車輛</p>
-              <div class="text-#fff text-lg font-semibold">{{ state.num2.toFixed() }} 次</div>
+              <p class="whitespace-nowrap text-#fff text-xl font-semibold">調度全台服務車輛</p>
+              <div class="text-#fff text-xl font-semibold">{{ formattedNum2 }} 台</div>
             </div>
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
             <img src="/images/index/about_cardPic3.png" alt="" class="block w-98%" />
             <div class="flex flex-col gap-1 leading-50px text-xl text-center">
-              <p class="whitespace-nowrap text-#fff text-lg font-semibold">促成共乘</p>
-              <div class="text-#fff text-lg font-semibold">{{ state.num3.toFixed() }} 次</div>
+              <p class="whitespace-nowrap text-#fff text-xl font-semibold">促成共乘</p>
+              <div class="text-#fff text-xl font-semibold">{{ formattedNum3 }} 次</div>
             </div>
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
-            <img src="/images/index/about_cardPic4.png" alt="" class="block w-79%" />
+            <img src="/images/index/about_cardPic4.png" alt="" class="block w-74%" />
             <div class="flex flex-col gap-1 leading-50px text-xl text-center">
-              <p class="whitespace-nowrap text-#fff text-lg font-semibold">累積媒合</p>
-              <div class="text-#fff text-lg font-semibold">{{ state.num4.toFixed() }} 次</div>
+              <p class="whitespace-nowrap text-#fff text-xl font-semibold">累積媒合</p>
+              <div class="text-#fff text-xl font-semibold whitespace-nowrap">{{ formattedNum4 }} 次</div>
             </div>
           </div>
         </div>
@@ -306,7 +326,7 @@ onMounted(() => {
       <!-- 右區塊 -->
       <div class="w-full h-full relative flex flex-col gap-50px items-center md:(gap-180px) md_1024:(self-center) lg:(gap-130px self-auto)">
         <!-- 汽車 -->
-        <div class="w-full h-full">
+        <div class="w-full h-full mt-60px">
           <img src="/images/index/about_car.png" alt="" class="block w-full" />
         </div>
         <!-- 遙控器 -->
