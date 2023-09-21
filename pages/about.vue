@@ -7,7 +7,7 @@
       <img class="w-full h-full hidden md:block lg:hidden" src="/images/about/bg_pad.png" alt="">
       <img class="w-full h-full hidden lg:block" src="/images/about/bg_pc.png" alt="">
       <img class="absolute center-horizontal top-45px w-30% md:(top-80px w-15%) lg:(w-7%)" src="/images/practiced/logo_white.png" alt="">
-      <header class="mb-50px absolute center-horizontal top-284px md:(top-320px left-30%) md_1024:(top-400px) lg:(left-20%)">
+      <header class="mb-50px absolute center-horizontal top-50% md:(top-60% left-30%) lg:(left-20%)">
         <h2 class="text-50px text-white text-center md:(text-left text-60px)">ABOUT</h2>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
           <h2 class="text-50px font-medium md:(text-60px)">DONKEY</h2>
@@ -40,4 +40,11 @@
 </script>
 
 <script setup>
+  useSeoMeta({
+    title: "關於我們- 小驢行",
+    description: "關於我們- 小驢行團隊開發「長照交通車輛派遣系統」的資訊化叫車系統，用共享經濟的理念，整合政府的長照專車、復康巴士以及民間租賃車行或無障礙計程車司機的資源。迅速媒合長者或家屬對接送交通服務的需求",
+    ogDescription: "關於我們- 小驢行團隊開發「長照交通車輛派遣系統」的資訊化叫車系統，用共享經濟的理念，整合政府的長照專車、復康巴士以及民間租賃車行或無障礙計程車司機的資源。迅速媒合長者或家屬對接送交通服務的需求",
+    ogTitle: "關於我們- 小驢行",
+  })
+
 </script>

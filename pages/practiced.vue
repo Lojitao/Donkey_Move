@@ -6,7 +6,7 @@
       <img class="w-full h-full hidden md:block lg:hidden" src="/images/practiced/practiced_bg_pad.png" alt="">
       <img class="w-full h-full hidden lg:block" src="/images/practiced/practiced_bg_pc.png" alt="">
       <img class="absolute center-horizontal top-45px w-30% md:(top-80px w-15%) lg:(w-7%)" src="/images/practiced/logo_white.png" alt="">
-      <header class="mb-50px absolute center-horizontal top-284px md:(top-320px left-32%) md_1024:(top-400px) lg:(left-20%)">
+      <header class="mb-50px absolute center-horizontal top-50% md:(top-60% left-32%) lg:(left-20%)">
         <h2 class="text-50px text-white text-center md:(text-left text-60px)">SOCIAL</h2>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
           <h2 class="text-50px font-medium md:(text-60px)">PRACTICE</h2>
@@ -81,6 +81,13 @@
 </script>
 
 <script setup>
+  useSeoMeta({
+    title: "社會實踐- 小驢行",
+    description: "小驢行以媒合平台改善台灣高齡、偏鄉交通環境，不只受各方肯定及協力報導倡議，做法也可複製可仿效，可做為高齡與偏鄉服務的典範。",
+    ogDescription: "小驢行以媒合平台改善台灣高齡、偏鄉交通環境，不只受各方肯定及協力報導倡議，做法也可複製可仿效，可做為高齡與偏鄉服務的典範。",
+    ogTitle: "社會實踐- 小驢行",
+  })
+
   const socialList = ref(
     [
       {

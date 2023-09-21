@@ -174,19 +174,19 @@ onUnmounted(() => {
 
 //千分位
 const formattedNum1 = computed(() => {
-  return state.num1.toLocaleString();
+  return state.num1.toLocaleString()
 })
 
 const formattedNum2 = computed(() => {
-  return state.num2.toLocaleString();
+  return state.num2.toLocaleString()
 })
 
 const formattedNum3 = computed(() => {
-  return state.num3.toLocaleString();
+  return state.num3.toLocaleString()
 })
 
 const formattedNum4 = computed(() => {
-  return state.num4.toLocaleString();
+  return state.num4.toLocaleString()
 })
 
 
@@ -263,12 +263,12 @@ onMounted(() => {
   <!-- scroll gap end -->
 
   <!-- 關於我們 -->
-  <section class="w-full h-auto pb-20 bg-#E0A57E py-60px mobile-px md:pad-px lg:(pc-px)">
-    <div class="h-full my-0 mx-auto flex flex-col md:(h-auto my-0 mx-auto) md_1024:(flex-row gap-50px)">
+  <section class="w-full h-auto pb-20 bg-#E0A57E py-60px mobile-px md:pad-px lg:(pc-px h-screen)">
+    <div class="h-full my-0 mx-auto flex flex-col md:(h-auto my-0 mx-auto) md_1024:(flex-row gap-50px) lg:(justify-center items-center)">
       <!-- 左區塊 -->
-      <div class="w-full flex flex-col items-center justify-between">
+      <div class="w-full flex flex-col items-center justify-between lg:(gap-10)">
         <!-- 標題 & 描述-->
-        <div class="w-full h-480px flex flex-col gap-50px md:(gap-30px h-380px) ">
+        <div class="w-full h-480px flex flex-col gap-50px md:(gap-30px h-380px) lg:(h-full)">
           <div>
             <div class="w-full">
               <p class="text-60px text-#fff">DONKEY</p>

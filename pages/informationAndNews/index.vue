@@ -6,11 +6,11 @@
       <img class="w-full h-full hidden md:block lg:hidden" src="/images/newsAndInfo/pad_bg.png" alt="">
       <img class="w-full h-full hidden lg:block" src="/images/newsAndInfo/pc_bg.png" alt="">
       <img class="absolute center-horizontal top-25px w-30% md:(top-80px w-15%) lg:w-7%" src="/images/practiced/logo_white.png" alt="">
-      <header class="mb-50px w-fit absolute center-horizontal top-254px md:(top-320px left-37%) md_1024:(top-400px) lg:(left-20%)">
+      <header class="mb-50px w-fit absolute center-horizontal top-50% md:(top-60% left-37%) lg:(left-20%)">
         <h2 class="text-50px break-all text-white text-center md:(text-left text-60px)">INFO/</h2>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
           <h2 class="text-50px font-medium md:text-60px">NEWS</h2>
-          <h2 class="text-30px md:(whitespace-nowrap text-40px)">資訊專欄/重點訊息</h2>
+          <h2 class="text-30px whitespace-nowrap md:text-40px">資訊專欄/重點訊息</h2>
         </div>
       </header>
       <p class="absolute text-white right-10px bottom-5px">新竹縣湖口鄉</p>
@@ -100,6 +100,13 @@
 </script>
 
 <script setup>
+  useSeoMeta({
+    title: "資訊專欄/重點訊息- 小驢行",
+    description: "資訊專欄/重點訊息- 小驢行 ",
+    ogDescription: "資訊專欄/重點訊息- 小驢行 ",
+    ogTitle: "資訊專欄/重點訊息- 小驢行",
+  })
+
   const router = useRouter()
 
   let checkedTabId = ref(1)

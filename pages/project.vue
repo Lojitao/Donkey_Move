@@ -6,7 +6,7 @@
       <img src="/images/project/pad_bg.png" alt="" class="w-full hidden md:block lg:hidden" />
       <img src="/images/project/pc_bg.png" alt="" class="w-full hidden lg:block" />
       <img src="/images/project/logo_white.png" alt="" class="absolute center-horizontal top-40px w-30% md:(top-80px w-15%) lg:(w-7%)" />
-      <header class="mb-50px w-fit absolute center-horizontal top-254px md:(top-320px left-30%) md_1024:(top-400px) lg:(left-20%)">
+      <header class="mb-50px w-fit absolute center-horizontal top-50% md:(top-60% left-30%) lg:(left-20%)">
         <h1 class="text-50px break-all text-white text-center md:(text-left text-60px)">DONKEY</h1>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
           <h2 class="text-50px font-medium md:(text-60px)">PROJECT</h2>
@@ -57,7 +57,15 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+  useSeoMeta({
+    title: "實績案例- 小驢行",
+    description: "小驢行創立共享長照交通平台，幫助偏鄉長者及弱勢族群接送，提供不同的服務模式。服務更延伸至「食醫助行」，從食物輸送、採購日常用品到醫療照服員，讓最末端的獨居或偏鄉長者完成日常生活需求。",
+    ogDescription: "小驢行創立共享長照交通平台，幫助偏鄉長者及弱勢族群接送，提供不同的服務模式。服務更延伸至「食醫助行」，從食物輸送、採購日常用品到醫療照服員，讓最末端的獨居或偏鄉長者完成日常生活需求。",
+    ogTitle: "實績案例- 小驢行",
+  })
+
+</script>
 
 <style scoped>
 .background {
