@@ -65,6 +65,13 @@
 </template>
 
 <script setup>
+  useSeoMeta({
+    title: "資訊專欄/重點訊息- 小驢行",
+    description: "資訊專欄/重點訊息- 小驢行 ",
+    ogDescription: "資訊專欄/重點訊息- 小驢行 ",
+    ogTitle: "資訊專欄/重點訊息- 小驢行",
+  })
+  
   const route = useRoute()
   const router = useRouter()
   
