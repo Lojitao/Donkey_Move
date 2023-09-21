@@ -263,8 +263,8 @@ onMounted(() => {
   <!-- scroll gap end -->
 
   <!-- 關於我們 -->
-  <section class="w-full h-auto pb-20 bg-#E0A57E py-60px mobile-px md:pad-px lg:(pc-px h-screen)">
-    <div class="h-full my-0 mx-auto flex flex-col md:(h-auto my-0 mx-auto) md_1024:(flex-row gap-50px) lg:(justify-center items-center)">
+  <section class="w-full h-auto pb-20 bg-#E0A57E py-60px mobile-px md:pad-px lg:(pc-px h-full)">
+    <div class="h-full my-0 mx-auto flex flex-col md:(h-auto my-0 mx-auto) md_1024:(flex-row gap-50px) lg:(justify-center items-center h-full)">
       <!-- 左區塊 -->
       <div class="w-full flex flex-col items-center justify-between lg:(gap-10)">
         <!-- 標題 & 描述-->
