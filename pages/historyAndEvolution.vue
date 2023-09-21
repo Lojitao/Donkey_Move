@@ -6,7 +6,7 @@
       <img src="/images/history/pad_bg.png" alt="" class="w-full hidden md:block lg:hidden" />
       <img src="/images/history/pc_bg.png" alt="" class="w-full hidden lg:block" />
       <img src="/images/project/logo_white.png" alt="" class="absolute center-horizontal top-40px w-30% md:(top-80px w-15%) lg:(w-7%)" />
-      <header class="mb-50px w-fit absolute center-horizontal top-254px md:(top-320px absolute left-30%) md_1024:(top-400px) lg:(left-20%)">
+      <header class="mb-50px w-fit absolute center-horizontal top-50% md:(top-60% left-30%) lg:(left-20%)">
         <h1 class="text-50px break-all text-white text-center md:(text-left text-60px)">DONKEY</h1>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
           <h2 class="text-50px font-medium md:(text-60px)">HISTORY</h2>
@@ -68,6 +68,14 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+  useSeoMeta({
+    title: "公司沿革- 小驢行",
+    description: "小驢行成立的脈絡，源自逢甲大學與侯勝宗教授對交通移動的學術研究，小驢行、逢甲大學、台灣微光行動協會共同秉持著「以移動服務社會」的理念，一同改善台灣的交通，這個理念從2003年的學術研究發展到現在的社會實踐，已成為滿足台灣高齡化社會需求不可或缺的一股力量。",
+    ogDescription: "小驢行成立的脈絡，源自逢甲大學與侯勝宗教授對交通移動的學術研究，小驢行、逢甲大學、台灣微光行動協會共同秉持著「以移動服務社會」的理念，一同改善台灣的交通，這個理念從2003年的學術研究發展到現在的社會實踐，已成為滿足台灣高齡化社會需求不可或缺的一股力量。",
+    ogTitle: "公司沿革- 小驢行",
+  })
+
+</script>
 
 <style scoped></style>
