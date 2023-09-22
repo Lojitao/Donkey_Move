@@ -24,11 +24,11 @@ export default defineNuxtConfig({
       NUXT_PUBLIC_API_BASE: process.env.NUXT_PUBLIC_API_BASE || '/api'
     }
   },
-  "app": {
-    "head": {
-      "viewport": "width=500, initial-scale=1",
-      "title": "小驢行",
-      "meta": [
+  app: {
+    head: {
+      viewport: "width=500, initial-scale=1",
+      title: "小驢行",
+      meta: [
         { "name": "description", "content": "小驢行開發「長照交通車輛派遣系統」的資訊化叫車系統，用共享經濟的理念，迅速媒合長者或家屬對接送交通服務的需求" },
         { "property": "og:title", "content": "小驢行" },
         { "property": "og:url", "content": "https://www.donkeymove.com/" },
