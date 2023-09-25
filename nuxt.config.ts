@@ -30,9 +30,10 @@ export default defineNuxtConfig({
       title: "小驢行",
       meta: [
         { "name": "description", "content": "小驢行開發「長照交通車輛派遣系統」的資訊化叫車系統，用共享經濟的理念，迅速媒合長者或家屬對接送交通服務的需求" },
-        { "property": "og:title", "content": "小驢行" },
+        { "property": "og:title", "content": "小驢行- 長照交通接送平台" },
         { "property": "og:url", "content": "https://www.donkeymove.com/" },
         { "property": "og:description", "content": "小驢行開發「長照交通車輛派遣系統」的資訊化叫車系統，用共享經濟的理念，迅速媒合長者或家屬對接送交通服務的需求" },
+        { "property": "og:image", "content": "https://www.donkeymove.com/images/logo.png" },
       ],
       link: [
         { rel: "icon", type: "image/x-icon", href: "donkeymove.ico" }

@@ -2,10 +2,10 @@
   <main class="min-h-screen">
     <!-- banner -->
     <div class="relative h-[585px] md:h-auto">
-      <img class="w-full h-full object-cover md:hidden" src="/images/practiced/practiced_bg_mobile.png" alt="">
-      <img class="w-full h-full hidden md:block lg:hidden" src="/images/practiced/practiced_bg_pad.png" alt="">
-      <img class="w-full h-full hidden lg:block" src="/images/practiced/practiced_bg_pc.png" alt="">
-      <img class="absolute center-horizontal top-45px w-30% md:(top-80px w-15%) lg:(w-7%)" src="/images/practiced/logo_white.png" alt="">
+      <img class="w-full h-full object-cover md:hidden" src="~/assets/images/practiced/practiced_bg_mobile.png" alt="">
+      <img class="w-full h-full hidden md:block lg:hidden" src="~/assets/images/practiced/practiced_bg_pad.png" alt="">
+      <img class="w-full h-full hidden lg:block" src="~/assets/images/practiced/practiced_bg_pc.png" alt="">
+      <img class="absolute center-horizontal top-45px w-30% md:(top-80px w-15%) lg:(w-7%)" src="~/assets/images/practiced/logo_white.png" alt="">
       <header class="mb-50px absolute center-horizontal top-50% md:(top-60% left-32%) lg:(left-20%)">
         <h2 class="text-50px text-white text-center md:(text-left text-60px)">SOCIAL</h2>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
@@ -23,7 +23,7 @@
       <section class="flex flex-col items-center gap-y-8 my-30px md:(flex-row gap-x-4 items-end) lg:(w-1000px mx-auto gap-x-12)">
         
         <div class="hidden md:block">
-          <img src="/images/index/social/oldMan.png" alt="">
+          <img src="~/assets/images/index/social/oldMan.png" alt="">
         </div>
         
         <div class="w-full px-30px  border-t-2 border-b-2 text-center border-black py-40px text-left text-justify">
@@ -31,7 +31,7 @@
         </div>
 
         <div class="hidden md:block">
-          <img src="/images/index/social/oldWomen.png" alt="">
+          <img src="~/assets/images/index/social/oldWomen.png" alt="">
         </div>
 
       </section>

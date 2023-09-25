@@ -8,13 +8,17 @@ const router = useRouter()
 
 
 
-const partnerImgs = ref([
-  "/images/index/partner/light.png",
-  "/images/index/partner/1919.png",
-  "/images/index/partner/taipeiHealth.png",
-  "/images/index/partner/yulon.png",
-  "/images/index/partner/route9.png",
-])
+// const partnerImgs = ref([
+//   "/assets/images/index/partner/light.png",
+//   "/assets/images/index/partner/1919.png",
+//   "/assets/images/index/partner/taipeiHealth.png",
+//   "/assets/images/index/partner/yulon.png",
+//   "/assets/images/index/partner/route9.png",
+// ])
+// 使用 import.meta.globEager 來動態導入模組
+const imageModules = import.meta.globEager('../assets/images/index/partner/*.png')
+
+const partnerImgs = ref(Object.values(imageModules).map(module => module.default))
 
 const socialList = ref([
   {
@@ -156,6 +160,7 @@ onMounted(() => {
       num2: 1800,
       num3: 28000,
       num4: 2350000,
+      duration: 1.5,  // 增加這一行來控制動畫的持續時間
       scrollTrigger: {
         trigger: ".boxes",
         start: "bottom-=200 bottom",
@@ -174,19 +179,19 @@ onUnmounted(() => {
 
 //千分位
 const formattedNum1 = computed(() => {
-  return state.num1.toLocaleString()
+  return Math.floor(state.num1).toLocaleString()
 })
 
 const formattedNum2 = computed(() => {
-  return state.num2.toLocaleString()
+  return Math.floor(state.num2).toLocaleString()
 })
 
 const formattedNum3 = computed(() => {
-  return state.num3.toLocaleString()
+  return Math.floor(state.num3).toLocaleString()
 })
 
 const formattedNum4 = computed(() => {
-  return state.num4.toLocaleString()
+  return Math.floor(state.num4).toLocaleString()
 })
 
 
@@ -215,26 +220,26 @@ onMounted(() => {
   <!-- Banner -->
   <section class="h-[calc(100vh-70px)] relative bg-#E0A57E lg:(h-screen)">
     <NuxtLink to="/" class="block absolute w-15% top-7% left-50% transform -translate-x-1/2 z-2 md_1024:(w-10%) lg:(w-6% top-5%)">
-      <img src="/images/logo.png" alt="小驢行LOGO" class="w-full block" />
+      <img src="~/assets/images/logo.png" alt="小驢行LOGO" class="w-full block" />
     </NuxtLink>
     <div class="w-full h-full bg-#fff rounded-b-3xl shadow-[0_8px_10px_0px_#00000040] lg:(h-screen)">
       <!-- banner run -->
       <div class="banner w-full h-full relative">
         <!-- bus run -->
         <div class="z-1 w-50% absolute top-81% left-50% transform -translate-x-1/2 md:(w-40%) md_1024:(top-72%) lg:(w-34% top-65%)">
-          <img src="/images/index/bus.png" alt="巴士" class="bus block w-full" />
-          <img src="/images/index/bus_tire.png" alt="巴士後輪" class="bus_tire absolute rotate-180 w-10.5% right-69.3% top-70.5%" />
-          <img src="/images/index/bus_tire.png" alt="巴士前輪" class="bus_tire absolute rotate-180 w-10.5% right-9% top-70.5%" />
+          <img src="~/assets/images/index/bus.png" alt="巴士" class="bus block w-full" />
+          <img src="~/assets/images/index/bus_tire.png" alt="巴士後輪" class="bus_tire absolute rotate-180 w-10.5% right-69.3% top-70.5%" />
+          <img src="~/assets/images/index/bus_tire.png" alt="巴士前輪" class="bus_tire absolute rotate-180 w-10.5% right-9% top-70.5%" />
         </div>
 
         <!-- bike -->
-        <img src="/images/index/bike.png" alt="腳踏車" class="block w-10% absolute top-73% left-15% md:(w-8%) md_1024:(top-70%) lg:(w-6% top-67%)" />
+        <img src="~/assets/images/index/bike.png" alt="腳踏車" class="block w-10% absolute top-73% left-15% md:(w-8%) md_1024:(top-70%) lg:(w-6% top-67%)" />
 
         <!-- car run -->
         <div class="car w-30% absolute top-77% md:(w-25%) md_1024:(top-72%) lg:(w-19% top-70%)">
-          <img src="/images/index/car.png" alt="汽車" class="block w-full" />
-          <img src="/images/index/car_tire.png" alt="汽車前輪" class="car_tire absolute rotate-180 w-16.5% right-72% top-53%" />
-          <img src="/images/index/car_tire.png" alt="汽車後輪" class="car_tire absolute rotate-180 w-16.5% right-7.5% top-53%" />
+          <img src="~/assets/images/index/car.png" alt="汽車" class="block w-full" />
+          <img src="~/assets/images/index/car_tire.png" alt="汽車前輪" class="car_tire absolute rotate-180 w-16.5% right-72% top-53%" />
+          <img src="~/assets/images/index/car_tire.png" alt="汽車後輪" class="car_tire absolute rotate-180 w-16.5% right-7.5% top-53%" />
         </div>
       </div>
     </div>
@@ -291,7 +296,7 @@ onMounted(() => {
         <!-- 圖片彈跳 & 數字跳動 -->
         <div class="w-80% flex flex-col flex-nowrap gap-y-50px justify-center items-center md:(flex-row flex-wrap gap-x-80px) lg:(h-auto)" ref="main">
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
-            <img src="/images/index/about_cardPic1.png" alt="" class="block w-90%" />
+            <img src="~/assets/images/index/about_cardPic1.png" alt="" class="block w-90%" />
             <div class="flex flex-col gap-1 leading-50px text-xl text-center">
               <p class="whitespace-nowrap text-#fff text-xl font-semibold">媒合偏鄉車趟</p>
               <div class="text-#fff text-xl font-semibold">{{ formattedNum1 }} 次</div>
@@ -299,7 +304,7 @@ onMounted(() => {
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
-            <img src="/images/index/about_cardPic2.png" alt="" class="block w-81%" />
+            <img src="~/assets/images/index/about_cardPic2.png" alt="" class="block w-81%" />
             <div class="flex flex-col gap-1 leading-50px text-xl text-center">
               <p class="whitespace-nowrap text-#fff text-xl font-semibold">調度全台服務車輛</p>
               <div class="text-#fff text-xl font-semibold">{{ formattedNum2 }} 台</div>
@@ -307,7 +312,7 @@ onMounted(() => {
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
-            <img src="/images/index/about_cardPic3.png" alt="" class="block w-98%" />
+            <img src="~/assets/images/index/about_cardPic3.png" alt="" class="block w-98%" />
             <div class="flex flex-col gap-1 leading-50px text-xl text-center">
               <p class="whitespace-nowrap text-#fff text-xl font-semibold">促成共乘</p>
               <div class="text-#fff text-xl font-semibold">{{ formattedNum3 }} 次</div>
@@ -315,7 +320,7 @@ onMounted(() => {
           </div>
 
           <div class="boxes flex flex-col gap-2 justify-center items-center w-34% md:(w-31%)">
-            <img src="/images/index/about_cardPic4.png" alt="" class="block w-74%" />
+            <img src="~/assets/images/index/about_cardPic4.png" alt="" class="block w-74%" />
             <div class="flex flex-col gap-1 leading-50px text-xl text-center">
               <p class="whitespace-nowrap text-#fff text-xl font-semibold">累積媒合</p>
               <div class="text-#fff text-xl font-semibold whitespace-nowrap">{{ formattedNum4 }} 次</div>
@@ -327,7 +332,7 @@ onMounted(() => {
       <div class="w-full h-full relative flex flex-col gap-50px items-center md:(gap-180px) md_1024:(self-center) lg:(gap-130px self-auto)">
         <!-- 汽車 -->
         <div class="w-full h-full mt-60px">
-          <img src="/images/index/about_car.png" alt="" class="block w-full" />
+          <img src="~/assets/images/index/about_car.png" alt="" class="block w-full" />
         </div>
         <!-- 遙控器 -->
         <div class="w-full h-full flex flex-col gap-120px items-center md:(flex-row gap-0 items-end) lg:(gap-170px)">
@@ -342,20 +347,20 @@ onMounted(() => {
           <div class="w-full flex items-end justify-center relative lg:(items-center w-70%)">
             <!-- 愛心發射 -->
             <div class="heart1 absolute top--23% left-36% w-14% opacity-0 md:(w-32% top--32% left-20%) lg:(w-31%)">
-              <img src="/images/index/about_heart1.png" alt="" class="block w-full" />
+              <img src="~/assets/images/index/about_heart1.png" alt="" class="block w-full" />
             </div>
             <div class="heart2 absolute top--31% left-33% w-20% opacity-0 md:(w-44% top--43% left-13%) lg:(w-42%)">
-              <img src="/images/index/about_heart2.png" alt="" class="block w-full" />
+              <img src="~/assets/images/index/about_heart2.png" alt="" class="block w-full" />
             </div>
             <div class="heart3 absolute top--38% left-30% w-25% opacity-0 md:(w-58% top--52% left-5%) lg:(w-56%)">
-              <img src="/images/index/about_heart3.png" alt="" class="block w-full" />
+              <img src="~/assets/images/index/about_heart3.png" alt="" class="block w-full" />
             </div>
             <div class="heart4 absolute top--52% left-24% w-35% opacity-0 md:(w-73% top--65% left--4%) lg:(w-70%)">
-              <img src="/images/index/about_heart4.png" alt="" class="block w-full" />
+              <img src="~/assets/images/index/about_heart4.png" alt="" class="block w-full" />
             </div>
             <!-- 遙控器本體 -->
             <div class="w-35% md:(w-65%)">
-              <img src="/images/index/about_controller.png" alt="" class="block w-full" />
+              <img src="~/assets/images/index/about_controller.png" alt="" class="block w-full" />
             </div>
           </div>
         </div>
@@ -439,10 +444,10 @@ onMounted(() => {
 
     <section class="flex flex-col items-center gap-y-8 md:(flex-row gap-x-4 items-end) lg:(w-1000px m-auto gap-x-12)">
       <div>
-        <img src="/images/index/social/oldMan.png" alt="" />
+        <img src="~/assets/images/index/social/oldMan.png" alt="" />
       </div>
       <div class="w-full">
-        <img src="/images/index/social/title_decorate.png" class="m-auto mb-6" alt="" />
+        <img src="~/assets/images/index/social/title_decorate.png" class="m-auto mb-6" alt="" />
         <div class="border-t-2 border-b-2 text-center border-black py-40px text-left text-justify relative">
           <span>小驢行以媒合平台改善台灣高齡、偏鄉交通環境，不只受各方肯定及協力報導倡議，做法也可複製可仿效，可做為高齡與偏鄉服務的典範。</span>
           <NuxtLink
@@ -454,7 +459,7 @@ onMounted(() => {
         </div>
       </div>
       <div>
-        <img src="/images/index/social/oldWomen.png" alt="" />
+        <img src="~/assets/images/index/social/oldWomen.png" alt="" />
       </div>
     </section>
 
@@ -535,7 +540,7 @@ onMounted(() => {
 
 /* banner run */
 .banner {
-  background: url("/images/index/city.png");
+  background: url("~/assets/images/index/city.png");
   background-repeat: repeat-x;
   animation: moveBanner 25s linear infinite;
   background-size: cover;
@@ -599,7 +604,7 @@ onMounted(() => {
   .newbgImage {
     width: 100%;
     padding-top: 177%;
-    background-image: url("/images/index/newsAndInfo/bg_mobile.png");
+    background-image: url("~/assets/images/index/newsAndInfo/bg_mobile.png");
     background-repeat: no-repeat;
   }
 }
@@ -608,7 +613,7 @@ onMounted(() => {
   .newbgImage {
     width: 100%;
     padding-top: 75%;
-    background-image: url("/images/index/newsAndInfo/bg_pad.png");
+    background-image: url("~/assets/images/index/newsAndInfo/bg_pad.png");
     background-size: cover;
   }
 }
@@ -617,7 +622,7 @@ onMounted(() => {
   .newbgImage {
     width: 100%;
     padding-top: 56.25%;
-    background-image: url("/images/index/newsAndInfo/bg_pc.png");
+    background-image: url("~/assets/images/index/newsAndInfo/bg_pc.png");
     background-size: cover;
   }
   .banner {

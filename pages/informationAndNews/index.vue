@@ -2,10 +2,10 @@
   <main class="min-h-screen">
     <!-- banner -->
     <div class="relative h-[585px] md:h-auto">
-      <img class="w-full h-full object-cover md:hidden" src="/images/newsAndInfo/mobile_bg.png" alt="">
-      <img class="w-full h-full hidden md:block lg:hidden" src="/images/newsAndInfo/pad_bg.png" alt="">
-      <img class="w-full h-full hidden lg:block" src="/images/newsAndInfo/pc_bg.png" alt="">
-      <img class="absolute center-horizontal top-25px w-30% md:(top-80px w-15%) lg:w-7%" src="/images/practiced/logo_white.png" alt="">
+      <img class="w-full h-full object-cover md:hidden" src="~/assets/images/newsAndInfo/mobile_bg.png" alt="">
+      <img class="w-full h-full hidden md:block lg:hidden" src="~/assets/images/newsAndInfo/pad_bg.png" alt="">
+      <img class="w-full h-full hidden lg:block" src="~/assets/images/newsAndInfo/pc_bg.png" alt="">
+      <img class="absolute center-horizontal top-25px w-30% md:(top-80px w-15%) lg:w-7%" src="~/assets/images/practiced/logo_white.png" alt="">
       <header class="mb-50px w-fit absolute center-horizontal top-50% md:(top-60% left-37%) lg:(left-20%)">
         <h2 class="text-50px break-all text-white text-center md:(text-left text-60px)">INFO/</h2>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
@@ -57,8 +57,8 @@
       >
         <div class="absolute top-10px left-10px w-fit z-3">
           <div class="w-20px h-20px rounded-full bg-white border-2px border-blue-500 absolute top-0 right-8px z-2"></div>
-          <img class="transform scale-150 transform rotate-10" src="/images/newsAndInfo/more_icon_02.png" alt="">
-          <img class="transform scale-150 -rotate-5 group-hover:(rotate-5) transition" src="/images/newsAndInfo/more_icon_01.png" alt="">
+          <img class="transform scale-150 transform rotate-10" src="~/assets/images/newsAndInfo/more_icon_02.png" alt="">
+          <img class="transform scale-150 -rotate-5 group-hover:(rotate-5) transition" src="~/assets/images/newsAndInfo/more_icon_01.png" alt="">
         </div>
         <!-- 圖片 -->
         <template v-if="item.isLink">
@@ -123,37 +123,47 @@
     }
   ])
 
+  const images = import.meta.globEager('../../assets/images/newsAndInfo/**/*.jpg')
+
+  function getImagePath(path) {
+    return images[path]?.default
+  }
   //最新消息
   const newsList = ref([
     {
       id:1,
       time:"2023/07/24",
       title:"小驢行與1919食物銀行及各單位合作帶動偏鄉惜食運輸，成果至APEC國際研討會分享",
-      imageSrc:"/images/newsAndInfo/news/01.jpg",
+      // imageSrc:"~/assets/images/newsAndInfo/news/01.jpg",
+      imageSrc: getImagePath("../../assets/images/newsAndInfo/news/01.jpg"),
     },
     {
       id:2,
       time:"2022/12/20",
       title:"小驢行TTGO系統協助花東面對災後運輸困境",
-      imageSrc:"/images/newsAndInfo/news/02.jpg"
+      // imageSrc:"~/assets/images/newsAndInfo/news/02.jpg"
+      imageSrc: getImagePath("../../assets/images/newsAndInfo/news/02.jpg"),
     },
     {
       id:3,
       time:"2022/12/20",
       title:"小驢行獲遠見雜誌肯定，得到2022第18屆CSR暨ESG企業社會責任獎",
-      imageSrc:"/images/newsAndInfo/news/03.jpg"
+      // imageSrc:"~/assets/images/newsAndInfo/news/03.jpg"
+      imageSrc: getImagePath("../../assets/images/newsAndInfo/news/03.jpg"),
     },
     {
       id:4,
       time:"2021/11/24",
       title:"小驢行與產官學研一同持續倡議，成功推動偏鄉客貨共乘共載修法",
-      imageSrc:"/images/newsAndInfo/news/04.jpg"
+      // imageSrc:"~/assets/images/newsAndInfo/news/04.jpg"
+      imageSrc: getImagePath("../../assets/images/newsAndInfo/news/04.jpg"),
     },
     {
       id:5,
       time:"2021/08/14",
       title:"小驢行與各車隊及公私部門合作，讓確診者安心隔離、安心返家",
-      imageSrc:"/images/newsAndInfo/news/05.jpg"
+      // imageSrc:"~/assets/images/newsAndInfo/news/05.jpg"
+      imageSrc: getImagePath("../../assets/images/newsAndInfo/news/05.jpg"),
     }
   ])
   
@@ -165,7 +175,8 @@
       viewCount:2541,
       author:"",
       title:"【即食專送】數位專題：串起偏鄉的食醫助行",
-      imageSrc:"/images/newsAndInfo/info/01.jpg",
+      // imageSrc:"~/assets/images/newsAndInfo/info/01.jpg",
+      imageSrc: getImagePath("../../assets/images/newsAndInfo/info/01.jpg"),
       isLink:"https://visionproject.org.tw/project/cherish-food"
     },
     {
@@ -174,7 +185,8 @@
       viewCount:3973,
       author:"",
       title:"【即食專送1】把城市多餘的食物送到有需要的偏鄉",
-      imageSrc:"/images/newsAndInfo/info/02.jpg",
+      // imageSrc:"~/assets/images/newsAndInfo/info/02.jpg",
+      imageSrc: getImagePath("../../assets/images/newsAndInfo/info/02.jpg"),
       isLink:""
     },
     {
@@ -183,7 +195,8 @@
       viewCount:2052,
       author:"",
       title:"【即食專送2】偏鄉中的偏鄉、資源遙不可及的南溪部落",
-      imageSrc:"/images/newsAndInfo/info/03.jpg",
+      // imageSrc:"~/assets/images/newsAndInfo/info/03.jpg",
+      imageSrc: getImagePath("../../assets/images/newsAndInfo/info/03.jpg"),
       isLink:""
     },
     {
@@ -192,7 +205,8 @@
       viewCount:4067,
       author:"",
       title:"照顧服務的新未來 銀髮管家的創新服務",
-      imageSrc:"/images/newsAndInfo/info/04.jpg",
+      // imageSrc:"~/assets/images/newsAndInfo/info/04.jpg",
+      imageSrc: getImagePath("../../assets/images/newsAndInfo/info/04.jpg"),
       isLink:""
     },
     {
@@ -201,7 +215,8 @@
       viewCount:3896,
       author:"",
       title:"今日的疫情 明日社會的新常態",
-      imageSrc:"/images/newsAndInfo/info/05.jpg",
+      // imageSrc:"~/assets/images/newsAndInfo/info/05.jpg",
+      imageSrc: getImagePath("../../assets/images/newsAndInfo/info/05.jpg"),
       isLink:""
     }
   ]) 
