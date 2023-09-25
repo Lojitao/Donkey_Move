@@ -2,10 +2,10 @@
   <main class="min-h-screen">
     <!-- banner -->
     <div class="relative h-[585px] md:h-auto">
-      <img class="w-full h-full object-cover md:hidden" src="/images/newsAndInfo/details_bg_mobile.png" alt="">
-      <img class="w-full h-full hidden md:block lg:hidden" src="/images/newsAndInfo/details_bg_pad.png" alt="">
-      <img class="w-full h-full hidden lg:block" src="/images/newsAndInfo/details_bg_pc.png" alt="">
-      <img class="absolute center-horizontal top-25px w-30% md:(top-80px w-15%) lg:w-7%" src="/images/practiced/logo_white.png" alt="">
+      <img class="w-full h-full object-cover md:hidden" src="~/assets/images/newsAndInfo/details_bg_mobile.png" alt="">
+      <img class="w-full h-full hidden md:block lg:hidden" src="~/assets/images/newsAndInfo/details_bg_pad.png" alt="">
+      <img class="w-full h-full hidden lg:block" src="~/assets/images/newsAndInfo/details_bg_pc.png" alt="">
+      <img class="absolute center-horizontal top-25px w-30% md:(top-80px w-15%) lg:w-7%" src="~/assets/images/practiced/logo_white.png" alt="">
       <header class="mb-50px w-fit absolute center-horizontal top-50% md:(top-60% left-37%) lg:(left-20%)">
         <h2 class="text-50px break-all text-white text-center md:(text-left text-60px)">INFO/</h2>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
@@ -77,13 +77,19 @@
   
   let renderData = ref({}) 
   let queryType = ref('')
+
+  const images = import.meta.globEager('../../../assets/images/newsAndInfo/*.png')
+
+  function getImagePath(path) {
+    return images[path]?.default
+  }
   //最新消息
   const newsList = ref([
     {
       id:1,
       time:"2023/07/24",
       title:"小驢行與1919食物銀行及各單位合作帶動偏鄉惜食運輸，成果至APEC國際研討會分享",
-      imageSrc:"/images/newsAndInfo/default.png",
+      imageSrc: getImagePath("../../../assets/images/newsAndInfo/default.png"),
       content:`<p class="mb-20px">亞太經濟合作(APEC)組織之2023年「強化APEC糧食體系、數位化與創新科技以降低糧損與食物浪費」研討會於7月20-21日在台北展開，計有近150名國際學者及代表參與。本校公共事務與社會創新碩士在職學位學程侯勝宗特聘教授以「Innovative digital solutions MaaSS &ndash; An Inclusive mobility solution for on-demand food delivery and social resilience」為題，介紹台灣獨特的偏鄉惜食物資接力創新模式。</p>
         <img alt="侯勝宗老師在APEC(亞太經濟合作)研討會中介紹台灣獨特的偏鄉惜食物資接力創新模式。" loading="lazy" sizes="(max-width: 900px) 100vw, 900px" src="https://s3.ap-southeast-1.amazonaws.com/web-content.fcu.edu.tw/wp-content/uploads/2023/07/24140851/%E4%BE%AF%E5%8B%9D%E5%AE%97%E8%80%81%E5%B8%AB%E5%9C%A8APEC%E4%BA%9E%E5%A4%AA%E7%B6%93%E6%BF%9F%E5%90%88%E4%BD%9C%E7%A0%94%E8%A8%8E%E6%9C%83%E4%B8%AD%E4%BB%8B%E7%B4%B9%E5%8F%B0%E7%81%A3%E7%8D%A8%E7%89%B9%E7%9A%84%E5%81%8F%E9%84%89%E6%83%9C%E9%A3%9F%E7%89%A9%E8%B3%87%E6%8E%A5%E5%8A%9B%E5%89%B5%E6%96%B0%E6%A8%A1%E5%BC%8F%E3%80%82.jpg" srcset="https://s3.ap-southeast-1.amazonaws.com/web-content.fcu.edu.tw/wp-content/uploads/2023/07/24140851/%E4%BE%AF%E5%8B%9D%E5%AE%97%E8%80%81%E5%B8%AB%E5%9C%A8APEC%E4%BA%9E%E5%A4%AA%E7%B6%93%E6%BF%9F%E5%90%88%E4%BD%9C%E7%A0%94%E8%A8%8E%E6%9C%83%E4%B8%AD%E4%BB%8B%E7%B4%B9%E5%8F%B0%E7%81%A3%E7%8D%A8%E7%89%B9%E7%9A%84%E5%81%8F%E9%84%89%E6%83%9C%E9%A3%9F%E7%89%A9%E8%B3%87%E6%8E%A5%E5%8A%9B%E5%89%B5%E6%96%B0%E6%A8%A1%E5%BC%8F%E3%80%82.jpg 900w, https://s3.ap-southeast-1.amazonaws.com/web-content.fcu.edu.tw/wp-content/uploads/2023/07/24140851/%E4%BE%AF%E5%8B%9D%E5%AE%97%E8%80%81%E5%B8%AB%E5%9C%A8APEC%E4%BA%9E%E5%A4%AA%E7%B6%93%E6%BF%9F%E5%90%88%E4%BD%9C%E7%A0%94%E8%A8%8E%E6%9C%83%E4%B8%AD%E4%BB%8B%E7%B4%B9%E5%8F%B0%E7%81%A3%E7%8D%A8%E7%89%B9%E7%9A%84%E5%81%8F%E9%84%89%E6%83%9C%E9%A3%9F%E7%89%A9%E8%B3%87%E6%8E%A5%E5%8A%9B%E5%89%B5%E6%96%B0%E6%A8%A1%E5%BC%8F%E3%80%82-150x100.jpg 150w" style="width: 100%;" />
         <p class="mb-20px">侯勝宗老師在APEC(亞太經濟合作)研討會中介紹台灣獨特的偏鄉惜食物資接力創新模式。</p>
@@ -116,7 +122,7 @@
       id:2,
       time:"2022/12/20",
       title:"小驢行TTGO系統協助花東面對災後運輸困境",
-      imageSrc:"/images/newsAndInfo/default.png",
+      imageSrc: getImagePath("../../../assets/images/newsAndInfo/default.png"),
       content:`<figure><img alt="圖說：幸福輪轉手化身TTGO專車，提供玉里至富里間往返交通服務。 圖／裕隆集團 ..." src="https://pgw.udn.com.tw/gw/photo.php?u=https://uc.udn.com.tw/photo/2022/12/19/0/19709115.jpg&amp;x=0&amp;y=0&amp;sw=0&amp;sh=0&amp;sl=W&amp;fw=1050" style="width: 100%;" title="圖說：幸福輪轉手化身TTGO專車，提供玉里至富里間往返交通服務。 圖／裕隆集團 ..." />
         <figcaption>圖說：幸福輪轉手化身TTGO專車，提供玉里至富里間往返交通服務。 圖／裕隆集團 提供</figcaption>
         </figure>
@@ -215,7 +221,7 @@
       id:3,
       time:"2022/12/20",
       title:"小驢行獲遠見雜誌肯定，得到2022第18屆CSR暨ESG企業社會責任獎",
-      imageSrc:"/images/newsAndInfo/default.png",
+      imageSrc: getImagePath("../../../assets/images/newsAndInfo/default.png"),
       content:`<img data-ll-status="loaded" data-src="https://csrone.com/api/img/upload/articles/4fpDtHsAfwBYBCPhkl76fniyxps7U0mMrYpce18u.jpg?w=718" loading="lazy" src="https://csrone.com/api/img/upload/articles/4fpDtHsAfwBYBCPhkl76fniyxps7U0mMrYpce18u.jpg?w=718" style="width: 100%;" />
         <p class="mb-20px">（2022第18屆《遠見》CSR暨ESG企業社會責任獎紀念合照）</p>
 
@@ -324,7 +330,7 @@
       id:4,
       time:"2021/11/24",
       title:"小驢行與產官學研一同持續倡議，成功推動偏鄉客貨共乘共載修法",
-      imageSrc:"/images/newsAndInfo/default.png",
+      imageSrc: getImagePath("../../../assets/images/newsAndInfo/default.png"),
       content:`<a class="color-blue" data-desc="點圖放大" href="https://img.ltn.com.tw/Upload/news/600/2021/11/24/3747510_1_1.jpg" title="屏東縣滿州鄉去年底推幸福巴士2.0，屏東縣政府輔導一粒麥子基金會投入偏鄉運輸服務，今天更進一步放寬可載送貨物。（資料照）"><img alt="屏東縣滿州鄉去年底推幸福巴士2.0，屏東縣政府輔導一粒麥子基金會投入偏鄉運輸服務，今天更進一步放寬可載送貨物。（資料照）" data-src="https://img.ltn.com.tw/Upload/news/600/2021/11/24/3747510_1_1.jpg" src="https://img.ltn.com.tw/Upload/news/600/2021/11/24/3747510_1_1.jpg" style="width: 100%;" title="屏東縣滿州鄉去年底推幸福巴士2.0，屏東縣政府輔導一粒麥子基金會投入偏鄉運輸服務，今天更進一步放寬可載送貨物。（資料照）" /></a>
         <p class="mb-20px">屏東縣滿州鄉去年底推幸福巴士2.0，屏東縣政府輔導一粒麥子基金會投入偏鄉運輸服務，今天更進一步放寬可載送貨物。（資料照）</p>
         2021/11/24 22:01
@@ -343,7 +349,7 @@
       id:5,
       time:"2021/08/14",
       title:"小驢行與各車隊及公私部門合作，讓確診者安心隔離、安心返家",
-      imageSrc:"/images/newsAndInfo/default.png",
+      imageSrc: getImagePath("../../../assets/images/newsAndInfo/default.png"),
       content:`<main>
         <article>&nbsp;</article>
         </main>
@@ -401,7 +407,7 @@
       authorImg:"",
       authorSummary:"",
       title:"【即食專送1】把城市多餘的食物送到有需要的偏鄉",
-      imageSrc:"/images/newsAndInfo/default.png",
+      imageSrc: getImagePath("../../../assets/images/newsAndInfo/default.png"),
       content:`<h1 data-v-d59e4af8="">【即食專送1】把城市多餘的食物送到有需要的偏鄉</h1>
 
         <article data-v-d59e4af8="" id="post">
@@ -541,7 +547,7 @@
       authorImg:"",
       authorSummary:"",
       title:"【即食專送2】偏鄉中的偏鄉、資源遙不可及的南溪部落",
-      imageSrc:"/images/newsAndInfo/default.png",
+      imageSrc: getImagePath("../../../assets/images/newsAndInfo/default.png"),
       content:`<h1 data-v-d59e4af8="">【即食專送2】偏鄉中的偏鄉、資源遙不可及的南溪部落</h1>
 
         <article data-v-d59e4af8="" id="post">
@@ -676,10 +682,11 @@
       time:"2022/12/20",
       viewCount:4067,
       author:"侯勝宗",
-      authorImg:"/images/newsAndInfo/author.png",
+      // authorImg:"images/newsAndInfo/author.png",
+      authorImg: getImagePath("../../../assets/images/newsAndInfo/author.png"),
       authorSummary:"逢甲大學公共事務與社會創新研究所特聘教授，研究領域專注於科技與服務創新，共享經濟與工作意義打造，特別著重於老化社會的移動服務(Mobility as a Social Services,MaSS)研究。創辦台灣計程車學院協會與小驢行，曾協助全國超過10個縣市的長照交通規劃，推動長照交通大平台的就醫接送媒合。",
       title:"照顧服務的新未來 銀髮管家的創新服務",
-      imageSrc:"/images/newsAndInfo/default.png",
+      imageSrc: getImagePath("../../../assets/images/newsAndInfo/default.png"),
       content:`<p class="mb-20px"><img alt="【侯勝宗專欄】照顧服務的新未來 銀髮管家的創新服務" itemprop="image" src="https://lyrasoft.s3.amazonaws.com/ankecare/images/article/image/51de85ddd068f0bc787691d356176df9.jpg" style="width: 100%;" /><br />
         看過蝙蝠俠（Batman）電影，一定對男主角家忠心耿耿、無所不知的管家─「阿福」不陌生。邁向超高齡社會的台灣，也需要類似「阿福」管家，我稱這一群優質的服務整合者為「銀髮管家」。只是這一群「銀髮管家」在哪裡呢？又如何得到服務呢？</p>
 
@@ -723,10 +730,11 @@
       time:"2022/04/25",
       viewCount:3896,
       author:"侯勝宗",
-      authorImg:"/images/newsAndInfo/author.png",
+      // authorImg:"../../../assets/images/newsAndInfo/author.png",
+      authorImg: getImagePath("../../../assets/images/newsAndInfo/author.png"),
       authorSummary:"逢甲大學公共事務與社會創新研究所特聘教授，研究領域專注於科技與服務創新，共享經濟與工作意義打造，特別著重於老化社會的移動服務(Mobility as a Social Services,MaSS)研究。創辦台灣計程車學院協會與小驢行，曾協助全國超過10個縣市的長照交通規劃，推動長照交通大平台的就醫接送媒合。",
       title:"今日的疫情 明日社會的新常態",
-      imageSrc:"/images/newsAndInfo/default.png",
+      imageSrc: getImagePath("../../../assets/images/newsAndInfo/default.png"),
       content:`<p class="mb-20px">全球新冠肺炎確診人數己突破4.4億人口，累計死亡人數也超過了601萬人；其中Omicron變異株自去年發現以來，已造成至少50萬人染疫而亡，世界衛生組織（WHO）感嘆這樣的死亡人數已經超越悲慘。</p>
 
         <p class="mb-20px">大疫之下，唯一可以確定的是「不確定」！我們如何面對未來？本文筆者將帶領大家重新回到去年5月，台灣三級警戒的封城，探索疫後社會的新常態。2021年5月中下旬，台灣進入疫情三級警戒後，筆者創立的臺灣計程車學院協會接到新北市衛生局指令，啟動確診者安心返家微光車隊專案（<a class="color-blue"href="https://bethelight.org.tw/" rel="noopener" target="_blank">https://bethelight.org.tw/</a>）。在新北市衛生局的授權下，集結新北市數家長照交通特約業者，利用旗下長照專車和緊急徵召司機，天天與看不見的病毒作戰，搶救染疫的確診者可以安全被載送至醫院或集中檢疫所，或是讓解隔離者安心後送返家。</p>

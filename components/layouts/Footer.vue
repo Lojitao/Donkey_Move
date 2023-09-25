@@ -22,7 +22,7 @@
     </section> -->
     <section class="py-6 px-4">
       <div class="mb-4">
-        <img src="/images/footer_logo.png" class="m-auto" alt="">
+        <img src="~/assets/images/footer_logo.png" class="m-auto" alt="">
       </div>
       <div class="flex flex-col lg:flex-row  justify-center gap-x-6">
         <p class="mb-5">Copyright © 2023 小驢行</p>

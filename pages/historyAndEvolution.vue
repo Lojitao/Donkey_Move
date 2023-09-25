@@ -2,10 +2,10 @@
   <main class="min-h-screen">
     <!-- banner -->
     <div class="relative">
-      <img src="/images/history/mobile_bg.png" alt="" class="w-full md:hidden" />
-      <img src="/images/history/pad_bg.png" alt="" class="w-full hidden md:block lg:hidden" />
-      <img src="/images/history/pc_bg.png" alt="" class="w-full hidden lg:block" />
-      <img src="/images/project/logo_white.png" alt="" class="absolute center-horizontal top-40px w-30% md:(top-80px w-15%) lg:(w-7%)" />
+      <img src="~/assets/images/history/mobile_bg.png" alt="" class="w-full md:hidden" />
+      <img src="~/assets/images/history/pad_bg.png" alt="" class="w-full hidden md:block lg:hidden" />
+      <img src="~/assets/images/history/pc_bg.png" alt="" class="w-full hidden lg:block" />
+      <img src="~/assets/images/project/logo_white.png" alt="" class="absolute center-horizontal top-40px w-30% md:(top-80px w-15%) lg:(w-7%)" />
       <header class="mb-50px w-fit absolute center-horizontal top-50% md:(top-60% left-30%) lg:(left-20%)">
         <h1 class="text-50px break-all text-white text-center md:(text-left text-60px)">DONKEY</h1>
         <div class="md:(flex gap-x-4 items-baseline) text-white text-center font-medium">
@@ -23,7 +23,7 @@
       </h4>
       <div class="flex flex-col gap-5 items-center justify-center my-60px mx-auto w-90% md_1024:(flex-row w-85%)">
         <div class="w-40% md:(w-20%) md_1024:(w-full)">
-          <img src="/images/project/logo_circle.png" alt="" class="block lg:(w-280px)" />
+          <img src="~/assets/images/project/logo_circle.png" alt="" class="block lg:(w-280px)" />
         </div>
         <p class="text-18px text-justify md:(text-22px)">
           小驢行成立的脈絡，源自逢甲大學與侯勝宗教授對交通移動的學術研究，小驢行、逢甲大學、台灣微光行動協會共同秉持著「以移動服務社會」的理念，一同改善台灣的交通，這個理念從2003年的學術研究發展到現在的社會實踐，已成為滿足台灣高齡化社會需求不可或缺的一股力量。
@@ -37,7 +37,7 @@
       </div>
 
       <div class="w-90% mx-auto mb-120px md_1024:(w-85%) lg:(w-60%)">
-        <img src="/images/history/elder_heart.png" alt="" class="block w-full">
+        <img src="~/assets/images/history/elder_heart.png" alt="" class="block w-full">
         <p class="text-14px text-justify md:(text-16px)">
           小驢行創立共享長照交通平台，幫助偏鄉民眾、長者及弱勢族群接送，自2018年成立至今，我們媒合235萬趟接送服務的背後，還有很多重要實績。
         </p>
@@ -51,7 +51,7 @@
           </p>
         </div>
         <div class="w-60% md:(w-300px)">
-          <img src="/images/history/map.png" alt="" class="block w-full">
+          <img src="~/assets/images/history/map.png" alt="" class="block w-full">
         </div>
       </div>
 
@@ -60,7 +60,7 @@
         <div class="w-full flex flex-col items-center justify-center gap-7.5 md:(gap-10) md_1024:(flex-row justify-between)">
           <p class="text-#F2A825 font-bold md:(text-20px whitespace-nowrap)">總媒合兩萬七千趟的偏鄉車趟</p>
           <div class="w-80% md_1024:(w-60%)">
-            <img src="/images/history/bus.png" alt="" class="block w-full">
+            <img src="~/assets/images/history/bus.png" alt="" class="block w-full">
           </div>
         </div>
       </div>

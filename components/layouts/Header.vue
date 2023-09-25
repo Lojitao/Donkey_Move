@@ -44,7 +44,7 @@ const menuList = ref([
   <Transition name="fade">
     <nav v-if="menuShow" class="w-full h-screen z-5 bg-[#fff] opacity-95 fixed top-0 right-0 flex items-center justify-center">
       <NuxtLink @click="menuShow = !menuShow" to="/" class="block absolute w-15% top-6% left-50% transform -translate-x-1/2 z-2 md_1024:(w-10%) lg:(w-6% top-5%)">
-        <img src="/images/logo.png" alt="小驢行LOGO" class="w-full block" />
+        <img src="~/assets/images/logo.png" alt="小驢行LOGO" class="w-full block" />
       </NuxtLink>
       <ul class="w-80% flex flex-col gap-20px text-center text-#5A5657 text-base font-semibold md:(w-60% text-xl gap-50px) lg:(pt-10)">
         <li v-for="item in menuList" :key="item.id">
