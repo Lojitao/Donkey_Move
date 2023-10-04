@@ -1,4 +1,3 @@
-
 import type { FetchResponse, SearchParameters } from 'ofetch'
 import type { Ref } from 'vue'
 import type { UseFetchOptions } from '#app'
@@ -25,31 +24,28 @@ type UseHttpParams<T> = {
 //-------定義資料格式-------
 
 
-
+// 錯誤談窗
+function alertError(text: string = ""){
+  //TODO:使用sweetAlert()
+  // Message.error({
+  //   content: response?._data?.message ?? text,
+  //   icon: () => h(IconEmoticonDead),
+  // })
+}
 //錯誤處理
 function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>){
 
-  const err = (text: string) => {
-    window.alert("有錯誤喔～～～")
-    // Message.error({
-    //   content: response?._data?.message ?? text,
-    //   icon: () => h(IconEmoticonDead),
-    // })
-  }
-  if (!response._data) {
-    err('请求超时，服务器无响应！')
-    return
-  }
+
+  if (!response._data) return alertError('請求超時') //TODO:超時在哪設定?????
+  if (response._data) return alertError()
  
   const handleMap: { [key: number]: () => void } = {
-    404: () => err('服务器资源不存在'),
-    500: () => err('服务器内部错误'),
-    403: () => err('没有权限访问该资源'),
-    401: () => {
-      err('登录状态已过期，需要重新登录')
-    },
+    404: () => alertError('服务器资源不存在'),
+    500: () => alertError('服务器内部错误'),
+    403: () => alertError('没有权限访问该资源'),
+    401: () => alertError('登录状态已过期，需要重新登录')
   }
-  handleMap[response.status] ? handleMap[response.status]() : err('未知错误！')
+  handleMap[response.status] ? handleMap[response.status]() : alertError('未知错误！')
 }
 
 //get方法传递数组形式参数
@@ -76,10 +72,9 @@ const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOp
   return useFetch<ResOptions<T>>(url, {
     // 請求攔截
     onRequest({ options }) {
-      loadingStore.startRequest();//全局loading狀態管理
+      if(process.client) loadingStore.startRequest();//全局loading狀態管理
 
-      // get方法传递数组形式参数
-      options.params = paramsSerializer(options.params)
+      options.params = paramsSerializer(options.params)// get方法传递数组形式参数
       
       // 添加baseURL,nuxt3环境变量要从useRuntimeConfig里面取
       const config = useRuntimeConfig()
@@ -89,27 +84,22 @@ const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOp
     },
     // 回應攔截
     onResponse({ response }) {
-      loadingStore.endRequest()//全局loading狀態管理
+      if(process.client) loadingStore.endRequest()//全局loading狀態管理
 
-      //從 HTTP 請求或響應的頭部中獲取指定的頭部值，判斷內容應該被視為一個要下載的文件，而不是直接在瀏覽器中顯示。
-      if (response.headers.get('content-disposition') && response.status === 200)
-        return response
-
-      // 在这里判断错误
-      if (response._data.code !== 200) {
-        handleError<T>(response)
-        return Promise.reject(response._data)
-      }
-      
+      // 網路回傳狀態是200,但資料的code!==200(後端給的)
+      // TODO:需要return Promise.reject(response._data)嗎???
+      if (response._data.code !== 200)handleError<T>(response)
+        
       // 成功返回
+        //從 HTTP 請求或響應的頭部中獲取指定的頭部值，判斷內容應該被視為一個要下載的文件，而不是直接在瀏覽器中顯示。
+      if (response.headers.get('content-disposition') && response.status === 200)return response
       return response._data
     },
-    // 錯誤攔截
+    // 網絡錯誤、伺服器返回非2xx的HTTP狀態碼
     onResponseError({ response }) {
-      loadingStore.endRequest()//全局loading狀態管理
-
+      if(process.client) loadingStore.endRequest()//全局loading狀態管理
       handleError<T>(response)
-      return Promise.reject(response?._data ?? null)
+      // TODO:需要 return Promise.reject(response?._data ?? null) 嗎???
     },
     //合併自定義配置
     ...useFetchOptions,

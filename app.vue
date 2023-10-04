@@ -1,7 +1,8 @@
 <template>
   <div class="w-full">
-    
-    <Loading></Loading>
+    <client-only>
+      <Loading></Loading>
+    </client-only>
 
     <layoutsHeader></layoutsHeader>
 

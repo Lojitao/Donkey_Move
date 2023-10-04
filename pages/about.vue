@@ -17,6 +17,10 @@
       <p class="absolute text-white right-10px bottom-5px">台東池上伯朗大道</p>
     </div>
 
+    <button @click="getData()">打API</button>
+    <div v-for="item in data" :key="item.id">
+      {{ item.name }}
+    </div>
     <!-- 內容 -->
     <section class="mobile-px md:pad-px lg:pc-px my-8 flex flex-col gap-y-6">   
       <p>小驢行股份有限公司成立於2018年，以社會企業的角色長期發展移動服務和行動科技的社會創新創業領域。是以科技創新的方式，致力於滿足台灣高齡化社會對各種移動服務的需求。</p>
@@ -40,11 +44,25 @@
 </script>
 
 <script setup>
-  useSeoMeta({
-    title: "關於我們- 小驢行",
-    description: "關於我們- 小驢行團隊開發「長照交通車輛派遣系統」的資訊化叫車系統，用共享經濟的理念，整合政府的長照專車、復康巴士以及民間租賃車行或無障礙計程車司機的資源。迅速媒合長者或家屬對接送交通服務的需求",
-    ogDescription: "關於我們- 小驢行團隊開發「長照交通車輛派遣系統」的資訊化叫車系統，用共享經濟的理念，整合政府的長照專車、復康巴士以及民間租賃車行或無障礙計程車司機的資源。迅速媒合長者或家屬對接送交通服務的需求",
-    ogTitle: "關於我們- 小驢行",
-  })
+  import api from "~/apis" 
+  let data = ref(null);
+
+  const result = await api.donateType.Publicload();
+  data.value = result.data._rawValue.data;
+  console.log('SSR_data',data._rawValue);
+
+  async function getData(){
+    const result = await api.donateType.Publicload();
+    console.log('result',result);
+    data.value = result.data._rawValue.data;
+  }
+
+  // 使用 useFetch
+  // const { result } = useFetch(async () => {
+  //   const response = await api.donateType.Publicload();
+  //   return response.data._rawValue;
+  // });
+  // data.value = result.value;
+  
 
 </script>
