@@ -4,9 +4,7 @@ import type { UseFetchOptions } from '#app'
 import { useLoadingStore } from '~/stores/loadingStore';
 import Swal from 'sweetalert2';
 
-
-
-//-------定義資料格式-------
+//------*******定義資料格式 START *******-------
 interface ResOptions<T> {
   data?: T
   code?: number
@@ -24,51 +22,8 @@ type UseHttpParams<T> = {
   body?: any;
   option?: HttpOption<T>;
 }
-//-------定義資料格式-------
+//-------*******定義資料格式 END*******-------
 
-
-// 錯誤談窗
-function alertError(text: string = "" ,response?:any){
-  //TODO:使用sweetAlert()
-  Swal.fire({
-    icon: 'error',
-    title: response?._data?.message ?? text,
-    text: text,
-    confirmButtonText: 'Close'
-  });
-}
-//錯誤處理
-function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>){
-
-
-  if (!response._data) return alertError('請求超時') //TODO:超時在哪設定?????
-  if (response._data) return alertError('', response)
- 
-  const handleMap: { [key: number]: () => void } = {
-    404: () => alertError('服务器资源不存在'),
-    500: () => alertError('服务器内部错误'),
-    403: () => alertError('没有权限访问该资源'),
-    401: () => alertError('登录状态已过期，需要重新登录')
-  }
-  handleMap[response.status] ? handleMap[response.status]() : alertError('未知错误！')
-}
-
-//get方法传递数组形式参数
-function paramsSerializer(params?: SearchParameters){
-  if (!params) return
-  
-
-  //TODO:找時間安裝lodash套件 const query = useCloneDeep(params)
-  const query = JSON.parse(JSON.stringify(params)) 
-
-  Object.entries(query).forEach(([key, val]) => {
-    if (typeof val === 'object' && Array.isArray(val) && val !== null) {
-      query[`${key}[]`] = toRaw(val).map((v: any) => JSON.stringify(v))
-      delete query[key]
-    }
-  })
-  return query
-}
 
 //攔截器
 const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOptions<T>>) => {
@@ -89,10 +44,11 @@ const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOp
     },
     // 回應攔截
     onResponse({ response }) {
+      console.log('response',response);
+      
       if(process.client) loadingStore.endRequest()//全局loading狀態管理
 
-      // 網路回傳狀態是200,但資料的code!==200(後端給的)
-      // TODO:需要return Promise.reject(response._data)嗎???
+      // 網路回傳狀態200,但後端的code!==200
       if (response._data.code !== 200)handleError<T>(response)
         
       // 成功返回
@@ -104,11 +60,60 @@ const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOp
     onResponseError({ response }) {
       if(process.client) loadingStore.endRequest()//全局loading狀態管理
       handleError<T>(response)
-      // TODO:需要 return Promise.reject(response?._data ?? null) 嗎???
     },
     //合併自定義配置
     ...useFetchOptions,
   })
+}
+
+const handleMap: { [key: number]: () => void } = {
+  404: () => alertError('404-資源不存在'),
+  500: () => alertError('500-伺服器錯誤'),
+  403: () => alertError('403-没有權限訪問'),
+  401: () => alertError('401-登入狀態已過期,請重新登入')
+}
+
+// 錯誤談窗
+function alertError(text: string = "" ,response?:any){
+  let errorMsg = ''
+  if(text) errorMsg = text
+  if(response?._data?.result) errorMsg = response._data.result
+  if(response?._data?.message) errorMsg = response._data.message
+
+  Swal.fire({
+    icon: 'error',
+    title: '',
+    text: errorMsg,
+    confirmButtonText: 'Close'
+  });
+}
+//錯誤處理
+function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>){
+
+  // 先檢查 HTTP 狀態碼
+  if (handleMap[response.status]) return handleMap[response.status]()
+
+  // 檢查後端返回的錯誤碼
+  if (response._data && response._data.code !== 200) return alertError('', response)
+
+  // 如果都不符合上述條件，則返回「未知錯誤」
+  alertError('未知错误！');
+}
+
+//get方法传递数组形式参数
+function paramsSerializer(params?: SearchParameters){
+  if (!params) return
+
+  //TODO:找時間安裝lodash套件 const query = useCloneDeep(params)
+  const query = JSON.parse(JSON.stringify(params)) 
+
+  Object.entries(query).forEach(([key, val]) => {
+    if (typeof val === 'object' && Array.isArray(val) && val !== null) {
+      query[`${key}[]`] = toRaw(val).map((v: any) => JSON.stringify(v))
+      delete query[key]
+    }
+  })
+  return query
 }
 
 

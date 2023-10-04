@@ -47,9 +47,9 @@
   import api from "~/apis" 
   let data = ref(null);
 
-  const result = await api.donateType.Publicload();
-  data.value = result.data._rawValue.data;
-  console.log('SSR_data',data._rawValue);
+  // const result = await api.donateType.Publicload();
+  // data.value = result.data._rawValue.data;
+  // console.log('SSR_data',data._rawValue);
 
   async function getData(){
     const result = await api.donateType.Publicload();

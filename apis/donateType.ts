@@ -19,8 +19,18 @@ const api = {
       params,
       option 
     })
-  }
+  },
+  // test(params?:{}|[], option?:HttpOption<any>){
+  //   return useHttp({ 
+  //     url: 'test',
+  //     method: 'get',
+  //     params,
+  //     option 
+  //   })
+  // }
 }
+
+
 
 
 export default api
