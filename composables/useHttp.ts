@@ -2,6 +2,9 @@ import type { FetchResponse, SearchParameters } from 'ofetch'
 import type { Ref } from 'vue'
 import type { UseFetchOptions } from '#app'
 import { useLoadingStore } from '~/stores/loadingStore';
+import Swal from 'sweetalert2';
+
+
 
 //-------定義資料格式-------
 interface ResOptions<T> {
@@ -25,19 +28,21 @@ type UseHttpParams<T> = {
 
 
 // 錯誤談窗
-function alertError(text: string = ""){
+function alertError(text: string = "" ,response?:any){
   //TODO:使用sweetAlert()
-  // Message.error({
-  //   content: response?._data?.message ?? text,
-  //   icon: () => h(IconEmoticonDead),
-  // })
+  Swal.fire({
+    icon: 'error',
+    title: response?._data?.message ?? text,
+    text: text,
+    confirmButtonText: 'Close'
+  });
 }
 //錯誤處理
 function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>){
 
 
   if (!response._data) return alertError('請求超時') //TODO:超時在哪設定?????
-  if (response._data) return alertError()
+  if (response._data) return alertError('', response)
  
   const handleMap: { [key: number]: () => void } = {
     404: () => alertError('服务器资源不存在'),
