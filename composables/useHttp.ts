@@ -4,66 +4,12 @@ import type { UseFetchOptions } from '#app'
 import { useLoadingStore } from '~/stores/loadingStore';
 import Swal from 'sweetalert2';
 
-//------*******定義資料格式 START *******-------
-interface ResOptions<T> {
-  data?: T
-  code?: number
-  message?: string
-  success?: boolean
-}
-
-type UrlType = string | Request | Ref<string | Request> | (() => string | Request)
-export type HttpOption<T> = UseFetchOptions<ResOptions<T>>
-
-type UseHttpParams<T> = {
-  url: UrlType;
-  method: any;
+type UseHttpParams = {
+  url: string | Request | Ref<string | Request> | (() => string | Request);
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE';
   params?: any;
   body?: any;
-  option?: HttpOption<T>;
-}
-//-------*******定義資料格式 END*******-------
-
-
-//攔截器
-const useFetch_custom = <T>(url: UrlType, useFetchOptions: UseFetchOptions<ResOptions<T>>) => {
-  const loadingStore = useLoadingStore();
-  
-  return useFetch<ResOptions<T>>(url, {
-    // 請求攔截
-    onRequest({ options }) {
-      if(process.client) loadingStore.startRequest();//全局loading狀態管理
-
-      options.params = paramsSerializer(options.params)// get方法传递数组形式参数
-      
-      // 添加baseURL,nuxt3环境变量要从useRuntimeConfig里面取
-      const config = useRuntimeConfig()
-      options.baseURL = config.public.NUXT_PUBLIC_API_BASE
-      
-      // TODO:添加请求头,没登录不携带token
-    },
-    // 回應攔截
-    onResponse({ response }) {
-      console.log('response',response);
-      
-      if(process.client) loadingStore.endRequest()//全局loading狀態管理
-
-      // 網路回傳狀態200,但後端的code!==200
-      if (response._data.code !== 200)handleError<T>(response)
-        
-      // 成功返回
-        //從 HTTP 請求或響應的頭部中獲取指定的頭部值，判斷內容應該被視為一個要下載的文件，而不是直接在瀏覽器中顯示。
-      if (response.headers.get('content-disposition') && response.status === 200)return response
-      return response._data
-    },
-    // 網絡錯誤、伺服器返回非2xx的HTTP狀態碼
-    onResponseError({ response }) {
-      if(process.client) loadingStore.endRequest()//全局loading狀態管理
-      handleError<T>(response)
-    },
-    //合併自定義配置
-    ...useFetchOptions,
-  })
+  option?:  UseFetchOptions<any>;
 }
 
 const handleMap: { [key: number]: () => void } = {
@@ -74,7 +20,7 @@ const handleMap: { [key: number]: () => void } = {
 }
 
 // 錯誤談窗
-function alertError(text: string = "" ,response?:any){
+function alertError(text:string = "" ,response?:any){
   let errorMsg = ''
   if(text) errorMsg = text
   if(response?._data?.result) errorMsg = response._data.result
@@ -88,13 +34,13 @@ function alertError(text: string = "" ,response?:any){
   });
 }
 //錯誤處理
-function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>){
-
+function handleError(response: FetchResponse<any>){
+  const { status, _data } = response;
   // 先檢查 HTTP 狀態碼
-  if (handleMap[response.status]) return handleMap[response.status]()
+  if (handleMap[status]) return handleMap[status]();
 
   // 檢查後端返回的錯誤碼
-  if (response._data && response._data.code !== 200) return alertError('', response)
+  if (_data && _data.code !== 200) return alertError('', response);
 
   // 如果都不符合上述條件，則返回「未知錯誤」
   alertError('未知错误！');
@@ -104,7 +50,6 @@ function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<R
 function paramsSerializer(params?: SearchParameters){
   if (!params) return
 
-  //TODO:找時間安裝lodash套件 const query = useCloneDeep(params)
   const query = JSON.parse(JSON.stringify(params)) 
 
   Object.entries(query).forEach(([key, val]) => {
@@ -113,13 +58,47 @@ function paramsSerializer(params?: SearchParameters){
       delete query[key]
     }
   })
+  
   return query
 }
 
-
 // composables資料夾下會自動被其他檔案引入
-export const useHttp = <T>(requestData: UseHttpParams<T>) => {
+export const useHttp = <T>(requestData: UseHttpParams) => {
   const { url, method, params, body, option } = requestData
   
-  return useFetch_custom(url, { method, params, body, ...option })
+  const loadingStore = useLoadingStore();
+  
+  return useFetch(url, {
+    method,
+    params,
+    body,
+    ...option,//合併自定義配置
+    onRequest({ options }) {// 請求攔截
+      //全局loading狀態管理
+      if(process.client) loadingStore.startRequest()
+      
+      //get方法的queryString要自己組，不像axios會幫忙處理這一塊
+      options.params = paramsSerializer(options.params)
+
+      // nuxt3環境變數從useRuntimeConfig()取得
+      const { public: { NUXT_PUBLIC_API_BASE } } = useRuntimeConfig();
+      options.baseURL = NUXT_PUBLIC_API_BASE
+    },
+    onResponse({ response }) { // 回應攔截
+      //全局loading狀態管理
+      if (process.client) loadingStore.endRequest()
+      
+      // 網路回傳狀態200,但後端的code!==200
+      if (response._data.code !== 200)handleError(response)
+      
+      //從 HTTP 請求或響應的頭部中獲取指定的頭部值是不是blob
+      if (response.headers.get('content-disposition') && response.status === 200) return response
+      
+      return response._data
+    },
+    onResponseError({ response }) { // 網絡錯誤、伺服器返回非2xx的HTTP狀態碼
+      if(process.client) loadingStore.endRequest()//全局loading狀態管理
+      handleError(response)
+    }
+  })
 }
