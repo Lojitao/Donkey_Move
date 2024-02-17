@@ -36,6 +36,7 @@ export default defineConfig({
       md: '768px',
       md_1024: '1024px',
       lg: '1440px',
+      xl: '1600px',
     },
     extend: {
       aspectRatio: {
