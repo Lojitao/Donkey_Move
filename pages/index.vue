@@ -424,9 +424,9 @@ onMounted(() => {
       </NuxtLink>
 
       <!-- 弧度裝飾 -->
-      <div class="hidden md:(block absolute -right-50px bottom-0)">
+      <div class="hidden md_1024:(block absolute -right-50px bottom-0) lg:hidden xl:(block absolute -right-50px bottom-0)">
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="51" viewBox="0 0 50 51" fill="none">
-          <path d="M0 0.182617V50.1826H50C22.3859 50.1826 0 27.7968 0 0.182617Z" fill="white" />
+          <path d="M0 0.182617V50.1826H50C22.3859 50.1826 0 27.7968 0 0.182617Z" fill="white" stroke="none"/>
         </svg>
       </div>
     </div>
