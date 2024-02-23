@@ -17,10 +17,6 @@
       <p class="absolute text-white right-10px bottom-5px">台東池上伯朗大道</p>
     </div>
 
-    <button @click="getData()">打API</button>
-    <div v-for="item in data" :key="item.id">
-      {{ item.name }}
-    </div>
     <!-- 內容 -->
     <section class="mobile-px md:pad-px lg:pc-px my-8 flex flex-col gap-y-6">   
       <p>小驢行股份有限公司成立於2018年，以社會企業的角色長期發展移動服務和行動科技的社會創新創業領域。是以科技創新的方式，致力於滿足台灣高齡化社會對各種移動服務的需求。</p>
@@ -34,6 +30,12 @@
       <p>同時，也與相關的社會服務團體、基金會等合作，開發數位化物資運送系統、震災溫馨接送接駁系統等。讓民眾能夠透過相關服務滿足就醫、就學、就養等各種需求。積極參與共享交通，結合資訊系統設計和創新服務模式，為大家提供更便利的服務。</p>
     </section>
     
+    <!-- 打API demo -->
+    <!-- <button @click="getData()">打API</button>
+    <div v-for="item in data" :key="item.id">
+      {{ item.name }}
+    </div> -->
+
   </main>
 </template>
 
@@ -44,25 +46,12 @@
 </script>
 
 <script setup>
-  import api from "~/apis" 
-  let data = ref(null);
+  // import api from "~/apis" 
+  // let data = ref(null);
 
-  // const result = await api.donateType.Publicload();
-  // data.value = result.data._rawValue.data;
-  // console.log('SSR_data',data._rawValue);
-
-  async function getData(){
-    const result = await api.donateType.Publicload();
-    console.log('result',result);
-    data.value = result.data._rawValue.data;
-  }
-
-  // 使用 useFetch
-  // const { result } = useFetch(async () => {
-  //   const response = await api.donateType.Publicload();
-  //   return response.data._rawValue;
-  // });
-  // data.value = result.value;
-  
-
+  // async function getData(){
+  //   const result = await api.donateType.Publicload();
+  //   console.log('result',result);
+  //   data.value = result.data._rawValue.data;
+  // }
 </script>
